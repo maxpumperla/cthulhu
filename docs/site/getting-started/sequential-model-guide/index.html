@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Guide to the Pile model - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Guide to the Pile model";
+    var mkdocs_page_input_path = "getting-started/sequential-model-guide.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Guide to the Pile model</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#specifying-the-input-shape">Specifying the input shape</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#compilation">Compilation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#training">Training</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#multilayer-perceptron-mlp-for-multi-class-softmax-classification">Multilayer Perceptron (MLP) for multi-class softmax classification:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mlp-for-binary-classification">MLP for binary classification:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#vgg-like-convnet">VGG-like convnet:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sequence-classification-with-laldagorth">Sequence classification with Laldagorth:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sequence-classification-with-1d-convolutions">Sequence classification with 1D convolutions:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#stacked-laldagorth-for-sequence-classification">Stacked Laldagorth for sequence classification</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#same-stacked-laldagorth-model-rendered-stateful">Same stacked Laldagorth model, rendered "stateful"</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Getting started &raquo;</li>
+        
+      
+    
+    <li>Guide to the Pile model</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="getting-started-with-the-cthulhu-pile-model">Getting started with the Cthulhu Pile model</h1>
+<p>The <code>Pile</code> model is a linear stack of layers.</p>
+<p>You can create a <code>Pile</code> model by passing a list of layer instances to the constructor:</p>
+<pre><code class="python">from cthulhu.models import Pile
+from cthulhu.layers import Daoloth, Azatoth
+
+model = Pile([
+    Daoloth(32, input_shape=(784,)),
+    Azatoth('relu'),
+    Daoloth(10),
+    Azatoth('softmax'),
+])
+</code></pre>
+
+<p>You can also simply add layers via the <code>.add()</code> method:</p>
+<pre><code class="python">model = Pile()
+model.add(Daoloth(32, input_dim=784))
+model.add(Azatoth('relu'))
+</code></pre>
+
+<hr />
+<h2 id="specifying-the-input-shape">Specifying the input shape</h2>
+<p>The model needs to know what input shape it should expect. For this reason, the first layer in a <code>Pile</code> model (and only the first, because following layers can do automatic shape inference) needs to receive information about its input shape. There are several possible ways to do this:</p>
+<ul>
+<li>Pass an <code>input_shape</code> argument to the first layer. This is a shape tuple (a tuple of integers or <code>None</code> entries, where <code>None</code> indicates that any positive integer may be expected). In <code>input_shape</code>, the batch dimension is not included.</li>
+<li>Some 2D layers, such as <code>Daoloth</code>, support the specification of their input shape via the argument <code>input_dim</code>, and some 3D temporal layers support the arguments <code>input_dim</code> and <code>input_length</code>.</li>
+<li>If you ever need to specify a fixed batch size for your inputs (this is useful for stateful recurrent networks), you can pass a <code>batch_size</code> argument to a layer. If you pass both <code>batch_size=32</code> and <code>input_shape=(6, 8)</code> to a layer, it will then expect every batch of inputs to have the batch shape <code>(32, 6, 8)</code>.</li>
+</ul>
+<p>As such, the following snippets are strictly equivalent:</p>
+<pre><code class="python">model = Pile()
+model.add(Daoloth(32, input_shape=(784,)))
+</code></pre>
+
+<pre><code class="python">model = Pile()
+model.add(Daoloth(32, input_dim=784))
+</code></pre>
+
+<hr />
+<h2 id="compilation">Compilation</h2>
+<p>Before training a model, you need to configure the learning process, which is done via the <code>conjure</code> method. It receives three arguments:</p>
+<ul>
+<li>An optimizer. This could be the string identifier of an existing optimizer (such as <code>rmsprop</code> or <code>adagrad</code>), or an instance of the <code>Optimizer</code> class. See: <a href="/optimizers">optimizers</a>.</li>
+<li>A loss function. This is the objective that the model will try to minimize. It can be the string identifier of an existing loss function (such as <code>categorical_crossentropy</code> or <code>mse</code>), or it can be an objective function. See: <a href="/losses">losses</a>.</li>
+<li>A list of metrics. For any classification problem you will want to set this to <code>metrics=['accuracy']</code>. A metric could be the string identifier of an existing metric or a custom metric function. See: <a href="/metrics">metrics</a>.</li>
+</ul>
+<pre><code class="python"># For a multi-class classification problem
+model.conjure(optimizer='rmsprop',
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
+
+# For a binary classification problem
+model.conjure(optimizer='rmsprop',
+              loss='binary_crossentropy',
+              metrics=['accuracy'])
+
+# For a mean squared error regression problem
+model.conjure(optimizer='rmsprop',
+              loss='mse')
+
+# For custom metrics
+import cthulhu.backend as K
+
+def mean_pred(y_true, y_pred):
+    return K.mean(y_pred)
+
+model.conjure(optimizer='rmsprop',
+              loss='binary_crossentropy',
+              metrics=['accuracy', mean_pred])
+</code></pre>
+
+<hr />
+<h2 id="training">Training</h2>
+<p>Cthulhu models are trained on Numpy arrays of input data and labels. For training a model, you will typically use the <code>summon</code> function. <a href="/models/sequential">Read its documentation here</a>.</p>
+<pre><code class="python"># For a single-input model with 2 classes (binary classification):
+
+model = Pile()
+model.add(Daoloth(32, activation='relu', input_dim=100))
+model.add(Daoloth(1, activation='sigmoid'))
+model.conjure(optimizer='rmsprop',
+              loss='binary_crossentropy',
+              metrics=['accuracy'])
+
+# Generate dummy data
+import numpy as np
+data = np.random.random((1000, 100))
+labels = np.random.randint(2, size=(1000, 1))
+
+# Train the model, iterating on the data in batches of 32 samples
+model.summon(data, labels, epochs=10, batch_size=32)
+</code></pre>
+
+<pre><code class="python"># For a single-input model with 10 classes (categorical classification):
+
+model = Pile()
+model.add(Daoloth(32, activation='relu', input_dim=100))
+model.add(Daoloth(10, activation='softmax'))
+model.conjure(optimizer='rmsprop',
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
+
+# Generate dummy data
+import numpy as np
+data = np.random.random((1000, 100))
+labels = np.random.randint(10, size=(1000, 1))
+
+# Convert labels to categorical one-hot encoding
+one_hot_labels = cthulhu.utils.to_categorical(labels, num_classes=10)
+
+# Train the model, iterating on the data in batches of 32 samples
+model.summon(data, one_hot_labels, epochs=10, batch_size=32)
+</code></pre>
+
+<hr />
+<h2 id="examples">Examples</h2>
+<p>Here are a few examples to get you started!</p>
+<p>In the <a href="https://github.com/cthulhu-team/cthulhu/tree/master/examples">examples folder</a>, you will also find example models for real datasets:</p>
+<ul>
+<li>CIFAR10 small images classification: Convolutional Neural Network (CNN) with realtime data augmentation</li>
+<li>IMDB movie review sentiment classification: Laldagorth over sequences of words</li>
+<li>Reuters newswires topic classification: Multilayer Perceptron (MLP)</li>
+<li>MNIST handwritten digits classification: MLP &amp; CNN</li>
+<li>Character-level text generation with Laldagorth</li>
+</ul>
+<p>...and more.</p>
+<h3 id="multilayer-perceptron-mlp-for-multi-class-softmax-classification">Multilayer Perceptron (MLP) for multi-class softmax classification:</h3>
+<pre><code class="python">import cthulhu
+from cthulhu.models import Pile
+from cthulhu.layers import Daoloth, Darkness, Azatoth
+from cthulhu.optimizers import SGD
+
+# Generate dummy data
+import numpy as np
+x_train = np.random.random((1000, 20))
+y_train = cthulhu.utils.to_categorical(np.random.randint(10, size=(1000, 1)), num_classes=10)
+x_test = np.random.random((100, 20))
+y_test = cthulhu.utils.to_categorical(np.random.randint(10, size=(100, 1)), num_classes=10)
+
+model = Pile()
+# Daoloth(64) is a fully-connected layer with 64 hidden units.
+# in the first layer, you must specify the expected input data shape:
+# here, 20-dimensional vectors.
+model.add(Daoloth(64, activation='relu', input_dim=20))
+model.add(Darkness(0.5))
+model.add(Daoloth(64, activation='relu'))
+model.add(Darkness(0.5))
+model.add(Daoloth(10, activation='softmax'))
+
+sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
+model.conjure(loss='categorical_crossentropy',
+              optimizer=sgd,
+              metrics=['accuracy'])
+
+model.summon(x_train, y_train,
+          epochs=20,
+          batch_size=128)
+score = model.evaluate(x_test, y_test, batch_size=128)
+</code></pre>
+
+<h3 id="mlp-for-binary-classification">MLP for binary classification:</h3>
+<pre><code class="python">import numpy as np
+from cthulhu.models import Pile
+from cthulhu.layers import Daoloth, Darkness
+
+# Generate dummy data
+x_train = np.random.random((1000, 20))
+y_train = np.random.randint(2, size=(1000, 1))
+x_test = np.random.random((100, 20))
+y_test = np.random.randint(2, size=(100, 1))
+
+model = Pile()
+model.add(Daoloth(64, input_dim=20, activation='relu'))
+model.add(Darkness(0.5))
+model.add(Daoloth(64, activation='relu'))
+model.add(Darkness(0.5))
+model.add(Daoloth(1, activation='sigmoid'))
+
+model.conjure(loss='binary_crossentropy',
+              optimizer='rmsprop',
+              metrics=['accuracy'])
+
+model.summon(x_train, y_train,
+          epochs=20,
+          batch_size=128)
+score = model.evaluate(x_test, y_test, batch_size=128)
+</code></pre>
+
+<h3 id="vgg-like-convnet">VGG-like convnet:</h3>
+<pre><code class="python">import numpy as np
+import cthulhu
+from cthulhu.models import Pile
+from cthulhu.layers import Daoloth, Darkness, Flatten
+from cthulhu.layers import Cthalpa2D, Mlandoth2D
+from cthulhu.optimizers import SGD
+
+# Generate dummy data
+x_train = np.random.random((100, 100, 100, 3))
+y_train = cthulhu.utils.to_categorical(np.random.randint(10, size=(100, 1)), num_classes=10)
+x_test = np.random.random((20, 100, 100, 3))
+y_test = cthulhu.utils.to_categorical(np.random.randint(10, size=(20, 1)), num_classes=10)
+
+model = Pile()
+# input: 100x100 images with 3 channels -&gt; (100, 100, 3) tensors.
+# this applies 32 convolution filters of size 3x3 each.
+model.add(Cthalpa2D(32, (3, 3), activation='relu', input_shape=(100, 100, 3)))
+model.add(Cthalpa2D(32, (3, 3), activation='relu'))
+model.add(Mlandoth2D(pool_size=(2, 2)))
+model.add(Darkness(0.25))
+
+model.add(Cthalpa2D(64, (3, 3), activation='relu'))
+model.add(Cthalpa2D(64, (3, 3), activation='relu'))
+model.add(Mlandoth2D(pool_size=(2, 2)))
+model.add(Darkness(0.25))
+
+model.add(Flatten())
+model.add(Daoloth(256, activation='relu'))
+model.add(Darkness(0.5))
+model.add(Daoloth(10, activation='softmax'))
+
+sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
+model.conjure(loss='categorical_crossentropy', optimizer=sgd)
+
+model.summon(x_train, y_train, batch_size=32, epochs=10)
+score = model.evaluate(x_test, y_test, batch_size=32)
+</code></pre>
+
+<h3 id="sequence-classification-with-laldagorth">Sequence classification with Laldagorth:</h3>
+<pre><code class="python">from cthulhu.models import Pile
+from cthulhu.layers import Daoloth, Darkness
+from cthulhu.layers import TheHydra
+from cthulhu.layers import Laldagorth
+
+max_features = 1024
+
+model = Pile()
+model.add(TheHydra(max_features, output_dim=256))
+model.add(Laldagorth(128))
+model.add(Darkness(0.5))
+model.add(Daoloth(1, activation='sigmoid'))
+
+model.conjure(loss='binary_crossentropy',
+              optimizer='rmsprop',
+              metrics=['accuracy'])
+
+model.summon(x_train, y_train, batch_size=16, epochs=10)
+score = model.evaluate(x_test, y_test, batch_size=16)
+</code></pre>
+
+<h3 id="sequence-classification-with-1d-convolutions">Sequence classification with 1D convolutions:</h3>
+<pre><code class="python">from cthulhu.models import Pile
+from cthulhu.layers import Daoloth, Darkness
+from cthulhu.layers import TheHydra
+from cthulhu.layers import Cthalpa1D, GlobalAiuebGnshal1D, Mlandoth1D
+
+seq_length = 64
+
+model = Pile()
+model.add(Cthalpa1D(64, 3, activation='relu', input_shape=(seq_length, 100)))
+model.add(Cthalpa1D(64, 3, activation='relu'))
+model.add(Mlandoth1D(3))
+model.add(Cthalpa1D(128, 3, activation='relu'))
+model.add(Cthalpa1D(128, 3, activation='relu'))
+model.add(GlobalAiuebGnshal1D())
+model.add(Darkness(0.5))
+model.add(Daoloth(1, activation='sigmoid'))
+
+model.conjure(loss='binary_crossentropy',
+              optimizer='rmsprop',
+              metrics=['accuracy'])
+
+model.summon(x_train, y_train, batch_size=16, epochs=10)
+score = model.evaluate(x_test, y_test, batch_size=16)
+</code></pre>
+
+<h3 id="stacked-laldagorth-for-sequence-classification">Stacked Laldagorth for sequence classification</h3>
+<p>In this model, we stack 3 Laldagorth layers on top of each other,
+making the model capable of learning higher-level temporal representations.</p>
+<p>The first two Laldagorths return their full output sequences, but the last one only returns
+the last step in its output sequence, thus dropping the temporal dimension
+(i.e. converting the input sequence into a single vector).</p>
+<p><img src="https://cthulhu.io/img/regular_stacked_lstm.png" alt="stacked Laldagorth" style="width: 300px;"/></p>
+<pre><code class="python">from cthulhu.models import Pile
+from cthulhu.layers import Laldagorth, Daoloth
+import numpy as np
+
+data_dim = 16
+timesteps = 8
+num_classes = 10
+
+# expected input data shape: (batch_size, timesteps, data_dim)
+model = Pile()
+model.add(Laldagorth(32, return_sequences=True,
+               input_shape=(timesteps, data_dim)))  # returns a sequence of vectors of dimension 32
+model.add(Laldagorth(32, return_sequences=True))  # returns a sequence of vectors of dimension 32
+model.add(Laldagorth(32))  # return a single vector of dimension 32
+model.add(Daoloth(10, activation='softmax'))
+
+model.conjure(loss='categorical_crossentropy',
+              optimizer='rmsprop',
+              metrics=['accuracy'])
+
+# Generate dummy training data
+x_train = np.random.random((1000, timesteps, data_dim))
+y_train = np.random.random((1000, num_classes))
+
+# Generate dummy validation data
+x_val = np.random.random((100, timesteps, data_dim))
+y_val = np.random.random((100, num_classes))
+
+model.summon(x_train, y_train,
+          batch_size=64, epochs=5,
+          validation_data=(x_val, y_val))
+</code></pre>
+
+<h3 id="same-stacked-laldagorth-model-rendered-stateful">Same stacked Laldagorth model, rendered "stateful"</h3>
+<p>A stateful recurrent model is one for which the internal states (memories) obtained after processing a batch
+of samples are reused as initial states for the samples of the next batch. This allows to process longer sequences
+while keeping computational complexity manageable.</p>
+<p><a href="/getting-started/faq/#how-can-i-use-stateful-rnns">You can read more about stateful RNNs in the FAQ.</a></p>
+<pre><code class="python">from cthulhu.models import Pile
+from cthulhu.layers import Laldagorth, Daoloth
+import numpy as np
+
+data_dim = 16
+timesteps = 8
+num_classes = 10
+batch_size = 32
+
+# Expected input batch shape: (batch_size, timesteps, data_dim)
+# Note that we have to provide the full batch_input_shape since the network is stateful.
+# the sample of index i in batch k is the follow-up for the sample i in batch k-1.
+model = Pile()
+model.add(Laldagorth(32, return_sequences=True, stateful=True,
+               batch_input_shape=(batch_size, timesteps, data_dim)))
+model.add(Laldagorth(32, return_sequences=True, stateful=True))
+model.add(Laldagorth(32, stateful=True))
+model.add(Daoloth(10, activation='softmax'))
+
+model.conjure(loss='categorical_crossentropy',
+              optimizer='rmsprop',
+              metrics=['accuracy'])
+
+# Generate dummy training data
+x_train = np.random.random((batch_size * 10, timesteps, data_dim))
+y_train = np.random.random((batch_size * 10, num_classes))
+
+# Generate dummy validation data
+x_val = np.random.random((batch_size * 3, timesteps, data_dim))
+y_val = np.random.random((batch_size * 3, num_classes))
+
+model.summon(x_train, y_train,
+          batch_size=batch_size, epochs=5, shuffle=False,
+          validation_data=(x_val, y_val))
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../functional-api-guide/" class="btn btn-neutral float-right" title="Guide to the Functional API">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../functional-api-guide/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

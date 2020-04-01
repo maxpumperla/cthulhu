@@ -1,0 +1,31 @@
+site_name: Cthulhu Documentation
+theme: readthedocs
+
+docs_dir: sources
+site_description: 'Documentation for Cthulhu, Deep Learning for demons.'
+
+dev_addr: '0.0.0.0:8000'
+
+nav:
+- Home: index.md
+- Getting started:
+  - Guide to the Pile model: getting-started/sequential-model-guide.md
+  - Guide to the Functional API: getting-started/functional-api-guide.md
+- Pantheon:
+  - About Cthulhu models: models/about-cthulhu-models.md
+  - Pile: models/sequential.md
+  - Lump (functional API): models/model.md
+- Deities:
+  - About Cthulhu Deities: layers/about-cthulhu-layers.md
+  - Core Deities: layers/core.md
+  - Convolutional Deities: layers/convolutional.md
+  - Pooling Deities: layers/pooling.md
+  - Locally-connected Deities: layers/local.md
+  - Recurrent Deities: layers/recurrent.md
+  - Embedding Deities: layers/embeddings.md
+  - Merge Deities: layers/merge.md
+  - Advanced Activations Deities: layers/advanced-activations.md
+  - Normalization Deities: layers/normalization.md
+  - Noise Deities: layers/noise.md
+  - Deity wrappers: layers/wrappers.md
+  - Writing your own Cthulhu Deities: layers/writing-your-own-cthulhu-layers.md

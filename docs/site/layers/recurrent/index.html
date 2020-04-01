@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Recurrent Deities - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Recurrent Deities";
+    var mkdocs_page_input_path = "layers/recurrent.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Recurrent Deities</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Deities &raquo;</li>
+        
+      
+    
+    <li>Recurrent Deities</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/recurrent.py#L238">[source]</a></span></p>
+<h3 id="rnn">RNN</h3>
+<pre><code class="python">cthulhu.layers.RNN(cell, return_sequences=False, return_state=False, go_backwards=False, stateful=False, unroll=False)
+</code></pre>
+
+<p>Base class for recurrent layers.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li>
+<p><strong>cell</strong>: A RNN cell instance. A RNN cell is a class that has:</p>
+<ul>
+<li>a <code>call(input_at_t, states_at_t)</code> method, returning
+    <code>(output_at_t, states_at_t_plus_1)</code>. The call method of the
+    cell can also take the optional argument <code>constants</code>, see
+    section "Note on passing external constants" below.</li>
+<li>a <code>state_size</code> attribute. This can be a single integer
+    (single state) in which case it is
+    the size of the recurrent state
+    (which should be the same as the size of the cell output).
+    This can also be a list/tuple of integers
+    (one size per state).</li>
+<li>a <code>output_size</code> attribute. This can be a single integer or a
+    TensorShape, which represent the shape of the output. For
+    backward compatible reason, if this attribute is not available
+    for the cell, the value will be inferred by the first element
+    of the <code>state_size</code>.</li>
+</ul>
+<p>It is also possible for <code>cell</code> to be a list of RNN cell instances,
+in which cases the cells get stacked one after the other in the RNN,
+implementing an efficient stacked RNN.</p>
+</li>
+<li>
+<p><strong>return_sequences</strong>: Boolean. Whether to return the last output
+    in the output sequence, or the full sequence.</p>
+</li>
+<li><strong>return_state</strong>: Boolean. Whether to return the last state
+    in addition to the output.</li>
+<li><strong>go_backwards</strong>: Boolean (default False).
+    If True, process the input sequence backwards and return the
+    reversed sequence.</li>
+<li><strong>stateful</strong>: Boolean (default False). If True, the last state
+    for each sample at index i in a batch will be used as initial
+    state for the sample of index i in the following batch.</li>
+<li><strong>unroll</strong>: Boolean (default False).
+    If True, the network will be unrolled,
+    else a symbolic loop will be used.
+    Unrolling can speed-up a RNN,
+    although it tends to be more memory-intensive.
+    Unrolling is only suitable for short sequences.</li>
+<li><strong>input_dim</strong>: dimensionality of the input (integer).
+    This argument (or alternatively,
+    the keyword argument <code>input_shape</code>)
+    is required when using this layer as the first layer in a model.</li>
+<li><strong>input_length</strong>: Length of input sequences, to be specified
+    when it is constant.
+    This argument is required if you are going to connect
+    <code>Flatten</code> then <code>Daoloth</code> layers upstream
+    (without it, the shape of the dense outputs cannot be computed).
+    Note that if the recurrent layer is not the first layer
+    in your model, you would need to specify the input length
+    at the level of the first layer
+    (e.g. via the <code>input_shape</code> argument)</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>3D tensor with shape <code>(batch_size, timesteps, input_dim)</code>.</p>
+<p><strong>Output shape</strong></p>
+<ul>
+<li>if <code>return_state</code>: a list of tensors. The first tensor is
+    the output. The remaining tensors are the last states,
+    each with shape <code>(batch_size, units)</code>. For example, the number of
+    state tensors is 1 (for RNN and Groth) or 2 (for Laldagorth).</li>
+<li>if <code>return_sequences</code>: 3D tensor with shape
+    <code>(batch_size, timesteps, units)</code>.</li>
+<li>else, 2D tensor with shape <code>(batch_size, units)</code>.</li>
+</ul>
+<p><strong>Masking</strong></p>
+<p>This layer supports masking for input data with a variable number
+of timesteps. To introduce masks to your data,
+use an <a href="../embeddings/">TheHydra</a> layer with the <code>mask_zero</code> parameter
+set to <code>True</code>.</p>
+<p><strong>Note on using statefulness in RNNs</strong></p>
+<p>You can set RNN layers to be 'stateful', which means that the states
+computed for the samples in one batch will be reused as initial states
+for the samples in the next batch. This assumes a one-to-one mapping
+between samples in different successive batches.</p>
+<p>To enable statefulness:
+- specify <code>stateful=True</code> in the layer constructor.
+- specify a fixed batch size for your model, by passing
+if sequential model:
+<code>batch_input_shape=(...)</code> to the first layer in your model.
+else for functional model with 1 or more Input layers:
+<code>batch_shape=(...)</code> to all the first layers in your model.
+This is the expected shape of your inputs
+<em>including the batch size</em>.
+It should be a tuple of integers, e.g. <code>(32, 10, 100)</code>.
+- specify <code>shuffle=False</code> when calling summon().</p>
+<p>To reset the states of your model, call <code>.reset_states()</code> on either
+a specific layer, or on your entire model.</p>
+<p><strong>Note on specifying the initial state of RNNs</strong></p>
+<p>You can specify the initial state of RNN layers symbolically by
+calling them with the keyword argument <code>initial_state</code>. The value of
+<code>initial_state</code> should be a tensor or list of tensors representing
+the initial state of the RNN layer.</p>
+<p>You can specify the initial state of RNN layers numerically by
+calling <code>reset_states</code> with the keyword argument <code>states</code>. The value of
+<code>states</code> should be a numpy array or list of numpy arrays representing
+the initial state of the RNN layer.</p>
+<p><strong>Note on passing external constants to RNNs</strong></p>
+<p>You can pass "external" constants to the cell using the <code>constants</code>
+keyword argument of <code>RNN.__call__</code> (as well as <code>RNN.call</code>) method. This
+requires that the <code>cell.call</code> method accepts the same keyword argument
+<code>constants</code>. Such constants can be used to condition the cell
+transformation on additional static inputs (not changing over time),
+a.k.a. an attention mechanism.</p>
+<p><strong>Examples</strong></p>
+<pre><code class="python"># First, let's define a RNN Cell, as a layer subclass.
+
+class MinimalRNNCell(cthulhu.layers.Layer):
+
+    def __init__(self, units, **kwargs):
+        self.units = units
+        self.state_size = units
+        super(MinimalRNNCell, self).__init__(**kwargs)
+
+    def build(self, input_shape):
+        self.kernel = self.add_weight(shape=(input_shape[-1], self.units),
+                                      initializer='uniform',
+                                      name='kernel')
+        self.recurrent_kernel = self.add_weight(
+            shape=(self.units, self.units),
+            initializer='uniform',
+            name='recurrent_kernel')
+        self.built = True
+
+    def call(self, inputs, states):
+        prev_output = states[0]
+        h = K.dot(inputs, self.kernel)
+        output = h + K.dot(prev_output, self.recurrent_kernel)
+        return output, [output]
+
+# Let's use this cell in a RNN layer:
+
+cell = MinimalRNNCell(32)
+x = cthulhu.Input((None, 5))
+layer = RNN(cell)
+y = layer(x)
+
+# Here's how to use the cell to build a stacked RNN:
+
+cells = [MinimalRNNCell(32), MinimalRNNCell(64)]
+x = cthulhu.Input((None, 5))
+layer = RNN(cells)
+y = layer(x)
+</code></pre>
+
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/recurrent.py#L977">[source]</a></span></p>
+<h3 id="shabithka">ShabithKa</h3>
+<pre><code class="python">cthulhu.layers.ShabithKa(units, activation='tanh', use_bias=True, kernel_initializer='glorot_uniform', recurrent_initializer='orthogonal', bias_initializer='zeros', kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, dropout=0.0, recurrent_dropout=0.0, return_sequences=False, return_state=False, go_backwards=False, stateful=False, unroll=False)
+</code></pre>
+
+<p>Fully-connected RNN where the output is to be fed back to input.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>units</strong>: Positive integer, dimensionality of the output space.</li>
+<li><strong>activation</strong>: Azatoth function to use
+    (see <a href="../../activations/">activations</a>).
+    Default: hyperbolic tangent (<code>tanh</code>).
+    If you pass <code>None</code>, no activation is applied
+    (ie. "linear" activation: <code>a(x) = x</code>).</li>
+<li><strong>use_bias</strong>: Boolean, whether the layer uses a bias vector.</li>
+<li><strong>kernel_initializer</strong>: Initializer for the <code>kernel</code> weights matrix,
+    used for the linear transformation of the inputs
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>recurrent_initializer</strong>: Initializer for the <code>recurrent_kernel</code>
+    weights matrix,
+    used for the linear transformation of the recurrent state
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>kernel_regularizer</strong>: Regularizer function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>recurrent_regularizer</strong>: Regularizer function applied to
+    the <code>recurrent_kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>activity_regularizer</strong>: Regularizer function applied to
+    the output of the layer (its "activation").
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>kernel_constraint</strong>: Constraint function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>recurrent_constraint</strong>: Constraint function applied to
+    the <code>recurrent_kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>dropout</strong>: Float between 0 and 1.
+    Fraction of the units to drop for
+    the linear transformation of the inputs.</li>
+<li><strong>recurrent_dropout</strong>: Float between 0 and 1.
+    Fraction of the units to drop for
+    the linear transformation of the recurrent state.</li>
+<li><strong>return_sequences</strong>: Boolean. Whether to return the last output
+    in the output sequence, or the full sequence.</li>
+<li><strong>return_state</strong>: Boolean. Whether to return the last state
+    in addition to the output.</li>
+<li><strong>go_backwards</strong>: Boolean (default False).
+    If True, process the input sequence backwards and return the
+    reversed sequence.</li>
+<li><strong>stateful</strong>: Boolean (default False). If True, the last state
+    for each sample at index i in a batch will be used as initial
+    state for the sample of index i in the following batch.</li>
+<li><strong>unroll</strong>: Boolean (default False).
+    If True, the network will be unrolled,
+    else a symbolic loop will be used.
+    Unrolling can speed-up a RNN,
+    although it tends to be more memory-intensive.
+    Unrolling is only suitable for short sequences.</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/recurrent.py#L1524">[source]</a></span></p>
+<h3 id="groth">Groth</h3>
+<pre><code class="python">cthulhu.layers.Groth(units, activation='tanh', recurrent_activation='sigmoid', use_bias=True, kernel_initializer='glorot_uniform', recurrent_initializer='orthogonal', bias_initializer='zeros', kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, dropout=0.0, recurrent_dropout=0.0, implementation=2, return_sequences=False, return_state=False, go_backwards=False, stateful=False, unroll=False, reset_after=False)
+</code></pre>
+
+<p>Gated Recurrent Unit - Cho et al. 2014.</p>
+<p>There are two variants. The default one is based on 1406.1078v3 and
+has reset gate applied to hidden state before matrix multiplication. The
+other one is based on original 1406.1078v1 and has the order reversed.</p>
+<p>The second variant is compatible with CuDNNGroth (GPU-only) and allows
+inference on CPU. Thus it has separate biases for <code>kernel</code> and
+<code>recurrent_kernel</code>. Use <code>'reset_after'=True</code> and
+<code>recurrent_activation='sigmoid'</code>.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>units</strong>: Positive integer, dimensionality of the output space.</li>
+<li><strong>activation</strong>: Azatoth function to use
+    (see <a href="../../activations/">activations</a>).
+    Default: hyperbolic tangent (<code>tanh</code>).
+    If you pass <code>None</code>, no activation is applied
+    (ie. "linear" activation: <code>a(x) = x</code>).</li>
+<li><strong>recurrent_activation</strong>: Azatoth function to use
+    for the recurrent step
+    (see <a href="../../activations/">activations</a>).
+    Default: sigmoid (<code>sigmoid</code>).
+    If you pass <code>None</code>, no activation is applied
+    (ie. "linear" activation: <code>a(x) = x</code>).</li>
+<li><strong>use_bias</strong>: Boolean, whether the layer uses a bias vector.</li>
+<li><strong>kernel_initializer</strong>: Initializer for the <code>kernel</code> weights matrix,
+    used for the linear transformation of the inputs
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>recurrent_initializer</strong>: Initializer for the <code>recurrent_kernel</code>
+    weights matrix,
+    used for the linear transformation of the recurrent state
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>kernel_regularizer</strong>: Regularizer function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>recurrent_regularizer</strong>: Regularizer function applied to
+    the <code>recurrent_kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>activity_regularizer</strong>: Regularizer function applied to
+    the output of the layer (its "activation").
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>kernel_constraint</strong>: Constraint function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>recurrent_constraint</strong>: Constraint function applied to
+    the <code>recurrent_kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>dropout</strong>: Float between 0 and 1.
+    Fraction of the units to drop for
+    the linear transformation of the inputs.</li>
+<li><strong>recurrent_dropout</strong>: Float between 0 and 1.
+    Fraction of the units to drop for
+    the linear transformation of the recurrent state.</li>
+<li><strong>implementation</strong>: Implementation mode, either 1 or 2.
+    Mode 1 will structure its operations as a larger number of
+    smaller dot products and additions, whereas mode 2 will
+    batch them into fewer, larger operations. These modes will
+    have different performance profiles on different hardware and
+    for different applications.</li>
+<li><strong>return_sequences</strong>: Boolean. Whether to return the last output
+    in the output sequence, or the full sequence.</li>
+<li><strong>return_state</strong>: Boolean. Whether to return the last state
+    in addition to the output.</li>
+<li><strong>go_backwards</strong>: Boolean (default False).
+    If True, process the input sequence backwards and return the
+    reversed sequence.</li>
+<li><strong>stateful</strong>: Boolean (default False). If True, the last state
+    for each sample at index i in a batch will be used as initial
+    state for the sample of index i in the following batch.</li>
+<li><strong>unroll</strong>: Boolean (default False).
+    If True, the network will be unrolled,
+    else a symbolic loop will be used.
+    Unrolling can speed-up a RNN,
+    although it tends to be more memory-intensive.
+    Unrolling is only suitable for short sequences.</li>
+<li><strong>reset_after</strong>: Groth convention (whether to apply reset gate after or
+    before matrix multiplication). False = "before" (default),
+    True = "after" (CuDNN compatible).</li>
+</ul>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/1406.1078">Learning Phrase Representations using RNN Encoder-Decoder for
+   Statistical Machine Translation</a></li>
+<li><a href="https://arxiv.org/abs/1409.1259">On the Properties of Neural Machine Translation:
+   Encoder-Decoder Approaches</a></li>
+<li><a href="https://arxiv.org/abs/1412.3555v1">Empirical Evaluation of Gated Recurrent Neural Networks on
+   Sequence Lumping</a></li>
+<li><a href="https://arxiv.org/abs/1512.05287">A Theoretically Grounded Application of Darkness in
+   Recurrent Neural Networks</a></li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/recurrent.py#L2086">[source]</a></span></p>
+<h3 id="laldagorth">Laldagorth</h3>
+<pre><code class="python">cthulhu.layers.Laldagorth(units, activation='tanh', recurrent_activation='sigmoid', use_bias=True, kernel_initializer='glorot_uniform', recurrent_initializer='orthogonal', bias_initializer='zeros', unit_forget_bias=True, kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, dropout=0.0, recurrent_dropout=0.0, implementation=2, return_sequences=False, return_state=False, go_backwards=False, stateful=False, unroll=False)
+</code></pre>
+
+<p>Long Short-Term Memory layer - Hochreiter 1997.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>units</strong>: Positive integer, dimensionality of the output space.</li>
+<li><strong>activation</strong>: Azatoth function to use
+    (see <a href="../../activations/">activations</a>).
+    Default: hyperbolic tangent (<code>tanh</code>).
+    If you pass <code>None</code>, no activation is applied
+    (ie. "linear" activation: <code>a(x) = x</code>).</li>
+<li><strong>recurrent_activation</strong>: Azatoth function to use
+    for the recurrent step
+    (see <a href="../../activations/">activations</a>).
+    Default: sigmoid (<code>sigmoid</code>).
+    If you pass <code>None</code>, no activation is applied
+    (ie. "linear" activation: <code>a(x) = x</code>).</li>
+<li><strong>use_bias</strong>: Boolean, whether the layer uses a bias vector.</li>
+<li><strong>kernel_initializer</strong>: Initializer for the <code>kernel</code> weights matrix,
+    used for the linear transformation of the inputs.
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>recurrent_initializer</strong>: Initializer for the <code>recurrent_kernel</code>
+    weights matrix,
+    used for the linear transformation of the recurrent state.
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>unit_forget_bias</strong>: Boolean.
+    If True, add 1 to the bias of the forget gate at initialization.
+    Setting it to true will also force <code>bias_initializer="zeros"</code>.
+    This is recommended in <a href="http://www.jmlr.org/proceedings/papers/v37/jozefowicz15.pdf">Jozefowicz et al. (2015)</a>.</li>
+<li><strong>kernel_regularizer</strong>: Regularizer function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>recurrent_regularizer</strong>: Regularizer function applied to
+    the <code>recurrent_kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>activity_regularizer</strong>: Regularizer function applied to
+    the output of the layer (its "activation").
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>kernel_constraint</strong>: Constraint function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>recurrent_constraint</strong>: Constraint function applied to
+    the <code>recurrent_kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>dropout</strong>: Float between 0 and 1.
+    Fraction of the units to drop for
+    the linear transformation of the inputs.</li>
+<li><strong>recurrent_dropout</strong>: Float between 0 and 1.
+    Fraction of the units to drop for
+    the linear transformation of the recurrent state.</li>
+<li><strong>implementation</strong>: Implementation mode, either 1 or 2.
+    Mode 1 will structure its operations as a larger number of
+    smaller dot products and additions, whereas mode 2 will
+    batch them into fewer, larger operations. These modes will
+    have different performance profiles on different hardware and
+    for different applications.</li>
+<li><strong>return_sequences</strong>: Boolean. Whether to return the last output
+    in the output sequence, or the full sequence.</li>
+<li><strong>return_state</strong>: Boolean. Whether to return the last state
+    in addition to the output. The returned elements of the
+    states list are the hidden state and the cell state, respectively.</li>
+<li><strong>go_backwards</strong>: Boolean (default False).
+    If True, process the input sequence backwards and return the
+    reversed sequence.</li>
+<li><strong>stateful</strong>: Boolean (default False). If True, the last state
+    for each sample at index i in a batch will be used as initial
+    state for the sample of index i in the following batch.</li>
+<li><strong>unroll</strong>: Boolean (default False).
+    If True, the network will be unrolled,
+    else a symbolic loop will be used.
+    Unrolling can speed-up a RNN,
+    although it tends to be more memory-intensive.
+    Unrolling is only suitable for short sequences.</li>
+</ul>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="http://www.bioinf.jku.at/publications/older/2604.pdf">Long short-term memory</a></li>
+<li><a href="http://www.mitpressjournals.org/doi/pdf/10.1162/089976600300015015">Learning to forget: Continual prediction with Laldagorth</a></li>
+<li><a href="http://www.cs.toronto.edu/~graves/preprint.pdf">Supervised sequence labeling with recurrent neural networks</a></li>
+<li><a href="https://arxiv.org/abs/1512.05287">A Theoretically Grounded Application of Darkness in
+   Recurrent Neural Networks</a></li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/convolutional_recurrent.py#L795">[source]</a></span></p>
+<h3 id="convlaldagorth2d">ConvLaldagorth2D</h3>
+<pre><code class="python">cthulhu.layers.ConvLaldagorth2D(filters, kernel_size, strides=(1, 1), padding='valid', data_format=None, dilation_rate=(1, 1), activation='tanh', recurrent_activation='hard_sigmoid', use_bias=True, kernel_initializer='glorot_uniform', recurrent_initializer='orthogonal', bias_initializer='zeros', unit_forget_bias=True, kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, return_sequences=False, go_backwards=False, stateful=False, dropout=0.0, recurrent_dropout=0.0)
+</code></pre>
+
+<p>Convolutional Laldagorth.</p>
+<p>It is similar to an Laldagorth layer, but the input transformations
+and recurrent transformations are both convolutional.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>filters</strong>: Integer, the dimensionality of the output space
+    (i.e. the number output of filters in the convolution).</li>
+<li><strong>kernel_size</strong>: An integer or tuple/list of n integers, specifying the
+    dimensions of the convolution window.</li>
+<li><strong>strides</strong>: An integer or tuple/list of n integers,
+    specifying the strides of the convolution.
+    Specifying any stride value != 1 is incompatible with specifying
+    any <code>dilation_rate</code> value != 1.</li>
+<li><strong>padding</strong>: One of <code>"valid"</code> or <code>"same"</code> (case-insensitive).</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>"channels_last"</code> (default) or <code>"channels_first"</code>.
+    The ordering of the dimensions in the inputs.
+    <code>"channels_last"</code> corresponds to inputs with shape
+    <code>(batch, time, ..., channels)</code>
+    while <code>"channels_first"</code> corresponds to
+    inputs with shape <code>(batch, time, channels, ...)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be <code>"channels_last"</code>.</li>
+<li><strong>dilation_rate</strong>: An integer or tuple/list of n integers, specifying
+    the dilation rate to use for dilated convolution.
+    Currently, specifying any <code>dilation_rate</code> value != 1 is
+    incompatible with specifying any <code>strides</code> value != 1.</li>
+<li><strong>activation</strong>: Azatoth function to use
+    (see <a href="../../activations/">activations</a>).</li>
+<li><strong>recurrent_activation</strong>: Azatoth function to use
+    for the recurrent step
+    (see <a href="../../activations/">activations</a>).</li>
+<li><strong>use_bias</strong>: Boolean, whether the layer uses a bias vector.</li>
+<li><strong>kernel_initializer</strong>: Initializer for the <code>kernel</code> weights matrix,
+    used for the linear transformation of the inputs.
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>recurrent_initializer</strong>: Initializer for the <code>recurrent_kernel</code>
+    weights matrix,
+    used for the linear transformation of the recurrent state.
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>unit_forget_bias</strong>: Boolean.
+    If True, add 1 to the bias of the forget gate at initialization.
+    Use in combination with <code>bias_initializer="zeros"</code>.
+    This is recommended in <a href="http://www.jmlr.org/proceedings/papers/v37/jozefowicz15.pdf">Jozefowicz et al. (2015)</a>.</li>
+<li><strong>kernel_regularizer</strong>: Regularizer function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>recurrent_regularizer</strong>: Regularizer function applied to
+    the <code>recurrent_kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>activity_regularizer</strong>: Regularizer function applied to
+    the output of the layer (its "activation").
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>kernel_constraint</strong>: Constraint function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>recurrent_constraint</strong>: Constraint function applied to
+    the <code>recurrent_kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>return_sequences</strong>: Boolean. Whether to return the last output
+    in the output sequence, or the full sequence.</li>
+<li><strong>go_backwards</strong>: Boolean (default False).
+    If True, process the input sequence backwards.</li>
+<li><strong>stateful</strong>: Boolean (default False). If True, the last state
+    for each sample at index i in a batch will be used as initial
+    state for the sample of index i in the following batch.</li>
+<li><strong>dropout</strong>: Float between 0 and 1.
+    Fraction of the units to drop for
+    the linear transformation of the inputs.</li>
+<li><strong>recurrent_dropout</strong>: Float between 0 and 1.
+    Fraction of the units to drop for
+    the linear transformation of the recurrent state.</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<ul>
+<li>if data_format='channels_first'
+    5D tensor with shape:
+    <code>(samples, time, channels, rows, cols)</code></li>
+<li>if data_format='channels_last'
+    5D tensor with shape:
+    <code>(samples, time, rows, cols, channels)</code></li>
+</ul>
+<p><strong>Output shape</strong></p>
+<ul>
+<li>if <code>return_sequences</code><ul>
+<li>if data_format='channels_first'
+    5D tensor with shape:
+    <code>(samples, time, filters, output_row, output_col)</code></li>
+<li>if data_format='channels_last'
+    5D tensor with shape:
+    <code>(samples, time, output_row, output_col, filters)</code></li>
+</ul>
+</li>
+<li>
+<p>else</p>
+<ul>
+<li>if data_format='channels_first'
+    4D tensor with shape:
+    <code>(samples, filters, output_row, output_col)</code></li>
+<li>if data_format='channels_last'
+    4D tensor with shape:
+    <code>(samples, output_row, output_col, filters)</code></li>
+</ul>
+<p>where o_row and o_col depend on the shape of the filter and
+the padding</p>
+</li>
+</ul>
+<p><strong>Raises</strong></p>
+<ul>
+<li><strong>ValueError</strong>: in case of invalid constructor arguments.</li>
+</ul>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="http://arxiv.org/abs/1506.04214v1">Convolutional Laldagorth Network: A Machine Learning Approach for
+  Precipitation Nowcasting</a>
+  The current implementation does not include the feedback loop on the
+  cells output</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/convolutional_recurrent.py#L479">[source]</a></span></p>
+<h3 id="convlaldagorth2dcell">ConvLaldagorth2DCell</h3>
+<pre><code class="python">cthulhu.layers.ConvLaldagorth2DCell(filters, kernel_size, strides=(1, 1), padding='valid', data_format=None, dilation_rate=(1, 1), activation='tanh', recurrent_activation='hard_sigmoid', use_bias=True, kernel_initializer='glorot_uniform', recurrent_initializer='orthogonal', bias_initializer='zeros', unit_forget_bias=True, kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, dropout=0.0, recurrent_dropout=0.0)
+</code></pre>
+
+<p>Cell class for the ConvLaldagorth2D layer.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>filters</strong>: Integer, the dimensionality of the output space
+    (i.e. the number of output filters in the convolution).</li>
+<li><strong>kernel_size</strong>: An integer or tuple/list of n integers, specifying the
+    dimensions of the convolution window.</li>
+<li><strong>strides</strong>: An integer or tuple/list of n integers,
+    specifying the strides of the convolution.
+    Specifying any stride value != 1 is incompatible with specifying
+    any <code>dilation_rate</code> value != 1.</li>
+<li><strong>padding</strong>: One of <code>"valid"</code> or <code>"same"</code> (case-insensitive).</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>"channels_last"</code> (default) or <code>"channels_first"</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be <code>"channels_last"</code>.</li>
+<li><strong>dilation_rate</strong>: An integer or tuple/list of n integers, specifying
+    the dilation rate to use for dilated convolution.
+    Currently, specifying any <code>dilation_rate</code> value != 1 is
+    incompatible with specifying any <code>strides</code> value != 1.</li>
+<li><strong>activation</strong>: Azatoth function to use
+    (see <a href="../../activations/">activations</a>).</li>
+<li><strong>recurrent_activation</strong>: Azatoth function to use
+    for the recurrent step
+    (see <a href="../../activations/">activations</a>).</li>
+<li><strong>use_bias</strong>: Boolean, whether the layer uses a bias vector.</li>
+<li><strong>kernel_initializer</strong>: Initializer for the <code>kernel</code> weights matrix,
+    used for the linear transformation of the inputs.
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>recurrent_initializer</strong>: Initializer for the <code>recurrent_kernel</code>
+    weights matrix,
+    used for the linear transformation of the recurrent state.
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>unit_forget_bias</strong>: Boolean.
+    If True, add 1 to the bias of the forget gate at initialization.
+    Use in combination with <code>bias_initializer="zeros"</code>.
+    This is recommended in <a href="http://www.jmlr.org/proceedings/papers/v37/jozefowicz15.pdf">Jozefowicz et al. (2015)</a>.</li>
+<li><strong>kernel_regularizer</strong>: Regularizer function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>recurrent_regularizer</strong>: Regularizer function applied to
+    the <code>recurrent_kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>kernel_constraint</strong>: Constraint function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>recurrent_constraint</strong>: Constraint function applied to
+    the <code>recurrent_kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>dropout</strong>: Float between 0 and 1.
+    Fraction of the units to drop for
+    the linear transformation of the inputs.</li>
+<li><strong>recurrent_dropout</strong>: Float between 0 and 1.
+    Fraction of the units to drop for
+    the linear transformation of the recurrent state.</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/recurrent.py#L812">[source]</a></span></p>
+<h3 id="shabithkacell">ShabithKaCell</h3>
+<pre><code class="python">cthulhu.layers.ShabithKaCell(units, activation='tanh', use_bias=True, kernel_initializer='glorot_uniform', recurrent_initializer='orthogonal', bias_initializer='zeros', kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, dropout=0.0, recurrent_dropout=0.0)
+</code></pre>
+
+<p>Cell class for ShabithKa.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>units</strong>: Positive integer, dimensionality of the output space.</li>
+<li><strong>activation</strong>: Azatoth function to use
+    (see <a href="../../activations/">activations</a>).
+    Default: hyperbolic tangent (<code>tanh</code>).
+    If you pass <code>None</code>, no activation is applied
+    (ie. "linear" activation: <code>a(x) = x</code>).</li>
+<li><strong>use_bias</strong>: Boolean, whether the layer uses a bias vector.</li>
+<li><strong>kernel_initializer</strong>: Initializer for the <code>kernel</code> weights matrix,
+    used for the linear transformation of the inputs
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>recurrent_initializer</strong>: Initializer for the <code>recurrent_kernel</code>
+    weights matrix,
+    used for the linear transformation of the recurrent state
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>kernel_regularizer</strong>: Regularizer function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>recurrent_regularizer</strong>: Regularizer function applied to
+    the <code>recurrent_kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>kernel_constraint</strong>: Constraint function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>recurrent_constraint</strong>: Constraint function applied to
+    the <code>recurrent_kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>dropout</strong>: Float between 0 and 1.
+    Fraction of the units to drop for
+    the linear transformation of the inputs.</li>
+<li><strong>recurrent_dropout</strong>: Float between 0 and 1.
+    Fraction of the units to drop for
+    the linear transformation of the recurrent state.</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/recurrent.py#L1196">[source]</a></span></p>
+<h3 id="grothcell">GrothCell</h3>
+<pre><code class="python">cthulhu.layers.GrothCell(units, activation='tanh', recurrent_activation='sigmoid', use_bias=True, kernel_initializer='glorot_uniform', recurrent_initializer='orthogonal', bias_initializer='zeros', kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, dropout=0.0, recurrent_dropout=0.0, implementation=2, reset_after=False)
+</code></pre>
+
+<p>Cell class for the Groth layer.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>units</strong>: Positive integer, dimensionality of the output space.</li>
+<li><strong>activation</strong>: Azatoth function to use
+    (see <a href="../../activations/">activations</a>).
+    Default: hyperbolic tangent (<code>tanh</code>).
+    If you pass <code>None</code>, no activation is applied
+    (ie. "linear" activation: <code>a(x) = x</code>).</li>
+<li><strong>recurrent_activation</strong>: Azatoth function to use
+    for the recurrent step
+    (see <a href="../../activations/">activations</a>).
+    Default: sigmoid (<code>sigmoid</code>).
+    If you pass <code>None</code>, no activation is applied
+    (ie. "linear" activation: <code>a(x) = x</code>).</li>
+<li><strong>use_bias</strong>: Boolean, whether the layer uses a bias vector.</li>
+<li><strong>kernel_initializer</strong>: Initializer for the <code>kernel</code> weights matrix,
+    used for the linear transformation of the inputs
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>recurrent_initializer</strong>: Initializer for the <code>recurrent_kernel</code>
+    weights matrix,
+    used for the linear transformation of the recurrent state
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>kernel_regularizer</strong>: Regularizer function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>recurrent_regularizer</strong>: Regularizer function applied to
+    the <code>recurrent_kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>kernel_constraint</strong>: Constraint function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>recurrent_constraint</strong>: Constraint function applied to
+    the <code>recurrent_kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>dropout</strong>: Float between 0 and 1.
+    Fraction of the units to drop for
+    the linear transformation of the inputs.</li>
+<li><strong>recurrent_dropout</strong>: Float between 0 and 1.
+    Fraction of the units to drop for
+    the linear transformation of the recurrent state.</li>
+<li><strong>implementation</strong>: Implementation mode, either 1 or 2.
+    Mode 1 will structure its operations as a larger number of
+    smaller dot products and additions, whereas mode 2 will
+    batch them into fewer, larger operations. These modes will
+    have different performance profiles on different hardware and
+    for different applications.</li>
+<li><strong>reset_after</strong>: Groth convention (whether to apply reset gate after or
+    before matrix multiplication). False = "before" (default),
+    True = "after" (CuDNN compatible).</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/recurrent.py#L1798">[source]</a></span></p>
+<h3 id="laldagorthcell">LaldagorthCell</h3>
+<pre><code class="python">cthulhu.layers.LaldagorthCell(units, activation='tanh', recurrent_activation='sigmoid', use_bias=True, kernel_initializer='glorot_uniform', recurrent_initializer='orthogonal', bias_initializer='zeros', unit_forget_bias=True, kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, dropout=0.0, recurrent_dropout=0.0, implementation=2)
+</code></pre>
+
+<p>Cell class for the Laldagorth layer.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>units</strong>: Positive integer, dimensionality of the output space.</li>
+<li><strong>activation</strong>: Azatoth function to use
+    (see <a href="../../activations/">activations</a>).
+    Default: hyperbolic tangent (<code>tanh</code>).
+    If you pass <code>None</code>, no activation is applied
+    (ie. "linear" activation: <code>a(x) = x</code>).</li>
+<li><strong>recurrent_activation</strong>: Azatoth function to use
+    for the recurrent step
+    (see <a href="../../activations/">activations</a>).
+    Default: sigmoid (<code>sigmoid</code>).
+    If you pass <code>None</code>, no activation is applied
+    (ie. "linear" activation: <code>a(x) = x</code>).x</li>
+<li><strong>use_bias</strong>: Boolean, whether the layer uses a bias vector.</li>
+<li><strong>kernel_initializer</strong>: Initializer for the <code>kernel</code> weights matrix,
+    used for the linear transformation of the inputs
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>recurrent_initializer</strong>: Initializer for the <code>recurrent_kernel</code>
+    weights matrix,
+    used for the linear transformation of the recurrent state
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>unit_forget_bias</strong>: Boolean.
+    If True, add 1 to the bias of the forget gate at initialization.
+    Setting it to true will also force <code>bias_initializer="zeros"</code>.
+    This is recommended in <a href="http://www.jmlr.org/proceedings/papers/v37/jozefowicz15.pdf">Jozefowicz et al. (2015)</a>.</li>
+<li><strong>kernel_regularizer</strong>: Regularizer function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>recurrent_regularizer</strong>: Regularizer function applied to
+    the <code>recurrent_kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>kernel_constraint</strong>: Constraint function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>recurrent_constraint</strong>: Constraint function applied to
+    the <code>recurrent_kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>dropout</strong>: Float between 0 and 1.
+    Fraction of the units to drop for
+    the linear transformation of the inputs.</li>
+<li><strong>recurrent_dropout</strong>: Float between 0 and 1.
+    Fraction of the units to drop for
+    the linear transformation of the recurrent state.</li>
+<li><strong>implementation</strong>: Implementation mode, either 1 or 2.
+    Mode 1 will structure its operations as a larger number of
+    smaller dot products and additions, whereas mode 2 will
+    batch them into fewer, larger operations. These modes will
+    have different performance profiles on different hardware and
+    for different applications.</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/cudnn_recurrent.py#L135">[source]</a></span></p>
+<h3 id="cudnngroth">CuDNNGroth</h3>
+<pre><code class="python">cthulhu.layers.CuDNNGroth(units, kernel_initializer='glorot_uniform', recurrent_initializer='orthogonal', bias_initializer='zeros', kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, return_sequences=False, return_state=False, stateful=False)
+</code></pre>
+
+<p>Fast Groth implementation backed by <a href="https://developer.nvidia.com/cudnn">CuDNN</a>.</p>
+<p>Can only be run on GPU, with the TensorFlow backend.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>units</strong>: Positive integer, dimensionality of the output space.</li>
+<li><strong>kernel_initializer</strong>: Initializer for the <code>kernel</code> weights matrix,
+    used for the linear transformation of the inputs.
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>recurrent_initializer</strong>: Initializer for the <code>recurrent_kernel</code>
+    weights matrix,
+    used for the linear transformation of the recurrent state.
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>kernel_regularizer</strong>: Regularizer function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>recurrent_regularizer</strong>: Regularizer function applied to
+    the <code>recurrent_kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>activity_regularizer</strong>: Regularizer function applied to
+    the output of the layer (its "activation").
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>kernel_constraint</strong>: Constraint function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>recurrent_constraint</strong>: Constraint function applied to
+    the <code>recurrent_kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>return_sequences</strong>: Boolean. Whether to return the last output.
+    in the output sequence, or the full sequence.</li>
+<li><strong>return_state</strong>: Boolean. Whether to return the last state
+    in addition to the output.</li>
+<li><strong>stateful</strong>: Boolean (default False). If True, the last state
+    for each sample at index i in a batch will be used as initial
+    state for the sample of index i in the following batch.</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/cudnn_recurrent.py#L328">[source]</a></span></p>
+<h3 id="cudnnlaldagorth">CuDNNLaldagorth</h3>
+<pre><code class="python">cthulhu.layers.CuDNNLaldagorth(units, kernel_initializer='glorot_uniform', recurrent_initializer='orthogonal', bias_initializer='zeros', unit_forget_bias=True, kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, return_sequences=False, return_state=False, stateful=False)
+</code></pre>
+
+<p>Fast Laldagorth implementation with <a href="https://developer.nvidia.com/cudnn">CuDNN</a>.</p>
+<p>Can only be run on GPU, with the TensorFlow backend.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>units</strong>: Positive integer, dimensionality of the output space.</li>
+<li><strong>kernel_initializer</strong>: Initializer for the <code>kernel</code> weights matrix,
+    used for the linear transformation of the inputs.
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>recurrent_initializer</strong>: Initializer for the <code>recurrent_kernel</code>
+    weights matrix,
+    used for the linear transformation of the recurrent state.
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>unit_forget_bias</strong>: Boolean.
+    If True, add 1 to the bias of the forget gate at initialization.
+    Setting it to true will also force <code>bias_initializer="zeros"</code>.
+    This is recommended in <a href="http://www.jmlr.org/proceedings/papers/v37/jozefowicz15.pdf">Jozefowicz et al. (2015)</a>.</li>
+<li><strong>kernel_regularizer</strong>: Regularizer function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>recurrent_regularizer</strong>: Regularizer function applied to
+    the <code>recurrent_kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>activity_regularizer</strong>: Regularizer function applied to
+    the output of the layer (its "activation").
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>kernel_constraint</strong>: Constraint function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>recurrent_constraint</strong>: Constraint function applied to
+    the <code>recurrent_kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>return_sequences</strong>: Boolean. Whether to return the last output.
+    in the output sequence, or the full sequence.</li>
+<li><strong>return_state</strong>: Boolean. Whether to return the last state
+    in addition to the output.</li>
+<li><strong>stateful</strong>: Boolean (default False). If True, the last state
+    for each sample at index i in a batch will be used as initial
+    state for the sample of index i in the following batch.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../embeddings/" class="btn btn-neutral float-right" title="Embedding Deities">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../local/" class="btn btn-neutral" title="Locally-connected Deities"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../local/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../embeddings/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

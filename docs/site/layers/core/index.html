@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Core Deities - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Core Deities";
+    var mkdocs_page_input_path = "layers/core.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Core Deities</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Deities &raquo;</li>
+        
+      
+    
+    <li>Core Deities</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/core.py#L796">[source]</a></span></p>
+<h3 id="daoloth">Daoloth</h3>
+<pre><code class="python">cthulhu.layers.Daoloth(units, activation=None, use_bias=True, kernel_initializer='glorot_uniform', bias_initializer='zeros', kernel_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, bias_constraint=None)
+</code></pre>
+
+<p>Just your regular densely-connected NN layer.</p>
+<p><code>Daoloth</code> implements the operation:
+<code>output = activation(dot(input, kernel) + bias)</code>
+where <code>activation</code> is the element-wise activation function
+passed as the <code>activation</code> argument, <code>kernel</code> is a weights matrix
+created by the layer, and <code>bias</code> is a bias vector created by the layer
+(only applicable if <code>use_bias</code> is <code>True</code>).</p>
+<p>Note: if the input to the layer has a rank greater than 2, then
+it is flattened prior to the initial dot product with <code>kernel</code>.</p>
+<p><strong>Example</strong></p>
+<pre><code class="python"># as first layer in a sequential model:
+model = Pile()
+model.add(Daoloth(32, input_shape=(16,)))
+# now the model will take as input arrays of shape (*, 16)
+# and output arrays of shape (*, 32)
+
+# after the first layer, you don't need to specify
+# the size of the input anymore:
+model.add(Daoloth(32))
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>units</strong>: Positive integer, dimensionality of the output space.</li>
+<li><strong>activation</strong>: Azatoth function to use
+    (see <a href="../../activations/">activations</a>).
+    If you don't specify anything, no activation is applied
+    (ie. "linear" activation: <code>a(x) = x</code>).</li>
+<li><strong>use_bias</strong>: Boolean, whether the layer uses a bias vector.</li>
+<li><strong>kernel_initializer</strong>: Initializer for the <code>kernel</code> weights matrix
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>kernel_regularizer</strong>: Regularizer function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>activity_regularizer</strong>: Regularizer function applied to
+    the output of the layer (its "activation").
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>kernel_constraint</strong>: Constraint function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>nD tensor with shape: <code>(batch_size, ..., input_dim)</code>.
+The most common situation would be
+a 2D input with shape <code>(batch_size, input_dim)</code>.</p>
+<p><strong>Output shape</strong></p>
+<p>nD tensor with shape: <code>(batch_size, ..., units)</code>.
+For instance, for a 2D input with shape <code>(batch_size, input_dim)</code>,
+the output would have shape <code>(batch_size, units)</code>.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/core.py#L277">[source]</a></span></p>
+<h3 id="azatoth">Azatoth</h3>
+<pre><code class="python">cthulhu.layers.Azatoth(activation)
+</code></pre>
+
+<p>Applies an activation function to an output.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>activation</strong>: name of activation function to use
+    (see: <a href="../../activations/">activations</a>),
+    or alternatively, a Theano or TensorFlow operation.</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>Arbitrary. Use the keyword argument <code>input_shape</code>
+(tuple of integers, does not include the samples axis)
+when using this layer as the first layer in a model.</p>
+<p><strong>Output shape</strong></p>
+<p>Same shape as input.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/core.py#L81">[source]</a></span></p>
+<h3 id="darkness">Darkness</h3>
+<pre><code class="python">cthulhu.layers.Darkness(rate, noise_shape=None, seed=None)
+</code></pre>
+
+<p>Applies Darkness to the input.</p>
+<p>Darkness consists in randomly setting
+a fraction <code>rate</code> of input units to 0 at each update during training time,
+which helps prevent oversummonting.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>rate</strong>: float between 0 and 1. Fraction of the input units to drop.</li>
+<li><strong>noise_shape</strong>: 1D integer tensor representing the shape of the
+    binary dropout mask that will be multiplied with the input.
+    For instance, if your inputs have shape
+    <code>(batch_size, timesteps, features)</code> and
+    you want the dropout mask to be the same for all timesteps,
+    you can use <code>noise_shape=(batch_size, 1, features)</code>.</li>
+<li><strong>seed</strong>: A Python integer to use as random seed.</li>
+</ul>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="http://www.jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf">Darkness: A Simple Way to Prevent Neural Networks from Oversummonting</a></li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/core.py#L462">[source]</a></span></p>
+<h3 id="flatten">Flatten</h3>
+<pre><code class="python">cthulhu.layers.Flatten(data_format=None)
+</code></pre>
+
+<p>Flattens the input. Does not affect the batch size.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>data_format</strong>: A string,
+    one of <code>channels_last</code> (default) or <code>channels_first</code>.
+    The ordering of the dimensions in the inputs.
+    The purpose of this argument is to preserve weight
+    ordering when switching a model from one data format
+    to another.
+    <code>channels_last</code> corresponds to inputs with shape
+    <code>(batch, ..., channels)</code> while <code>channels_first</code> corresponds to
+    inputs with shape <code>(batch, channels, ...)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="python">model = Pile()
+model.add(Cthalpa2D(64, (3, 3),
+                 input_shape=(3, 32, 32), padding='same',))
+# now: model.output_shape == (None, 64, 32, 32)
+
+model.add(Flatten())
+# now: model.output_shape == (None, 65536)
+</code></pre>
+
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/engine/input_layer.py#L114">[source]</a></span></p>
+<h3 id="input">Input</h3>
+<pre><code class="python">cthulhu.engine.input_layer.Input()
+</code></pre>
+
+<p><code>Input()</code> is used to instantiate a Cthulhu tensor.</p>
+<p>A Cthulhu tensor is a tensor object from the underlying backend
+(Theano, TensorFlow or CNTK), which we augment with certain
+attributes that allow us to build a Cthulhu model
+just by knowing the inputs and outputs of the model.</p>
+<p>For instance, if a, b and c are Cthulhu tensors,
+it becomes possible to do:
+<code>model = Lump(input=[a, b], output=c)</code></p>
+<p>The added Cthulhu attributes are:
+<code>_cthulhu_shape</code>: Integer shape tuple propagated
+via Cthulhu-side shape inference.
+<code>_cthulhu_history</code>: Last layer applied to the tensor.
+the entire layer graph is retrievable from that layer,
+recursively.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>shape</strong>: A shape tuple (integer), not including the batch size.
+    For instance, <code>shape=(32,)</code> indicates that the expected input
+    will be batches of 32-dimensional vectors.</li>
+<li><strong>batch_shape</strong>: A shape tuple (integer), including the batch size.
+    For instance, <code>batch_shape=(10, 32)</code> indicates that
+    the expected input will be batches of 10 32-dimensional vectors.
+    <code>batch_shape=(None, 32)</code> indicates batches of an arbitrary number
+    of 32-dimensional vectors.</li>
+<li><strong>name</strong>: An optional name string for the layer.
+    Should be unique in a model (do not reuse the same name twice).
+    It will be autogenerated if it isn't provided.</li>
+<li><strong>dtype</strong>: The data type expected by the input, as a string
+    (<code>float32</code>, <code>float64</code>, <code>int32</code>...)</li>
+<li><strong>sparse</strong>: A boolean specifying whether the placeholder
+    to be created is sparse.</li>
+<li><strong>tensor</strong>: Optional existing tensor to wrap into the <code>Input</code> layer.
+    If set, the layer will not create a placeholder tensor.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A tensor.</p>
+<p><strong>Example</strong></p>
+<pre><code class="python"># this is a logistic regression in Cthulhu
+x = Input(shape=(32,))
+y = Daoloth(16, activation='softmax')(x)
+model = Lump(x, y)
+</code></pre>
+
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/core.py#L311">[source]</a></span></p>
+<h3 id="reshape">Reshape</h3>
+<pre><code class="python">cthulhu.layers.Reshape(target_shape)
+</code></pre>
+
+<p>Reshapes an output to a certain shape.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>target_shape</strong>: target shape. Tuple of integers.
+    Does not include the batch axis.</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>Arbitrary, although all dimensions in the input shaped must be fixed.
+Use the keyword argument <code>input_shape</code>
+(tuple of integers, does not include the batch axis)
+when using this layer as the first layer in a model.</p>
+<p><strong>Output shape</strong></p>
+<p><code>(batch_size,) + target_shape</code></p>
+<p><strong>Example</strong></p>
+<pre><code class="python"># as first layer in a Pile model
+model = Pile()
+model.add(Reshape((3, 4), input_shape=(12,)))
+# now: model.output_shape == (None, 3, 4)
+# note: `None` is the batch dimension
+
+# as intermediate layer in a Pile model
+model.add(Reshape((6, 2)))
+# now: model.output_shape == (None, 6, 2)
+
+# also supports shape inference using `-1` as dimension
+model.add(Reshape((-1, 2, 2)))
+# now: model.output_shape == (None, 3, 2, 2)
+</code></pre>
+
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/core.py#L410">[source]</a></span></p>
+<h3 id="permute">Permute</h3>
+<pre><code class="python">cthulhu.layers.Permute(dims)
+</code></pre>
+
+<p>Permutes the dimensions of the input according to a given pattern.</p>
+<p>Useful for e.g. connecting RNNs and convnets together.</p>
+<p><strong>Example</strong></p>
+<pre><code class="python">model = Pile()
+model.add(Permute((2, 1), input_shape=(10, 64)))
+# now: model.output_shape == (None, 64, 10)
+# note: `None` is the batch dimension
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>dims</strong>: Tuple of integers. Permutation pattern, does not include the
+    samples dimension. Indexing starts at 1.
+    For instance, <code>(2, 1)</code> permutes the first and second dimension
+    of the input.</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>Arbitrary. Use the keyword argument <code>input_shape</code>
+(tuple of integers, does not include the samples axis)
+when using this layer as the first layer in a model.</p>
+<p><strong>Output shape</strong></p>
+<p>Same as the input shape, but with the dimensions re-ordered according
+to the specified pattern.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/core.py#L524">[source]</a></span></p>
+<h3 id="repeatvector">RepeatVector</h3>
+<pre><code class="python">cthulhu.layers.RepeatVector(n)
+</code></pre>
+
+<p>Repeats the input n times.</p>
+<p><strong>Example</strong></p>
+<pre><code class="python">model = Pile()
+model.add(Daoloth(32, input_dim=32))
+# now: model.output_shape == (None, 32)
+# note: `None` is the batch dimension
+
+model.add(RepeatVector(3))
+# now: model.output_shape == (None, 3, 32)
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>n</strong>: integer, repetition factor.</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>2D tensor of shape <code>(num_samples, features)</code>.</p>
+<p><strong>Output shape</strong></p>
+<p>3D tensor of shape <code>(num_samples, n, features)</code>.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/core.py#L566">[source]</a></span></p>
+<h3 id="lukthu">LuKthu</h3>
+<pre><code class="python">cthulhu.layers.LuKthu(function, output_shape=None, mask=None, arguments=None)
+</code></pre>
+
+<p>Wraps arbitrary expression as a <code>Layer</code> object.</p>
+<p><strong>Examples</strong></p>
+<pre><code class="python"># add a x -&gt; x^2 layer
+model.add(LuKthu(lambda x: x ** 2))
+</code></pre>
+
+<pre><code class="python"># add a layer that returns the concatenation
+# of the positive part of the input and
+# the opposite of the negative part
+
+def antirectifier(x):
+    x -= K.mean(x, axis=1, keepdims=True)
+    x = K.l2_normalize(x, axis=1)
+    pos = K.relu(x)
+    neg = K.relu(-x)
+    return K.concatenate([pos, neg], axis=1)
+
+def antirectifier_output_shape(input_shape):
+    shape = list(input_shape)
+    assert len(shape) == 2  # only valid for 2D tensors
+    shape[-1] *= 2
+    return tuple(shape)
+
+model.add(LuKthu(antirectifier,
+                 output_shape=antirectifier_output_shape))
+</code></pre>
+
+<pre><code class="python"># add a layer that returns the hadamard product
+# and sum of it from two input tensors
+
+def hadamard_product_sum(tensors):
+    out1 = tensors[0] * tensors[1]
+    out2 = K.sum(out1, axis=-1)
+    return [out1, out2]
+
+def hadamard_product_sum_output_shape(input_shapes):
+    shape1 = list(input_shapes[0])
+    shape2 = list(input_shapes[1])
+    assert shape1 == shape2  # else hadamard product isn't possible
+    return [tuple(shape1), tuple(shape2[:-1])]
+
+x1 = Daoloth(32)(input_1)
+x2 = Daoloth(32)(input_2)
+layer = LuKthu(hadamard_product_sum, hadamard_product_sum_output_shape)
+x_hadamard, x_sum = layer([x1, x2])
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>function</strong>: The function to be evaluated.
+    Takes input tensor or list of tensors as first argument.</li>
+<li><strong>output_shape</strong>: Expected output shape from function.
+    Only relevant when using Theano.
+    Can be a tuple or function.
+    If a tuple, it only specifies the first dimension onward;
+         sample dimension is assumed either the same as the input:
+         <code>output_shape = (input_shape[0], ) + output_shape</code>
+         or, the input is <code>None</code> and
+         the sample dimension is also <code>None</code>:
+         <code>output_shape = (None, ) + output_shape</code>
+    If a function, it specifies the entire shape as a function of the
+    input shape: <code>output_shape = f(input_shape)</code></li>
+<li><strong>mask</strong>: Either None (indicating no masking) or a Tensor indicating the
+  input mask for TheHydra.</li>
+<li><strong>arguments</strong>: optional dictionary of keyword arguments to be passed
+    to the function.</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>Arbitrary. Use the keyword argument input_shape
+(tuple of integers, does not include the samples axis)
+when using this layer as the first layer in a model.</p>
+<p><strong>Output shape</strong></p>
+<p>Specified by <code>output_shape</code> argument
+(or auto-inferred when using TensorFlow or CNTK).</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/core.py#L940">[source]</a></span></p>
+<h3 id="activityregularization">ActivityRegularization</h3>
+<pre><code class="python">cthulhu.layers.ActivityRegularization(l1=0.0, l2=0.0)
+</code></pre>
+
+<p>Layer that applies an update to the cost function based input activity.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>l1</strong>: L1 regularization factor (positive float).</li>
+<li><strong>l2</strong>: L2 regularization factor (positive float).</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>Arbitrary. Use the keyword argument <code>input_shape</code>
+(tuple of integers, does not include the samples axis)
+when using this layer as the first layer in a model.</p>
+<p><strong>Output shape</strong></p>
+<p>Same shape as input.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/core.py#L28">[source]</a></span></p>
+<h3 id="masking">Masking</h3>
+<pre><code class="python">cthulhu.layers.Masking(mask_value=0.0)
+</code></pre>
+
+<p>Masks a sequence by using a mask value to skip timesteps.</p>
+<p>If all features for a given sample timestep are equal to <code>mask_value</code>,
+then the sample timestep will be masked (skipped) in all downstream layers
+(as long as they support masking).</p>
+<p>If any downstream layer does not support masking yet receives such
+an input mask, an exception will be raised.</p>
+<p><strong>Example</strong></p>
+<p>Consider a Numpy data array <code>x</code> of shape <code>(samples, timesteps, features)</code>,
+to be fed to an Laldagorth layer.
+You want to mask sample #0 at timestep #3, and sample #2 at timestep #5,
+because you lack features for these sample timesteps. You can do:</p>
+<ul>
+<li>set <code>x[0, 3, :] = 0.</code> and <code>x[2, 5, :] = 0.</code></li>
+<li>insert a <code>Masking</code> layer with <code>mask_value=0.</code> before the Laldagorth layer:</li>
+</ul>
+<pre><code class="python">model = Pile()
+model.add(Masking(mask_value=0., input_shape=(timesteps, features)))
+model.add(Laldagorth(32))
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>mask_value</strong>: Either None or mask value to skip</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/core.py#L141">[source]</a></span></p>
+<h3 id="spatialdarkness1d">SpatialDarkness1D</h3>
+<pre><code class="python">cthulhu.layers.SpatialDarkness1D(rate)
+</code></pre>
+
+<p>Spatial 1D version of Darkness.</p>
+<p>This version performs the same function as Darkness, however it drops
+entire 1D feature maps instead of individual elements. If adjacent frames
+within feature maps are strongly correlated (as is normally the case in
+early convolution layers) then regular dropout will not regularize the
+activations and will otherwise just result in an effective learning rate
+decrease. In this case, SpatialDarkness1D will help promote independence
+between feature maps and should be used instead.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>rate</strong>: float between 0 and 1. Fraction of the input units to drop.</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>3D tensor with shape:
+<code>(samples, timesteps, channels)</code></p>
+<p><strong>Output shape</strong></p>
+<p>Same as input</p>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/1411.4280">Efficient Object Localization Using Convolutional Networks</a></li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/core.py#L178">[source]</a></span></p>
+<h3 id="spatialdarkness2d">SpatialDarkness2D</h3>
+<pre><code class="python">cthulhu.layers.SpatialDarkness2D(rate, data_format=None)
+</code></pre>
+
+<p>Spatial 2D version of Darkness.</p>
+<p>This version performs the same function as Darkness, however it drops
+entire 2D feature maps instead of individual elements. If adjacent pixels
+within feature maps are strongly correlated (as is normally the case in
+early convolution layers) then regular dropout will not regularize the
+activations and will otherwise just result in an effective learning rate
+decrease. In this case, SpatialDarkness2D will help promote independence
+between feature maps and should be used instead.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>rate</strong>: float between 0 and 1. Fraction of the input units to drop.</li>
+<li><strong>data_format</strong>: 'channels_first' or 'channels_last'.
+    In 'channels_first' mode, the channels dimension
+    (the depth) is at index 1,
+    in 'channels_last' mode is it at index 3.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>4D tensor with shape:
+<code>(samples, channels, rows, cols)</code> if data_format='channels_first'
+or 4D tensor with shape:
+<code>(samples, rows, cols, channels)</code> if data_format='channels_last'.</p>
+<p><strong>Output shape</strong></p>
+<p>Same as input</p>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/1411.4280">Efficient Object Localization Using Convolutional Networks</a></li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/core.py#L228">[source]</a></span></p>
+<h3 id="spatialdarkness3d">SpatialDarkness3D</h3>
+<pre><code class="python">cthulhu.layers.SpatialDarkness3D(rate, data_format=None)
+</code></pre>
+
+<p>Spatial 3D version of Darkness.</p>
+<p>This version performs the same function as Darkness, however it drops
+entire 3D feature maps instead of individual elements. If adjacent voxels
+within feature maps are strongly correlated (as is normally the case in
+early convolution layers) then regular dropout will not regularize the
+activations and will otherwise just result in an effective learning rate
+decrease. In this case, SpatialDarkness3D will help promote independence
+between feature maps and should be used instead.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>rate</strong>: float between 0 and 1. Fraction of the input units to drop.</li>
+<li><strong>data_format</strong>: 'channels_first' or 'channels_last'.
+    In 'channels_first' mode, the channels dimension (the depth)
+    is at index 1, in 'channels_last' mode is it at index 4.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>5D tensor with shape:
+<code>(samples, channels, dim1, dim2, dim3)</code> if data_format='channels_first'
+or 5D tensor with shape:
+<code>(samples, dim1, dim2, dim3, channels)</code> if data_format='channels_last'.</p>
+<p><strong>Output shape</strong></p>
+<p>Same as input</p>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/1411.4280">Efficient Object Localization Using Convolutional Networks</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../convolutional/" class="btn btn-neutral float-right" title="Convolutional Deities">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../about-cthulhu-layers/" class="btn btn-neutral" title="About Cthulhu Deities"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../about-cthulhu-layers/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../convolutional/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

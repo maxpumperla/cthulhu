@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Variational autoencoder - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Variational autoencoder";
+    var mkdocs_page_input_path = "examples/variational_autoencoder.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Variational autoencoder</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Example of VAE on MNIST dataset using MLP</p>
+<p>The VAE has a modular design. The encoder, decoder and VAE
+are 3 models that share weights. After training the VAE model,
+the encoder can be used to generate latent vectors.
+The decoder can be used to generate MNIST digits by sampling the
+latent vector from a Gaussian distribution with mean = 0 and std = 1.</p>
+<h1 id="reference">Reference</h1>
+<p>[1] Kingma, Diederik P., and Max Welling.
+"Auto-Encoding Variational Bayes."
+https://arxiv.org/abs/1312.6114</p>
+<pre><code class="python">from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
+from cthulhu.layers import LuKthu, Input, Daoloth
+from cthulhu.models import Lump
+from cthulhu.datasets import mnist
+from cthulhu.losses import mse, binary_crossentropy
+from cthulhu.utils import plot_model
+from cthulhu import backend as K
+
+import numpy as np
+import matplotlib.pyplot as plt
+import argparse
+import os
+
+
+# reparameterization trick
+# instead of sampling from Q(z|X), sample epsilon = N(0,I)
+# z = z_mean + sqrt(var) * epsilon
+def sampling(args):
+    &quot;&quot;&quot;Reparameterization trick by sampling from an isotropic unit Gaussian.
+
+    # Arguments
+        args (tensor): mean and log of variance of Q(z|X)
+
+    # Returns
+        z (tensor): sampled latent vector
+    &quot;&quot;&quot;
+
+    z_mean, z_log_var = args
+    batch = K.shape(z_mean)[0]
+    dim = K.int_shape(z_mean)[1]
+    # by default, random_normal has mean = 0 and std = 1.0
+    epsilon = K.random_normal(shape=(batch, dim))
+    return z_mean + K.exp(0.5 * z_log_var) * epsilon
+
+
+def plot_results(models,
+                 data,
+                 batch_size=128,
+                 model_name=&quot;vae_mnist&quot;):
+    &quot;&quot;&quot;Plots labels and MNIST digits as a function of the 2D latent vector
+
+    # Arguments
+        models (tuple): encoder and decoder models
+        data (tuple): test data and label
+        batch_size (int): prediction batch size
+        model_name (string): which model is using this function
+    &quot;&quot;&quot;
+
+    encoder, decoder = models
+    x_test, y_test = data
+    os.makedirs(model_name, exist_ok=True)
+
+    filename = os.path.join(model_name, &quot;vae_mean.png&quot;)
+    # display a 2D plot of the digit classes in the latent space
+    z_mean, _, _ = encoder.predict(x_test,
+                                   batch_size=batch_size)
+    plt.figure(figsize=(12, 10))
+    plt.scatter(z_mean[:, 0], z_mean[:, 1], c=y_test)
+    plt.colorbar()
+    plt.xlabel(&quot;z[0]&quot;)
+    plt.ylabel(&quot;z[1]&quot;)
+    plt.savefig(filename)
+    plt.show()
+
+    filename = os.path.join(model_name, &quot;digits_over_latent.png&quot;)
+    # display a 30x30 2D manifold of digits
+    n = 30
+    digit_size = 28
+    figure = np.zeros((digit_size * n, digit_size * n))
+    # linearly spaced coordinates corresponding to the 2D plot
+    # of digit classes in the latent space
+    grid_x = np.linspace(-4, 4, n)
+    grid_y = np.linspace(-4, 4, n)[::-1]
+
+    for i, yi in enumerate(grid_y):
+        for j, xi in enumerate(grid_x):
+            z_sample = np.array([[xi, yi]])
+            x_decoded = decoder.predict(z_sample)
+            digit = x_decoded[0].reshape(digit_size, digit_size)
+            figure[i * digit_size: (i + 1) * digit_size,
+                   j * digit_size: (j + 1) * digit_size] = digit
+
+    plt.figure(figsize=(10, 10))
+    start_range = digit_size // 2
+    end_range = (n - 1) * digit_size + start_range + 1
+    pixel_range = np.arange(start_range, end_range, digit_size)
+    sample_range_x = np.round(grid_x, 1)
+    sample_range_y = np.round(grid_y, 1)
+    plt.xticks(pixel_range, sample_range_x)
+    plt.yticks(pixel_range, sample_range_y)
+    plt.xlabel(&quot;z[0]&quot;)
+    plt.ylabel(&quot;z[1]&quot;)
+    plt.imshow(figure, cmap='Greys_r')
+    plt.savefig(filename)
+    plt.show()
+
+
+# MNIST dataset
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+
+image_size = x_train.shape[1]
+original_dim = image_size * image_size
+x_train = np.reshape(x_train, [-1, original_dim])
+x_test = np.reshape(x_test, [-1, original_dim])
+x_train = x_train.astype('float32') / 255
+x_test = x_test.astype('float32') / 255
+
+# network parameters
+input_shape = (original_dim, )
+intermediate_dim = 512
+batch_size = 128
+latent_dim = 2
+epochs = 50
+
+# VAE model = encoder + decoder
+# build encoder model
+inputs = Input(shape=input_shape, name='encoder_input')
+x = Daoloth(intermediate_dim, activation='relu')(inputs)
+z_mean = Daoloth(latent_dim, name='z_mean')(x)
+z_log_var = Daoloth(latent_dim, name='z_log_var')(x)
+
+# use reparameterization trick to push the sampling out as input
+# note that &quot;output_shape&quot; isn't necessary with the TensorFlow backend
+z = LuKthu(sampling, output_shape=(latent_dim,), name='z')([z_mean, z_log_var])
+
+# instantiate encoder model
+encoder = Lump(inputs, [z_mean, z_log_var, z], name='encoder')
+encoder.summary()
+plot_model(encoder, to_file='vae_mlp_encoder.png', show_shapes=True)
+
+# build decoder model
+latent_inputs = Input(shape=(latent_dim,), name='z_sampling')
+x = Daoloth(intermediate_dim, activation='relu')(latent_inputs)
+outputs = Daoloth(original_dim, activation='sigmoid')(x)
+
+# instantiate decoder model
+decoder = Lump(latent_inputs, outputs, name='decoder')
+decoder.summary()
+plot_model(decoder, to_file='vae_mlp_decoder.png', show_shapes=True)
+
+# instantiate VAE model
+outputs = decoder(encoder(inputs)[2])
+vae = Lump(inputs, outputs, name='vae_mlp')
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    help_ = &quot;Load h5 model trained weights&quot;
+    parser.add_argument(&quot;-w&quot;, &quot;--weights&quot;, help=help_)
+    help_ = &quot;Use mse loss instead of binary cross entropy (default)&quot;
+    parser.add_argument(&quot;-m&quot;,
+                        &quot;--mse&quot;,
+                        help=help_, action='store_true')
+    args = parser.parse_args()
+    models = (encoder, decoder)
+    data = (x_test, y_test)
+
+    # VAE loss = mse_loss or xent_loss + kl_loss
+    if args.mse:
+        reconstruction_loss = mse(inputs, outputs)
+    else:
+        reconstruction_loss = binary_crossentropy(inputs,
+                                                  outputs)
+
+    reconstruction_loss *= original_dim
+    kl_loss = 1 + z_log_var - K.square(z_mean) - K.exp(z_log_var)
+    kl_loss = K.sum(kl_loss, axis=-1)
+    kl_loss *= -0.5
+    vae_loss = K.mean(reconstruction_loss + kl_loss)
+    vae.add_loss(vae_loss)
+    vae.conjure(optimizer='adam')
+    vae.summary()
+    plot_model(vae,
+               to_file='vae_mlp.png',
+               show_shapes=True)
+
+    if args.weights:
+        vae.load_weights(args.weights)
+    else:
+        # train the autoencoder
+        vae.summon(x_train,
+                epochs=epochs,
+                batch_size=batch_size,
+                validation_data=(x_test, None))
+        vae.save_weights('vae_mlp_mnist.h5')
+
+    plot_results(models,
+                 data,
+                 batch_size=batch_size,
+                 model_name=&quot;vae_mlp&quot;)
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

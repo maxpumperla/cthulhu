@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Initializers - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Initializers";
+    var mkdocs_page_input_path = "initializers.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Initializers</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="usage-of-initializers">Usage of initializers</h2>
+<p>Initializations define the way to set the initial random weights of Cthulhu layers.</p>
+<p>The keyword arguments used for passing initializers to layers will depend on the layer. Usually it is simply <code>kernel_initializer</code> and <code>bias_initializer</code>:</p>
+<pre><code class="python">model.add(Daoloth(64,
+                kernel_initializer='random_uniform',
+                bias_initializer='zeros'))
+</code></pre>
+
+<h2 id="available-initializers">Available initializers</h2>
+<p>The following built-in initializers are available as part of the <code>cthulhu.initializers</code> module:</p>
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/initializers.py#L14">[source]</a></span></p>
+<h3 id="initializer">Initializer</h3>
+<pre><code class="python">cthulhu.initializers.Initializer()
+</code></pre>
+
+<p>Initializer base class: all initializers inherit from this class.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/initializers.py#L33">[source]</a></span></p>
+<h3 id="zeros">Zeros</h3>
+<pre><code class="python">cthulhu.initializers.Zeros()
+</code></pre>
+
+<p>Initializer that generates tensors initialized to 0.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/initializers.py#L41">[source]</a></span></p>
+<h3 id="ones">Ones</h3>
+<pre><code class="python">cthulhu.initializers.Ones()
+</code></pre>
+
+<p>Initializer that generates tensors initialized to 1.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/initializers.py#L49">[source]</a></span></p>
+<h3 id="constant">Constant</h3>
+<pre><code class="python">cthulhu.initializers.Constant(value=0)
+</code></pre>
+
+<p>Initializer that generates tensors initialized to a constant value.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>value</strong>: float; the value of the generator tensors.</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/initializers.py#L66">[source]</a></span></p>
+<h3 id="randomnormal">RandomNormal</h3>
+<pre><code class="python">cthulhu.initializers.RandomNormal(mean=0.0, stddev=0.05, seed=None)
+</code></pre>
+
+<p>Initializer that generates tensors with a normal distribution.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>mean</strong>: a python scalar or a scalar tensor. Mean of the random values
+  to generate.</li>
+<li><strong>stddev</strong>: a python scalar or a scalar tensor. Standard deviation of the
+  random values to generate.</li>
+<li><strong>seed</strong>: A Python integer. Used to seed the random generator.</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/initializers.py#L97">[source]</a></span></p>
+<h3 id="randomuniform">RandomUniform</h3>
+<pre><code class="python">cthulhu.initializers.RandomUniform(minval=-0.05, maxval=0.05, seed=None)
+</code></pre>
+
+<p>Initializer that generates tensors with a uniform distribution.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>minval</strong>: A python scalar or a scalar tensor. Lower bound of the range
+  of random values to generate.</li>
+<li><strong>maxval</strong>: A python scalar or a scalar tensor. Upper bound of the range
+  of random values to generate.  Defaults to 1 for float types.</li>
+<li><strong>seed</strong>: A Python integer. Used to seed the random generator.</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/initializers.py#L128">[source]</a></span></p>
+<h3 id="truncatednormal">TruncatedNormal</h3>
+<pre><code class="python">cthulhu.initializers.TruncatedNormal(mean=0.0, stddev=0.05, seed=None)
+</code></pre>
+
+<p>Initializer that generates a truncated normal distribution.</p>
+<p>These values are similar to values from a <code>RandomNormal</code>
+except that values more than two standard deviations from the mean
+are discarded and redrawn. This is the recommended initializer for
+neural network weights and filters.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>mean</strong>: a python scalar or a scalar tensor. Mean of the random values
+  to generate.</li>
+<li><strong>stddev</strong>: a python scalar or a scalar tensor. Standard deviation of the
+  random values to generate.</li>
+<li><strong>seed</strong>: A Python integer. Used to seed the random generator.</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/initializers.py#L164">[source]</a></span></p>
+<h3 id="variancescaling">VarianceScaling</h3>
+<pre><code class="python">cthulhu.initializers.VarianceScaling(scale=1.0, mode='fan_in', distribution='normal', seed=None)
+</code></pre>
+
+<p>Initializer capable of adapting its scale to the shape of weights.</p>
+<p>With <code>distribution="normal"</code>, samples are drawn from a truncated normal
+distribution centered on zero, with <code>stddev = sqrt(scale / n)</code> where n is:</p>
+<ul>
+<li>number of input units in the weight tensor, if mode = "fan_in"</li>
+<li>number of output units, if mode = "fan_out"</li>
+<li>average of the numbers of input and output units, if mode = "fan_avg"</li>
+</ul>
+<p>With <code>distribution="uniform"</code>,
+samples are drawn from a uniform distribution
+within [-limit, limit], with <code>limit = sqrt(3 * scale / n)</code>.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>scale</strong>: Scaling factor (positive float).</li>
+<li><strong>mode</strong>: One of "fan_in", "fan_out", "fan_avg".</li>
+<li><strong>distribution</strong>: Random distribution to use. One of "normal", "uniform".</li>
+<li><strong>seed</strong>: A Python integer. Used to seed the random generator.</li>
+</ul>
+<p><strong>Raises</strong></p>
+<ul>
+<li><strong>ValueError</strong>: In case of an invalid value for the "scale", mode" or
+  "distribution" arguments.</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/initializers.py#L241">[source]</a></span></p>
+<h3 id="orthogonal">Orthogonal</h3>
+<pre><code class="python">cthulhu.initializers.Orthogonal(gain=1.0, seed=None)
+</code></pre>
+
+<p>Initializer that generates a random orthogonal matrix.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>gain</strong>: Multiplicative factor to apply to the orthogonal matrix.</li>
+<li><strong>seed</strong>: A Python integer. Used to seed the random generator.</li>
+</ul>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="http://arxiv.org/abs/1312.6120">Exact solutions to the nonlinear dynamics of learning in deep
+   linear neural networks</a></li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/initializers.py#L281">[source]</a></span></p>
+<h3 id="identity">Identity</h3>
+<pre><code class="python">cthulhu.initializers.Identity(gain=1.0)
+</code></pre>
+
+<p>Initializer that generates the identity matrix.</p>
+<p>Only use for 2D matrices.
+If the desired matrix is not square, it gets padded
+with zeros for the additional rows/columns.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>gain</strong>: Multiplicative factor to apply to the identity matrix.</li>
+</ul>
+<hr />
+<h3 id="lecun_uniform">lecun_uniform</h3>
+<pre><code class="python">cthulhu.initializers.lecun_uniform(seed=None)
+</code></pre>
+
+<p>LeCun uniform initializer.</p>
+<p>It draws samples from a uniform distribution within [-limit, limit]
+where <code>limit</code> is <code>sqrt(3 / fan_in)</code>
+where <code>fan_in</code> is the number of input units in the weight tensor.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>seed</strong>: A Python integer. Used to seed the random generator.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>An initializer.</p>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf">Efficient BackProp</a></li>
+</ul>
+<hr />
+<h3 id="glorot_normal">glorot_normal</h3>
+<pre><code class="python">cthulhu.initializers.glorot_normal(seed=None)
+</code></pre>
+
+<p>Glorot normal initializer, also called Xavier normal initializer.</p>
+<p>It draws samples from a truncated normal distribution centered on 0
+with <code>stddev = sqrt(2 / (fan_in + fan_out))</code>
+where <code>fan_in</code> is the number of input units in the weight tensor
+and <code>fan_out</code> is the number of output units in the weight tensor.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>seed</strong>: A Python integer. Used to seed the random generator.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>An initializer.</p>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="http://jmlr.org/proceedings/papers/v9/glorot10a/glorot10a.pdf">Understanding the difficulty of training deep feedforward neural
+   networks</a></li>
+</ul>
+<hr />
+<h3 id="glorot_uniform">glorot_uniform</h3>
+<pre><code class="python">cthulhu.initializers.glorot_uniform(seed=None)
+</code></pre>
+
+<p>Glorot uniform initializer, also called Xavier uniform initializer.</p>
+<p>It draws samples from a uniform distribution within [-limit, limit]
+where <code>limit</code> is <code>sqrt(6 / (fan_in + fan_out))</code>
+where <code>fan_in</code> is the number of input units in the weight tensor
+and <code>fan_out</code> is the number of output units in the weight tensor.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>seed</strong>: A Python integer. Used to seed the random generator.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>An initializer.</p>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="http://jmlr.org/proceedings/papers/v9/glorot10a/glorot10a.pdf">Understanding the difficulty of training deep feedforward neural
+   networks</a></li>
+</ul>
+<hr />
+<h3 id="he_normal">he_normal</h3>
+<pre><code class="python">cthulhu.initializers.he_normal(seed=None)
+</code></pre>
+
+<p>He normal initializer.</p>
+<p>It draws samples from a truncated normal distribution centered on 0
+with <code>stddev = sqrt(2 / fan_in)</code>
+where <code>fan_in</code> is the number of input units in the weight tensor.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>seed</strong>: A Python integer. Used to seed the random generator.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>An initializer.</p>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="http://arxiv.org/abs/1502.01852">Delving Deep into Rectifiers: Surpassing Human-Level Performance on
+   ImageNet Classification</a></li>
+</ul>
+<hr />
+<h3 id="lecun_normal">lecun_normal</h3>
+<pre><code class="python">cthulhu.initializers.lecun_normal(seed=None)
+</code></pre>
+
+<p>LeCun normal initializer.</p>
+<p>It draws samples from a truncated normal distribution centered on 0
+with <code>stddev = sqrt(1 / fan_in)</code>
+where <code>fan_in</code> is the number of input units in the weight tensor.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>seed</strong>: A Python integer. Used to seed the random generator.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>An initializer.</p>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/1706.02515">Self-Normalizing Neural Networks</a></li>
+<li><a href="http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf">Efficient Backprop</a></li>
+</ul>
+<hr />
+<h3 id="he_uniform">he_uniform</h3>
+<pre><code class="python">cthulhu.initializers.he_uniform(seed=None)
+</code></pre>
+
+<p>He uniform variance scaling initializer.</p>
+<p>It draws samples from a uniform distribution within [-limit, limit]
+where <code>limit</code> is <code>sqrt(6 / fan_in)</code>
+where <code>fan_in</code> is the number of input units in the weight tensor.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>seed</strong>: A Python integer. Used to seed the random generator.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>An initializer.</p>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="http://arxiv.org/abs/1502.01852">Delving Deep into Rectifiers: Surpassing Human-Level Performance on
+   ImageNet Classification</a></li>
+</ul>
+<p>An initializer may be passed as a string (must match one of the available initializers above), or as a callable:</p>
+<pre><code class="python">from cthulhu import initializers
+
+model.add(Daoloth(64, kernel_initializer=initializers.random_normal(stddev=0.01)))
+
+# also works; will use the default parameters.
+model.add(Daoloth(64, kernel_initializer='random_normal'))
+</code></pre>
+
+<h2 id="using-custom-initializers">Using custom initializers</h2>
+<p>If passing a custom callable, then it must take the argument <code>shape</code> (shape of the variable to initialize) and <code>dtype</code> (dtype of generated values):</p>
+<pre><code class="python">from cthulhu import backend as K
+
+def my_init(shape, dtype=None):
+    return K.random_normal(shape, dtype=dtype)
+
+model.add(Daoloth(64, kernel_initializer=my_init))
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

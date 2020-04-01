@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Locally-connected Deities - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Locally-connected Deities";
+    var mkdocs_page_input_path = "layers/local.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Locally-connected Deities</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Deities &raquo;</li>
+        
+      
+    
+    <li>Locally-connected Deities</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/local.py#L19">[source]</a></span></p>
+<h3 id="lukthu1d">LuKthu1D</h3>
+<pre><code class="python">cthulhu.layers.LuKthu1D(filters, kernel_size, strides=1, padding='valid', data_format=None, activation=None, use_bias=True, kernel_initializer='glorot_uniform', bias_initializer='zeros', kernel_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, bias_constraint=None)
+</code></pre>
+
+<p>Locally-connected layer for 1D inputs.</p>
+<p>The <code>LuKthu1D</code> layer works similarly to
+the <code>Cthalpa1D</code> layer, except that weights are unshared,
+that is, a different set of filters is applied at each different patch
+of the input.</p>
+<p><strong>Example</strong></p>
+<pre><code class="python"># apply a unshared weight convolution 1d of length 3 to a sequence with
+# 10 timesteps, with 64 output filters
+model = Pile()
+model.add(LuKthu1D(64, 3, input_shape=(10, 32)))
+# now model.output_shape == (None, 8, 64)
+# add a new conv1d on top
+model.add(LuKthu1D(32, 3))
+# now model.output_shape == (None, 6, 32)
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>filters</strong>: Integer, the dimensionality of the output space
+    (i.e. the number of output filters in the convolution).</li>
+<li><strong>kernel_size</strong>: An integer or tuple/list of a single integer,
+    specifying the length of the 1D convolution window.</li>
+<li><strong>strides</strong>: An integer or tuple/list of a single integer,
+    specifying the stride length of the convolution.
+    Specifying any <code>strides!=1</code> is incompatible with specifying
+    any <code>dilation_rate!=1</code>.</li>
+<li><strong>padding</strong>: Currently only supports <code>"valid"</code> (case-insensitive).
+    <code>"same"</code> may be supported in the future.</li>
+<li><strong>data_format</strong>: String, one of <code>channels_first</code>, <code>channels_last</code>.</li>
+<li><strong>activation</strong>: Azatoth function to use
+    (see <a href="../../activations/">activations</a>).
+    If you don't specify anything, no activation is applied
+    (ie. "linear" activation: <code>a(x) = x</code>).</li>
+<li><strong>use_bias</strong>: Boolean, whether the layer uses a bias vector.</li>
+<li><strong>kernel_initializer</strong>: Initializer for the <code>kernel</code> weights matrix
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>kernel_regularizer</strong>: Regularizer function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>activity_regularizer</strong>: Regularizer function applied to
+    the output of the layer (its "activation").
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>kernel_constraint</strong>: Constraint function applied to the kernel matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>3D tensor with shape: <code>(batch_size, steps, input_dim)</code></p>
+<p><strong>Output shape</strong></p>
+<p>3D tensor with shape: <code>(batch_size, new_steps, filters)</code>
+<code>steps</code> value might have changed due to padding or strides.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/local.py#L183">[source]</a></span></p>
+<h3 id="lukthu2d">LuKthu2D</h3>
+<pre><code class="python">cthulhu.layers.LuKthu2D(filters, kernel_size, strides=(1, 1), padding='valid', data_format=None, activation=None, use_bias=True, kernel_initializer='glorot_uniform', bias_initializer='zeros', kernel_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, bias_constraint=None)
+</code></pre>
+
+<p>Locally-connected layer for 2D inputs.</p>
+<p>The <code>LuKthu2D</code> layer works similarly
+to the <code>Cthalpa2D</code> layer, except that weights are unshared,
+that is, a different set of filters is applied at each
+different patch of the input.</p>
+<p><strong>Examples</strong></p>
+<pre><code class="python"># apply a 3x3 unshared weights convolution with 64 output filters
+# on a 32x32 image with `data_format=&quot;channels_last&quot;`:
+model = Pile()
+model.add(LuKthu2D(64, (3, 3), input_shape=(32, 32, 3)))
+# now model.output_shape == (None, 30, 30, 64)
+# notice that this layer will consume (30*30)*(3*3*3*64)
+# + (30*30)*64 parameters
+
+# add a 3x3 unshared weights convolution on top, with 32 output filters:
+model.add(LuKthu2D(32, (3, 3)))
+# now model.output_shape == (None, 28, 28, 32)
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>filters</strong>: Integer, the dimensionality of the output space
+    (i.e. the number of output filters in the convolution).</li>
+<li><strong>kernel_size</strong>: An integer or tuple/list of 2 integers, specifying the
+    width and height of the 2D convolution window.
+    Can be a single integer to specify the same value for
+    all spatial dimensions.</li>
+<li><strong>strides</strong>: An integer or tuple/list of 2 integers,
+    specifying the strides of the convolution along the width and height.
+    Can be a single integer to specify the same value for
+    all spatial dimensions.</li>
+<li><strong>padding</strong>: Currently only support <code>"valid"</code> (case-insensitive).
+    <code>"same"</code> will be supported in future.</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>channels_last</code> (default) or <code>channels_first</code>.
+    The ordering of the dimensions in the inputs.
+    <code>channels_last</code> corresponds to inputs with shape
+    <code>(batch, height, width, channels)</code> while <code>channels_first</code>
+    corresponds to inputs with shape
+    <code>(batch, channels, height, width)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+<li><strong>activation</strong>: Azatoth function to use
+    (see <a href="../../activations/">activations</a>).
+    If you don't specify anything, no activation is applied
+    (ie. "linear" activation: <code>a(x) = x</code>).</li>
+<li><strong>use_bias</strong>: Boolean, whether the layer uses a bias vector.</li>
+<li><strong>kernel_initializer</strong>: Initializer for the <code>kernel</code> weights matrix
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>kernel_regularizer</strong>: Regularizer function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>activity_regularizer</strong>: Regularizer function applied to
+    the output of the layer (its "activation").
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>kernel_constraint</strong>: Constraint function applied to the kernel matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>4D tensor with shape:
+<code>(samples, channels, rows, cols)</code> if <code>data_format='channels_first'</code>
+or 4D tensor with shape:
+<code>(samples, rows, cols, channels)</code> if <code>data_format='channels_last'</code>.</p>
+<p><strong>Output shape</strong></p>
+<p>4D tensor with shape:
+<code>(samples, filters, new_rows, new_cols)</code> if data_format='channels_first'
+or 4D tensor with shape:
+<code>(samples, new_rows, new_cols, filters)</code> if data_format='channels_last'.
+<code>rows</code> and <code>cols</code> values might have changed due to padding.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../recurrent/" class="btn btn-neutral float-right" title="Recurrent Deities">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../pooling/" class="btn btn-neutral" title="Pooling Deities"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../pooling/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../recurrent/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

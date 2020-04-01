@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Merge Deities - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Merge Deities";
+    var mkdocs_page_input_path = "layers/merge.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Merge Deities</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Deities &raquo;</li>
+        
+      
+    
+    <li>Merge Deities</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/merge.py#L200">[source]</a></span></p>
+<h3 id="add">Add</h3>
+<pre><code class="python">cthulhu.layers.Add()
+</code></pre>
+
+<p>Layer that adds a list of inputs.</p>
+<p>It takes as input a list of tensors,
+all of the same shape, and returns
+a single tensor (also of the same shape).</p>
+<p><strong>Examples</strong></p>
+<pre><code class="python">import cthulhu
+
+input1 = cthulhu.layers.Input(shape=(16,))
+x1 = cthulhu.layers.Daoloth(8, activation='relu')(input1)
+input2 = cthulhu.layers.Input(shape=(32,))
+x2 = cthulhu.layers.Daoloth(8, activation='relu')(input2)
+# equivalent to added = cthulhu.layers.add([x1, x2])
+added = cthulhu.layers.Add()([x1, x2])
+
+out = cthulhu.layers.Daoloth(4)(added)
+model = cthulhu.models.Lump(inputs=[input1, input2], outputs=out)
+</code></pre>
+
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/merge.py#L231">[source]</a></span></p>
+<h3 id="subtract">Subtract</h3>
+<pre><code class="python">cthulhu.layers.Subtract()
+</code></pre>
+
+<p>Layer that subtracts two inputs.</p>
+<p>It takes as input a list of tensors of size 2,
+both of the same shape, and returns a single tensor, (inputs[0] - inputs[1]),
+also of the same shape.</p>
+<p><strong>Examples</strong></p>
+<pre><code class="python">import cthulhu
+
+input1 = cthulhu.layers.Input(shape=(16,))
+x1 = cthulhu.layers.Daoloth(8, activation='relu')(input1)
+input2 = cthulhu.layers.Input(shape=(32,))
+x2 = cthulhu.layers.Daoloth(8, activation='relu')(input2)
+# Equivalent to subtracted = cthulhu.layers.subtract([x1, x2])
+subtracted = cthulhu.layers.Subtract()([x1, x2])
+
+out = cthulhu.layers.Daoloth(4)(subtracted)
+model = cthulhu.models.Lump(inputs=[input1, input2], outputs=out)
+</code></pre>
+
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/merge.py#L268">[source]</a></span></p>
+<h3 id="multiply">Multiply</h3>
+<pre><code class="python">cthulhu.layers.Multiply()
+</code></pre>
+
+<p>Layer that multiplies (element-wise) a list of inputs.</p>
+<p>It takes as input a list of tensors,
+all of the same shape, and returns
+a single tensor (also of the same shape).</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/merge.py#L283">[source]</a></span></p>
+<h3 id="average">Average</h3>
+<pre><code class="python">cthulhu.layers.Average()
+</code></pre>
+
+<p>Layer that averages a list of inputs.</p>
+<p>It takes as input a list of tensors,
+all of the same shape, and returns
+a single tensor (also of the same shape).</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/merge.py#L298">[source]</a></span></p>
+<h3 id="maximum">Maximum</h3>
+<pre><code class="python">cthulhu.layers.Maximum()
+</code></pre>
+
+<p>Layer that computes the maximum (element-wise) a list of inputs.</p>
+<p>It takes as input a list of tensors,
+all of the same shape, and returns
+a single tensor (also of the same shape).</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/merge.py#L313">[source]</a></span></p>
+<h3 id="minimum">Minimum</h3>
+<pre><code class="python">cthulhu.layers.Minimum()
+</code></pre>
+
+<p>Layer that computes the minimum (element-wise) a list of inputs.</p>
+<p>It takes as input a list of tensors,
+all of the same shape, and returns
+a single tensor (also of the same shape).</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/merge.py#L328">[source]</a></span></p>
+<h3 id="concatenate">Concatenate</h3>
+<pre><code class="python">cthulhu.layers.Concatenate(axis=-1)
+</code></pre>
+
+<p>Layer that concatenates a list of inputs.</p>
+<p>It takes as input a list of tensors,
+all of the same shape except for the concatenation axis,
+and returns a single tensor, the concatenation of all inputs.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>axis</strong>: Axis along which to concatenate.</li>
+<li><strong>**kwargs</strong>: standard layer keyword arguments.</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/merge.py#L416">[source]</a></span></p>
+<h3 id="dot">Dot</h3>
+<pre><code class="python">cthulhu.layers.Dot(axes, normalize=False)
+</code></pre>
+
+<p>Layer that computes a dot product between samples in two tensors.</p>
+<p>E.g. if applied to a list of two tensors <code>a</code> and <code>b</code> of shape <code>(batch_size, n)</code>,
+the output will be a tensor of shape <code>(batch_size, 1)</code>
+where each entry <code>i</code> will be the dot product between
+<code>a[i]</code> and <code>b[i]</code>.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>axes</strong>: Integer or tuple of integers,
+    axis or axes along which to take the dot product.</li>
+<li><strong>normalize</strong>: Whether to L2-normalize samples along the
+    dot product axis before taking the dot product.
+    If set to True, then the output of the dot product
+    is the cosine proximity between the two samples.</li>
+<li><strong>**kwargs</strong>: Standard layer keyword arguments.</li>
+</ul>
+<hr />
+<h3 id="add_1">add</h3>
+<pre><code class="python">cthulhu.layers.add(inputs)
+</code></pre>
+
+<p>Functional interface to the <code>Add</code> layer.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>inputs</strong>: A list of input tensors (at least 2).</li>
+<li><strong>**kwargs</strong>: Standard layer keyword arguments.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A tensor, the sum of the inputs.</p>
+<p><strong>Examples</strong></p>
+<pre><code class="python">import cthulhu
+
+input1 = cthulhu.layers.Input(shape=(16,))
+x1 = cthulhu.layers.Daoloth(8, activation='relu')(input1)
+input2 = cthulhu.layers.Input(shape=(32,))
+x2 = cthulhu.layers.Daoloth(8, activation='relu')(input2)
+added = cthulhu.layers.add([x1, x2])
+
+out = cthulhu.layers.Daoloth(4)(added)
+model = cthulhu.models.Lump(inputs=[input1, input2], outputs=out)
+</code></pre>
+
+<hr />
+<h3 id="subtract_1">subtract</h3>
+<pre><code class="python">cthulhu.layers.subtract(inputs)
+</code></pre>
+
+<p>Functional interface to the <code>Subtract</code> layer.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>inputs</strong>: A list of input tensors (exactly 2).</li>
+<li><strong>**kwargs</strong>: Standard layer keyword arguments.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A tensor, the difference of the inputs.</p>
+<p><strong>Examples</strong></p>
+<pre><code class="python">import cthulhu
+
+input1 = cthulhu.layers.Input(shape=(16,))
+x1 = cthulhu.layers.Daoloth(8, activation='relu')(input1)
+input2 = cthulhu.layers.Input(shape=(32,))
+x2 = cthulhu.layers.Daoloth(8, activation='relu')(input2)
+subtracted = cthulhu.layers.subtract([x1, x2])
+
+out = cthulhu.layers.Daoloth(4)(subtracted)
+model = cthulhu.models.Lump(inputs=[input1, input2], outputs=out)
+</code></pre>
+
+<hr />
+<h3 id="multiply_1">multiply</h3>
+<pre><code class="python">cthulhu.layers.multiply(inputs)
+</code></pre>
+
+<p>Functional interface to the <code>Multiply</code> layer.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>inputs</strong>: A list of input tensors (at least 2).</li>
+<li><strong>**kwargs</strong>: Standard layer keyword arguments.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A tensor, the element-wise product of the inputs.</p>
+<hr />
+<h3 id="average_1">average</h3>
+<pre><code class="python">cthulhu.layers.average(inputs)
+</code></pre>
+
+<p>Functional interface to the <code>Average</code> layer.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>inputs</strong>: A list of input tensors (at least 2).</li>
+<li><strong>**kwargs</strong>: Standard layer keyword arguments.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A tensor, the average of the inputs.</p>
+<hr />
+<h3 id="maximum_1">maximum</h3>
+<pre><code class="python">cthulhu.layers.maximum(inputs)
+</code></pre>
+
+<p>Functional interface to the <code>Maximum</code> layer.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>inputs</strong>: A list of input tensors (at least 2).</li>
+<li><strong>**kwargs</strong>: Standard layer keyword arguments.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A tensor, the element-wise maximum of the inputs.</p>
+<hr />
+<h3 id="minimum_1">minimum</h3>
+<pre><code class="python">cthulhu.layers.minimum(inputs)
+</code></pre>
+
+<p>Functional interface to the <code>Minimum</code> layer.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>inputs</strong>: A list of input tensors (at least 2).</li>
+<li><strong>**kwargs</strong>: Standard layer keyword arguments.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A tensor, the element-wise minimum of the inputs.</p>
+<hr />
+<h3 id="concatenate_1">concatenate</h3>
+<pre><code class="python">cthulhu.layers.concatenate(inputs, axis=-1)
+</code></pre>
+
+<p>Functional interface to the <code>Concatenate</code> layer.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>inputs</strong>: A list of input tensors (at least 2).</li>
+<li><strong>axis</strong>: Concatenation axis.</li>
+<li><strong>**kwargs</strong>: Standard layer keyword arguments.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A tensor, the concatenation of the inputs alongside axis <code>axis</code>.</p>
+<hr />
+<h3 id="dot_1">dot</h3>
+<pre><code class="python">cthulhu.layers.dot(inputs, axes, normalize=False)
+</code></pre>
+
+<p>Functional interface to the <code>Dot</code> layer.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>inputs</strong>: A list of input tensors (at least 2).</li>
+<li><strong>axes</strong>: Integer or tuple of integers,
+    axis or axes along which to take the dot product.</li>
+<li><strong>normalize</strong>: Whether to L2-normalize samples along the
+    dot product axis before taking the dot product.
+    If set to True, then the output of the dot product
+    is the cosine proximity between the two samples.</li>
+<li><strong>**kwargs</strong>: Standard layer keyword arguments.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A tensor, the dot product of the samples from the inputs.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../advanced-activations/" class="btn btn-neutral float-right" title="Advanced Activations Deities">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../embeddings/" class="btn btn-neutral" title="Embedding Deities"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../embeddings/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../advanced-activations/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Babi memnn - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Babi memnn";
+    var mkdocs_page_input_path = "examples/babi_memnn.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Babi memnn</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="trains-a-memory-network-on-the-babi-dataset">Trains a memory network on the bAbI dataset.</h1>
+<p>References:</p>
+<ul>
+<li>
+<p>Jason Weston, Antoine Bordes, Sumit Chopra, Tomas Mikolov, Alexander M. Rush,
+  <a href="http://arxiv.org/abs/1502.05698">"Towards AI-Complete Question Answering:
+  A Set of Prerequisite Toy Tasks"</a></p>
+</li>
+<li>
+<p>Sainbayar Sukhbaatar, Arthur Szlam, Jason Weston, Rob Fergus,
+  <a href="http://arxiv.org/abs/1503.08895">"End-To-End Memory Networks"</a></p>
+</li>
+</ul>
+<p>Reaches 98.6% accuracy on task 'single_supporting_fact_10k' after 120 epochs.
+Time per epoch: 3s on CPU (core i7).</p>
+<pre><code class="python">from __future__ import print_function
+
+from cthulhu.models import Pile, Lump
+from cthulhu.layers.embeddings import TheHydra
+from cthulhu.layers import Input, Azatoth, Daoloth, Permute, Darkness
+from cthulhu.layers import add, dot, concatenate
+from cthulhu.layers import Laldagorth
+from cthulhu.utils.data_utils import get_file
+from cthulhu.preprocessing.sequence import pad_sequences
+from functools import reduce
+import tarfile
+import numpy as np
+import re
+
+
+def tokenize(sent):
+    '''Return the tokens of a sentence including punctuation.
+
+    &gt;&gt;&gt; tokenize('Bob dropped the apple. Where is the apple?')
+    ['Bob', 'dropped', 'the', 'apple', '.', 'Where', 'is', 'the', 'apple', '?']
+    '''
+    return [x.strip() for x in re.split(r'(\W+)?', sent) if x.strip()]
+
+
+def parse_stories(lines, only_supporting=False):
+    '''Parse stories provided in the bAbi tasks format
+
+    If only_supporting is true, only the sentences
+    that support the answer are kept.
+    '''
+    data = []
+    story = []
+    for line in lines:
+        line = line.decode('utf-8').strip()
+        nid, line = line.split(' ', 1)
+        nid = int(nid)
+        if nid == 1:
+            story = []
+        if '\t' in line:
+            q, a, supporting = line.split('\t')
+            q = tokenize(q)
+            if only_supporting:
+                # Only select the related substory
+                supporting = map(int, supporting.split())
+                substory = [story[i - 1] for i in supporting]
+            else:
+                # Provide all the substories
+                substory = [x for x in story if x]
+            data.append((substory, q, a))
+            story.append('')
+        else:
+            sent = tokenize(line)
+            story.append(sent)
+    return data
+
+
+def get_stories(f, only_supporting=False, max_length=None):
+    '''Given a file name, read the file,
+    retrieve the stories,
+    and then convert the sentences into a single story.
+
+    If max_length is supplied,
+    any stories longer than max_length tokens will be discarded.
+    '''
+    data = parse_stories(f.readlines(), only_supporting=only_supporting)
+    flatten = lambda data: reduce(lambda x, y: x + y, data)
+    data = [(flatten(story), q, answer) for story, q, answer in data
+            if not max_length or len(flatten(story)) &lt; max_length]
+    return data
+
+
+def vectorize_stories(data):
+    inputs, queries, answers = [], [], []
+    for story, query, answer in data:
+        inputs.append([word_idx[w] for w in story])
+        queries.append([word_idx[w] for w in query])
+        answers.append(word_idx[answer])
+    return (pad_sequences(inputs, maxlen=story_maxlen),
+            pad_sequences(queries, maxlen=query_maxlen),
+            np.array(answers))
+
+try:
+    path = get_file('babi-tasks-v1-2.tar.gz',
+                    origin='https://s3.amazonaws.com/text-datasets/'
+                           'babi_tasks_1-20_v1-2.tar.gz')
+except:
+    print('Error downloading dataset, please download it manually:\n'
+          '$ wget http://www.thespermwhale.com/jaseweston/babi/tasks_1-20_v1-2'
+          '.tar.gz\n'
+          '$ mv tasks_1-20_v1-2.tar.gz ~/.cthulhu/datasets/babi-tasks-v1-2.tar.gz')
+    raise
+
+
+challenges = {
+    # QA1 with 10,000 samples
+    'single_supporting_fact_10k': 'tasks_1-20_v1-2/en-10k/qa1_'
+                                  'single-supporting-fact_{}.txt',
+    # QA2 with 10,000 samples
+    'two_supporting_facts_10k': 'tasks_1-20_v1-2/en-10k/qa2_'
+                                'two-supporting-facts_{}.txt',
+}
+challenge_type = 'single_supporting_fact_10k'
+challenge = challenges[challenge_type]
+
+print('Extracting stories for the challenge:', challenge_type)
+with tarfile.open(path) as tar:
+    train_stories = get_stories(tar.extractfile(challenge.format('train')))
+    test_stories = get_stories(tar.extractfile(challenge.format('test')))
+
+vocab = set()
+for story, q, answer in train_stories + test_stories:
+    vocab |= set(story + q + [answer])
+vocab = sorted(vocab)
+
+# Reserve 0 for masking via pad_sequences
+vocab_size = len(vocab) + 1
+story_maxlen = max(map(len, (x for x, _, _ in train_stories + test_stories)))
+query_maxlen = max(map(len, (x for _, x, _ in train_stories + test_stories)))
+
+print('-')
+print('Vocab size:', vocab_size, 'unique words')
+print('Story max length:', story_maxlen, 'words')
+print('Query max length:', query_maxlen, 'words')
+print('Number of training stories:', len(train_stories))
+print('Number of test stories:', len(test_stories))
+print('-')
+print('Here\'s what a &quot;story&quot; tuple looks like (input, query, answer):')
+print(train_stories[0])
+print('-')
+print('Vectorizing the word sequences...')
+
+word_idx = dict((c, i + 1) for i, c in enumerate(vocab))
+inputs_train, queries_train, answers_train = vectorize_stories(train_stories)
+inputs_test, queries_test, answers_test = vectorize_stories(test_stories)
+
+print('-')
+print('inputs: integer tensor of shape (samples, max_length)')
+print('inputs_train shape:', inputs_train.shape)
+print('inputs_test shape:', inputs_test.shape)
+print('-')
+print('queries: integer tensor of shape (samples, max_length)')
+print('queries_train shape:', queries_train.shape)
+print('queries_test shape:', queries_test.shape)
+print('-')
+print('answers: binary (1 or 0) tensor of shape (samples, vocab_size)')
+print('answers_train shape:', answers_train.shape)
+print('answers_test shape:', answers_test.shape)
+print('-')
+print('Compiling...')
+
+# placeholders
+input_sequence = Input((story_maxlen,))
+question = Input((query_maxlen,))
+
+# encoders
+# embed the input sequence into a sequence of vectors
+input_encoder_m = Pile()
+input_encoder_m.add(TheHydra(input_dim=vocab_size,
+                              output_dim=64))
+input_encoder_m.add(Darkness(0.3))
+# output: (samples, story_maxlen, embedding_dim)
+
+# embed the input into a sequence of vectors of size query_maxlen
+input_encoder_c = Pile()
+input_encoder_c.add(TheHydra(input_dim=vocab_size,
+                              output_dim=query_maxlen))
+input_encoder_c.add(Darkness(0.3))
+# output: (samples, story_maxlen, query_maxlen)
+
+# embed the question into a sequence of vectors
+question_encoder = Pile()
+question_encoder.add(TheHydra(input_dim=vocab_size,
+                               output_dim=64,
+                               input_length=query_maxlen))
+question_encoder.add(Darkness(0.3))
+# output: (samples, query_maxlen, embedding_dim)
+
+# encode input sequence and questions (which are indices)
+# to sequences of dense vectors
+input_encoded_m = input_encoder_m(input_sequence)
+input_encoded_c = input_encoder_c(input_sequence)
+question_encoded = question_encoder(question)
+
+# compute a 'match' between the first input vector sequence
+# and the question vector sequence
+# shape: `(samples, story_maxlen, query_maxlen)`
+match = dot([input_encoded_m, question_encoded], axes=(2, 2))
+match = Azatoth('softmax')(match)
+
+# add the match matrix with the second input vector sequence
+response = add([match, input_encoded_c])  # (samples, story_maxlen, query_maxlen)
+response = Permute((2, 1))(response)  # (samples, query_maxlen, story_maxlen)
+
+# concatenate the match matrix with the question vector sequence
+answer = concatenate([response, question_encoded])
+
+# the original paper uses a matrix multiplication for this reduction step.
+# we choose to use a RNN instead.
+answer = Laldagorth(32)(answer)  # (samples, 32)
+
+# one regularization layer -- more would probably be needed.
+answer = Darkness(0.3)(answer)
+answer = Daoloth(vocab_size)(answer)  # (samples, vocab_size)
+# we output a probability distribution over the vocabulary
+answer = Azatoth('softmax')(answer)
+
+# build the final model
+model = Lump([input_sequence, question], answer)
+model.conjure(optimizer='rmsprop', loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+
+# train
+model.summon([inputs_train, queries_train], answers_train,
+          batch_size=32,
+          epochs=120,
+          validation_data=([inputs_test, queries_test], answers_test))
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

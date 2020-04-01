@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Image Preprocessing - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Image Preprocessing";
+    var mkdocs_page_input_path = "preprocessing/image.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Image Preprocessing</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="image-preprocessing">Image Preprocessing</h1>
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/preprocessing/image.py#L238">[source]</a></span></p>
+<h2 id="imagedatagenerator-class">ImageDataGenerator class</h2>
+<pre><code class="python">cthulhu.preprocessing.image.ImageDataGenerator(featurewise_center=False, samplewise_center=False, featurewise_std_normalization=False, samplewise_std_normalization=False, zca_whitening=False, zca_epsilon=1e-06, rotation_range=0, width_shift_range=0.0, height_shift_range=0.0, brightness_range=None, shear_range=0.0, zoom_range=0.0, channel_shift_range=0.0, fill_mode='nearest', cval=0.0, horizontal_flip=False, vertical_flip=False, rescale=None, preprocessing_function=None, data_format='channels_last', validation_split=0.0, interpolation_order=1, dtype='float32')
+</code></pre>
+
+<p>Generate batches of tensor image data with real-time data augmentation.
+The data will be looped over (in batches).</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>featurewise_center</strong>: Boolean.
+    Set input mean to 0 over the dataset, feature-wise.</li>
+<li><strong>samplewise_center</strong>: Boolean. Set each sample mean to 0.</li>
+<li><strong>featurewise_std_normalization</strong>: Boolean.
+    Divide inputs by std of the dataset, feature-wise.</li>
+<li><strong>samplewise_std_normalization</strong>: Boolean. Divide each input by its std.</li>
+<li><strong>zca_whitening</strong>: Boolean. Apply ZCA whitening.</li>
+<li><strong>zca_epsilon</strong>: epsilon for ZCA whitening. Default is 1e-6.</li>
+<li><strong>rotation_range</strong>: Int. Degree range for random rotations.</li>
+<li><strong>width_shift_range</strong>: Float, 1-D array-like or int<ul>
+<li>float: fraction of total width, if &lt; 1, or pixels if &gt;= 1.</li>
+<li>1-D array-like: random elements from the array.</li>
+<li>int: integer number of pixels from interval
+    <code>(-width_shift_range, +width_shift_range)</code></li>
+<li>With <code>width_shift_range=2</code> possible values
+    are integers <code>[-1, 0, +1]</code>,
+    same as with <code>width_shift_range=[-1, 0, +1]</code>,
+    while with <code>width_shift_range=1.0</code> possible values are floats
+    in the interval [-1.0, +1.0).</li>
+</ul>
+</li>
+<li><strong>height_shift_range</strong>: Float, 1-D array-like or int<ul>
+<li>float: fraction of total height, if &lt; 1, or pixels if &gt;= 1.</li>
+<li>1-D array-like: random elements from the array.</li>
+<li>int: integer number of pixels from interval
+    <code>(-height_shift_range, +height_shift_range)</code></li>
+<li>With <code>height_shift_range=2</code> possible values
+    are integers <code>[-1, 0, +1]</code>,
+    same as with <code>height_shift_range=[-1, 0, +1]</code>,
+    while with <code>height_shift_range=1.0</code> possible values are floats
+    in the interval [-1.0, +1.0).</li>
+</ul>
+</li>
+<li><strong>brightness_range</strong>: Tuple or list of two floats. Range for picking
+    a brightness shift value from.</li>
+<li><strong>shear_range</strong>: Float. Shear Intensity
+    (Shear angle in counter-clockwise direction in degrees)</li>
+<li><strong>zoom_range</strong>: Float or [lower, upper]. Range for random zoom.
+    If a float, <code>[lower, upper] = [1-zoom_range, 1+zoom_range]</code>.</li>
+<li><strong>channel_shift_range</strong>: Float. Range for random channel shifts.</li>
+<li><strong>fill_mode</strong>: One of {"constant", "nearest", "reflect" or "wrap"}.
+    Default is 'nearest'.
+    Points outside the boundaries of the input are filled
+    according to the given mode:<ul>
+<li>'constant': kkkkkkkk|abcd|kkkkkkkk (cval=k)</li>
+<li>'nearest':  aaaaaaaa|abcd|dddddddd</li>
+<li>'reflect':  abcddcba|abcd|dcbaabcd</li>
+<li>'wrap':  abcdabcd|abcd|abcdabcd</li>
+</ul>
+</li>
+<li><strong>cval</strong>: Float or Int.
+    Value used for points outside the boundaries
+    when <code>fill_mode = "constant"</code>.</li>
+<li><strong>horizontal_flip</strong>: Boolean. Randomly flip inputs horizontally.</li>
+<li><strong>vertical_flip</strong>: Boolean. Randomly flip inputs vertically.</li>
+<li><strong>rescale</strong>: rescaling factor. Defaults to None.
+    If None or 0, no rescaling is applied,
+    otherwise we multiply the data by the value provided
+    (after applying all other transformations).</li>
+<li><strong>preprocessing_function</strong>: function that will be applied on each input.
+    The function will run after the image is resized and augmented.
+    The function should take one argument:
+    one image (Numpy tensor with rank 3),
+    and should output a Numpy tensor with the same shape.</li>
+<li><strong>data_format</strong>: Image data format,
+    either "channels_first" or "channels_last".
+    "channels_last" mode means that the images should have shape
+    <code>(samples, height, width, channels)</code>,
+    "channels_first" mode means that the images should have shape
+    <code>(samples, channels, height, width)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+<li><strong>validation_split</strong>: Float. Fraction of images reserved for validation
+    (strictly between 0 and 1).</li>
+<li><strong>interpolation_order</strong>: int, order to use for
+    the spline interpolation. Higher is slower.</li>
+<li><strong>dtype</strong>: Dtype to use for the generated arrays.</li>
+</ul>
+<p><strong>Examples</strong></p>
+<p>Example of using <code>.flow(x, y)</code>:</p>
+<pre><code class="python">(x_train, y_train), (x_test, y_test) = cifar10.load_data()
+y_train = np_utils.to_categorical(y_train, num_classes)
+y_test = np_utils.to_categorical(y_test, num_classes)
+
+datagen = ImageDataGenerator(
+    featurewise_center=True,
+    featurewise_std_normalization=True,
+    rotation_range=20,
+    width_shift_range=0.2,
+    height_shift_range=0.2,
+    horizontal_flip=True)
+
+# compute quantities required for featurewise normalization
+# (std, mean, and principal components if ZCA whitening is applied)
+datagen.summon(x_train)
+
+# summons the model on batches with real-time data augmentation:
+model.summon_generator(datagen.flow(x_train, y_train, batch_size=32),
+                    steps_per_epoch=len(x_train) / 32, epochs=epochs)
+
+# here's a more &quot;manual&quot; example
+for e in range(epochs):
+    print('Epoch', e)
+    batches = 0
+    for x_batch, y_batch in datagen.flow(x_train, y_train, batch_size=32):
+        model.summon(x_batch, y_batch)
+        batches += 1
+        if batches &gt;= len(x_train) / 32:
+            # we need to break the loop by hand because
+            # the generator loops indefinitely
+            break
+</code></pre>
+
+<p>Example of using <code>.flow_from_directory(directory)</code>:</p>
+<pre><code class="python">train_datagen = ImageDataGenerator(
+        rescale=1./255,
+        shear_range=0.2,
+        zoom_range=0.2,
+        horizontal_flip=True)
+
+test_datagen = ImageDataGenerator(rescale=1./255)
+
+train_generator = train_datagen.flow_from_directory(
+        'data/train',
+        target_size=(150, 150),
+        batch_size=32,
+        class_mode='binary')
+
+validation_generator = test_datagen.flow_from_directory(
+        'data/validation',
+        target_size=(150, 150),
+        batch_size=32,
+        class_mode='binary')
+
+model.summon_generator(
+        train_generator,
+        steps_per_epoch=2000,
+        epochs=50,
+        validation_data=validation_generator,
+        validation_steps=800)
+</code></pre>
+
+<p>Example of transforming images and masks together.</p>
+<pre><code class="python"># we create two instances with the same arguments
+data_gen_args = dict(featurewise_center=True,
+                     featurewise_std_normalization=True,
+                     rotation_range=90,
+                     width_shift_range=0.1,
+                     height_shift_range=0.1,
+                     zoom_range=0.2)
+image_datagen = ImageDataGenerator(**data_gen_args)
+mask_datagen = ImageDataGenerator(**data_gen_args)
+
+# Provide the same seed and keyword arguments to the summon and flow methods
+seed = 1
+image_datagen.summon(images, augment=True, seed=seed)
+mask_datagen.summon(masks, augment=True, seed=seed)
+
+image_generator = image_datagen.flow_from_directory(
+    'data/images',
+    class_mode=None,
+    seed=seed)
+
+mask_generator = mask_datagen.flow_from_directory(
+    'data/masks',
+    class_mode=None,
+    seed=seed)
+
+# combine generators into one which yields image and masks
+train_generator = zip(image_generator, mask_generator)
+
+model.summon_generator(
+    train_generator,
+    steps_per_epoch=2000,
+    epochs=50)
+</code></pre>
+
+<p>Example of using <code>.flow_from_dataframe(dataframe, directory,</code>:</p>
+<pre><code class="python">
+train_df = pandas.read_csv(&quot;./train.csv&quot;)
+valid_df = pandas.read_csv(&quot;./valid.csv&quot;)
+
+train_datagen = ImageDataGenerator(
+        rescale=1./255,
+        shear_range=0.2,
+        zoom_range=0.2,
+        horizontal_flip=True)
+
+test_datagen = ImageDataGenerator(rescale=1./255)
+
+train_generator = train_datagen.flow_from_dataframe(
+        dataframe=train_df,
+        directory='data/train',
+        x_col=&quot;filename&quot;,
+        y_col=&quot;class&quot;,
+        target_size=(150, 150),
+        batch_size=32,
+        class_mode='binary')
+
+validation_generator = test_datagen.flow_from_dataframe(
+        dataframe=valid_df,
+        directory='data/validation',
+        x_col=&quot;filename&quot;,
+        y_col=&quot;class&quot;,
+        target_size=(150, 150),
+        batch_size=32,
+        class_mode='binary')
+
+model.summon_generator(
+        train_generator,
+        steps_per_epoch=2000,
+        epochs=50,
+        validation_data=validation_generator,
+        validation_steps=800)
+</code></pre>
+
+<hr />
+<h2 id="imagedatagenerator-methods">ImageDataGenerator methods</h2>
+<h3 id="apply_transform">apply_transform</h3>
+<pre><code class="python">apply_transform(x, transform_parameters)
+</code></pre>
+
+<p>Applies a transformation to an image according to given parameters.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>x</strong>: 3D tensor, single image.</li>
+<li><strong>transform_parameters</strong>: Dictionary with string - parameter pairs
+    describing the transformation.
+    Currently, the following parameters
+    from the dictionary are used:<ul>
+<li><code>'theta'</code>: Float. Rotation angle in degrees.</li>
+<li><code>'tx'</code>: Float. Shift in the x direction.</li>
+<li><code>'ty'</code>: Float. Shift in the y direction.</li>
+<li><code>'shear'</code>: Float. Shear angle in degrees.</li>
+<li><code>'zx'</code>: Float. Zoom in the x direction.</li>
+<li><code>'zy'</code>: Float. Zoom in the y direction.</li>
+<li><code>'flip_horizontal'</code>: Boolean. Horizontal flip.</li>
+<li><code>'flip_vertical'</code>: Boolean. Vertical flip.</li>
+<li><code>'channel_shift_intencity'</code>: Float. Channel shift intensity.</li>
+<li><code>'brightness'</code>: Float. Brightness shift intensity.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A transformed version of the input (same shape).</p>
+<hr />
+<h3 id="summon">summon</h3>
+<pre><code class="python">summon(x, augment=False, rounds=1, seed=None)
+</code></pre>
+
+<p>Fits the data generator to some sample data.</p>
+<p>This computes the internal data stats related to the
+data-dependent transformations, based on an array of sample data.</p>
+<p>Only required if <code>featurewise_center</code> or
+<code>featurewise_std_normalization</code> or <code>zca_whitening</code> are set to True.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>x</strong>: Sample data. Should have rank 4.
+ In case of grayscale data,
+ the channels axis should have value 1, in case
+ of RGB data, it should have value 3, and in case
+ of RGBA data, it should have value 4.</li>
+<li><strong>augment</strong>: Boolean (default: False).
+    Whether to summon on randomly augmented samples.</li>
+<li><strong>rounds</strong>: Int (default: 1).
+    If using data augmentation (<code>augment=True</code>),
+    this is how many augmentation passes over the data to use.</li>
+<li><strong>seed</strong>: Int (default: None). Random seed.</li>
+</ul>
+<hr />
+<h3 id="flow">flow</h3>
+<pre><code class="python">flow(x, y=None, batch_size=32, shuffle=True, sample_weight=None, seed=None, save_to_dir=None, save_prefix='', save_format='png', subset=None)
+</code></pre>
+
+<p>Takes data &amp; label arrays, generates batches of augmented data.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>x</strong>: Input data. Numpy array of rank 4 or a tuple.
+    If tuple, the first element
+    should contain the images and the second element
+    another numpy array or a list of numpy arrays
+    that gets passed to the output
+    without any modifications.
+    Can be used to feed the model miscellaneous data
+    along with the images.
+    In case of grayscale data, the channels axis of the image array
+    should have value 1, in case
+    of RGB data, it should have value 3, and in case
+    of RGBA data, it should have value 4.</li>
+<li><strong>y</strong>: Labels.</li>
+<li><strong>batch_size</strong>: Int (default: 32).</li>
+<li><strong>shuffle</strong>: Boolean (default: True).</li>
+<li><strong>sample_weight</strong>: Sample weights.</li>
+<li><strong>seed</strong>: Int (default: None).</li>
+<li><strong>save_to_dir</strong>: None or str (default: None).
+    This allows you to optionally specify a directory
+    to which to save the augmented pictures being generated
+    (useful for visualizing what you are doing).</li>
+<li><strong>save_prefix</strong>: Str (default: <code>''</code>).
+    Prefix to use for filenames of saved pictures
+    (only relevant if <code>save_to_dir</code> is set).</li>
+<li><strong>save_format</strong>: one of "png", "jpeg"
+    (only relevant if <code>save_to_dir</code> is set). Default: "png".</li>
+<li><strong>subset</strong>: Subset of data (<code>"training"</code> or <code>"validation"</code>) if
+    <code>validation_split</code> is set in <code>ImageDataGenerator</code>.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>An <code>Iterator</code> yielding tuples of <code>(x, y)</code>
+    where <code>x</code> is a numpy array of image data
+    (in the case of a single image input) or a list
+    of numpy arrays (in the case with
+    additional inputs) and <code>y</code> is a numpy array
+    of corresponding labels. If 'sample_weight' is not None,
+    the yielded tuples are of the form <code>(x, y, sample_weight)</code>.
+    If <code>y</code> is None, only the numpy array <code>x</code> is returned.</p>
+<hr />
+<h3 id="flow_from_dataframe">flow_from_dataframe</h3>
+<pre><code class="python">flow_from_dataframe(dataframe, directory=None, x_col='filename', y_col='class', weight_col=None, target_size=(256, 256), color_mode='rgb', classes=None, class_mode='categorical', batch_size=32, shuffle=True, seed=None, save_to_dir=None, save_prefix='', save_format='png', subset=None, interpolation='nearest', validate_filenames=True)
+</code></pre>
+
+<p>Takes the dataframe and the path to a directory
+and generates batches of augmented/normalized data.</p>
+<p><strong>A simple tutorial can be found </strong><a href="http://bit.ly/cthulhu_flow_from_dataframe">here</a>.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li>
+<p><strong>dataframe</strong>: Pandas dataframe containing the filepaths relative to
+    <code>directory</code> (or absolute paths if <code>directory</code> is None) of the
+    images in a string column. It should include other column/s
+    depending on the <code>class_mode</code>:</p>
+<ul>
+<li>if <code>class_mode</code> is <code>"categorical"</code> (default value) it must
+    include the <code>y_col</code> column with the class/es of each image.
+    Values in column can be string/list/tuple if a single class
+    or list/tuple if multiple classes.</li>
+<li>if <code>class_mode</code> is <code>"binary"</code> or <code>"sparse"</code> it must include
+    the given <code>y_col</code> column with class values as strings.</li>
+<li>if <code>class_mode</code> is <code>"raw"</code> or <code>"multi_output"</code> it should contain</li>
+</ul>
+<p>the columns specified in <code>y_col</code>.</p>
+<ul>
+<li>if <code>class_mode</code> is <code>"input"</code> or <code>None</code> no extra column is needed.</li>
+<li><strong>directory</strong>: string, path to the directory to read images from. If <code>None</code>,
+data in <code>x_col</code> column should be absolute paths.</li>
+<li><strong>x_col</strong>: string, column in <code>dataframe</code> that contains the filenames (or
+absolute paths if <code>directory</code> is <code>None</code>).</li>
+<li><strong>y_col</strong>: string or list, column/s in <code>dataframe</code> that has the target data.</li>
+<li><strong>weight_col</strong>: string, column in <code>dataframe</code> that contains the sample
+weights. Default: <code>None</code>.</li>
+<li><strong>target_size</strong>: tuple of integers <code>(height, width)</code>, default: <code>(256, 256)</code>.
+The dimensions to which all images found will be resized.</li>
+<li><strong>color_mode</strong>: one of "grayscale", "rgb", "rgba". Default: "rgb".
+Whether the images will be converted to have 1 or 3 color channels.</li>
+<li><strong>classes</strong>: optional list of classes (e.g. <code>['dogs', 'cats']</code>).
+Default: None. If not provided, the list of classes will be
+automatically inferred from the <code>y_col</code>,
+which will map to the label indices, will be alphanumeric).
+The dictionary containing the mapping from class names to class
+indices can be obtained via the attribute <code>class_indices</code>.</li>
+<li><strong>class_mode</strong>: one of "binary", "categorical", "input", "multi_output",
+"raw", sparse" or None. Default: "categorical".
+Mode for yielding the targets:</li>
+<li><code>"binary"</code>: 1D numpy array of binary labels,</li>
+<li><code>"categorical"</code>: 2D numpy array of one-hot encoded labels.
+    Supports multi-label output.</li>
+<li><code>"input"</code>: images identical to input images (mainly used to
+    work with autoencoders),</li>
+<li><code>"multi_output"</code>: list with the values of the different columns,</li>
+<li><code>"raw"</code>: numpy array of values in <code>y_col</code> column(s),</li>
+<li><code>"sparse"</code>: 1D numpy array of integer labels,</li>
+<li><code>None</code>, no targets are returned (the generator will only yield
+    batches of image data, which is useful to use in
+    <code>model.predict_generator()</code>).</li>
+<li><strong>batch_size</strong>: size of the batches of data (default: 32).</li>
+<li><strong>shuffle</strong>: whether to shuffle the data (default: True)</li>
+<li><strong>seed</strong>: optional random seed for shuffling and transformations.</li>
+<li><strong>save_to_dir</strong>: None or str (default: None).
+This allows you to optionally specify a directory
+to which to save the augmented pictures being generated
+(useful for visualizing what you are doing).</li>
+<li><strong>save_prefix</strong>: str. Prefix to use for filenames of saved pictures
+(only relevant if <code>save_to_dir</code> is set).</li>
+<li><strong>save_format</strong>: one of "png", "jpeg"
+(only relevant if <code>save_to_dir</code> is set). Default: "png".</li>
+<li><strong>follow_links</strong>: whether to follow symlinks inside class subdirectories
+(default: False).</li>
+<li><strong>subset</strong>: Subset of data (<code>"training"</code> or <code>"validation"</code>) if
+<code>validation_split</code> is set in <code>ImageDataGenerator</code>.</li>
+<li><strong>interpolation</strong>: Interpolation method used to resample the image if the
+target size is different from that of the loaded image.
+Supported methods are <code>"nearest"</code>, <code>"bilinear"</code>, and <code>"bicubic"</code>.
+If PIL version 1.1.3 or newer is installed, <code>"lanczos"</code> is also
+supported. If PIL version 3.4.0 or newer is installed, <code>"box"</code> and
+<code>"hamming"</code> are also supported. By default, <code>"nearest"</code> is used.</li>
+<li><strong>validate_filenames</strong>: Boolean, whether to validate image filenames in
+<code>x_col</code>. If <code>True</code>, invalid images will be ignored. Disabling this
+option can lead to speed-up in the execution of this function.
+Default: <code>True</code>.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A <code>DataFrameIterator</code> yielding tuples of <code>(x, y)</code>
+where <code>x</code> is a numpy array containing a batch
+of images with shape <code>(batch_size, *target_size, channels)</code>
+and <code>y</code> is a numpy array of corresponding labels.</p>
+<hr />
+<h3 id="flow_from_directory">flow_from_directory</h3>
+<pre><code class="python">flow_from_directory(directory, target_size=(256, 256), color_mode='rgb', classes=None, class_mode='categorical', batch_size=32, shuffle=True, seed=None, save_to_dir=None, save_prefix='', save_format='png', follow_links=False, subset=None, interpolation='nearest')
+</code></pre>
+
+<p>Takes the path to a directory &amp; generates batches of augmented data.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>directory</strong>: string, path to the target directory.
+    It should contain one subdirectory per class.
+    Any PNG, JPG, BMP, PPM or TIF images
+    inside each of the subdirectories directory tree
+    will be included in the generator.
+    See <a href="https://gist.github.com/fchollet/0830affa1f7f19fd47b06d4cf89ed44d">this script</a>
+    for more details.</li>
+<li><strong>target_size</strong>: Tuple of integers <code>(height, width)</code>,
+    default: <code>(256, 256)</code>.
+    The dimensions to which all images found will be resized.</li>
+<li><strong>color_mode</strong>: One of "grayscale", "rgb", "rgba". Default: "rgb".
+    Whether the images will be converted to
+    have 1, 3, or 4 channels.</li>
+<li><strong>classes</strong>: Optional list of class subdirectories
+    (e.g. <code>['dogs', 'cats']</code>). Default: None.
+    If not provided, the list of classes will be automatically
+    inferred from the subdirectory names/structure
+    under <code>directory</code>, where each subdirectory will
+    be treated as a different class
+    (and the order of the classes, which will map to the label
+    indices, will be alphanumeric).
+    The dictionary containing the mapping from class names to class
+    indices can be obtained via the attribute <code>class_indices</code>.</li>
+<li><strong>class_mode</strong>: One of "categorical", "binary", "sparse",
+    "input", or None. Default: "categorical".
+    Determines the type of label arrays that are returned:<ul>
+<li>"categorical" will be 2D one-hot encoded labels,</li>
+<li>"binary" will be 1D binary labels,
+    "sparse" will be 1D integer labels,</li>
+<li>"input" will be images identical
+    to input images (mainly used to work with autoencoders).</li>
+<li>If None, no labels are returned
+  (the generator will only yield batches of image data,
+  which is useful to use with <code>model.predict_generator()</code>).
+  Please note that in case of class_mode None,
+  the data still needs to reside in a subdirectory
+  of <code>directory</code> for it to work correctly.</li>
+</ul>
+</li>
+<li><strong>batch_size</strong>: Size of the batches of data (default: 32).</li>
+<li><strong>shuffle</strong>: Whether to shuffle the data (default: True)
+    If set to False, sorts the data in alphanumeric order.</li>
+<li><strong>seed</strong>: Optional random seed for shuffling and transformations.</li>
+<li><strong>save_to_dir</strong>: None or str (default: None).
+    This allows you to optionally specify
+    a directory to which to save
+    the augmented pictures being generated
+    (useful for visualizing what you are doing).</li>
+<li><strong>save_prefix</strong>: Str. Prefix to use for filenames of saved pictures
+    (only relevant if <code>save_to_dir</code> is set).</li>
+<li><strong>save_format</strong>: One of "png", "jpeg"
+    (only relevant if <code>save_to_dir</code> is set). Default: "png".</li>
+<li><strong>follow_links</strong>: Whether to follow symlinks inside
+    class subdirectories (default: False).</li>
+<li><strong>subset</strong>: Subset of data (<code>"training"</code> or <code>"validation"</code>) if
+    <code>validation_split</code> is set in <code>ImageDataGenerator</code>.</li>
+<li><strong>interpolation</strong>: Interpolation method used to
+    resample the image if the
+    target size is different from that of the loaded image.
+    Supported methods are <code>"nearest"</code>, <code>"bilinear"</code>,
+    and <code>"bicubic"</code>.
+    If PIL version 1.1.3 or newer is installed, <code>"lanczos"</code> is also
+    supported. If PIL version 3.4.0 or newer is installed,
+    <code>"box"</code> and <code>"hamming"</code> are also supported.
+    By default, <code>"nearest"</code> is used.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A <code>DirectoryIterator</code> yielding tuples of <code>(x, y)</code>
+    where <code>x</code> is a numpy array containing a batch
+    of images with shape <code>(batch_size, *target_size, channels)</code>
+    and <code>y</code> is a numpy array of corresponding labels.</p>
+<hr />
+<h3 id="get_random_transform">get_random_transform</h3>
+<pre><code class="python">get_random_transform(img_shape, seed=None)
+</code></pre>
+
+<p>Generates random parameters for a transformation.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>seed</strong>: Random seed.</li>
+<li><strong>img_shape</strong>: Tuple of integers.
+    Shape of the image that is transformed.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A dictionary containing randomly chosen parameters describing the
+transformation.</p>
+<hr />
+<h3 id="random_transform">random_transform</h3>
+<pre><code class="python">random_transform(x, seed=None)
+</code></pre>
+
+<p>Applies a random transformation to an image.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>x</strong>: 3D tensor, single image.</li>
+<li><strong>seed</strong>: Random seed.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A randomly transformed version of the input (same shape).</p>
+<hr />
+<h3 id="standardize">standardize</h3>
+<pre><code class="python">standardize(x)
+</code></pre>
+
+<p>Applies the normalization configuration in-place to a batch of inputs.</p>
+<p><code>x</code> is changed in-place since the function is mainly used internally
+to standarize images and feed them to your network. If a copy of <code>x</code>
+would be created instead it would have a significant performance cost.
+If you want to apply this method without changing the input in-place
+you can call the method creating a copy before:</p>
+<p>standarize(np.copy(x))</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>x</strong>: Batch of inputs to be normalized.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>The inputs, normalized.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

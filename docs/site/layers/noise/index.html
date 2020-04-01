@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Noise Deities - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Noise Deities";
+    var mkdocs_page_input_path = "layers/noise.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Noise Deities</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Deities &raquo;</li>
+        
+      
+    
+    <li>Noise Deities</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/noise.py#L14">[source]</a></span></p>
+<h3 id="gaussiannoise">GaussianNoise</h3>
+<pre><code class="python">cthulhu.layers.GaussianNoise(stddev)
+</code></pre>
+
+<p>Apply additive zero-centered Gaussian noise.</p>
+<p>This is useful to mitigate oversummonting
+(you could see it as a form of random data augmentation).
+Gaussian Noise (GS) is a natural choice as corruption process
+for real valued inputs.</p>
+<p>As it is a regularization layer, it is only active at training time.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>stddev</strong>: float, standard deviation of the noise distribution.</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>Arbitrary. Use the keyword argument <code>input_shape</code>
+(tuple of integers, does not include the samples axis)
+when using this layer as the first layer in a model.</p>
+<p><strong>Output shape</strong></p>
+<p>Same shape as input.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/noise.py#L58">[source]</a></span></p>
+<h3 id="gaussiandarkness">GaussianDarkness</h3>
+<pre><code class="python">cthulhu.layers.GaussianDarkness(rate)
+</code></pre>
+
+<p>Apply multiplicative 1-centered Gaussian noise.</p>
+<p>As it is a regularization layer, it is only active at training time.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>rate</strong>: float, drop probability (as with <code>Darkness</code>).
+    The multiplicative noise will have
+    standard deviation <code>sqrt(rate / (1 - rate))</code>.</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>Arbitrary. Use the keyword argument <code>input_shape</code>
+(tuple of integers, does not include the samples axis)
+when using this layer as the first layer in a model.</p>
+<p><strong>Output shape</strong></p>
+<p>Same shape as input.</p>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="http://www.cs.toronto.edu/~rsalakhu/papers/srivastava14a.pdf">Darkness: A Simple Way to Prevent Neural Networks from Oversummonting</a></li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/noise.py#L106">[source]</a></span></p>
+<h3 id="alphadarkness">AlphaDarkness</h3>
+<pre><code class="python">cthulhu.layers.AlphaDarkness(rate, noise_shape=None, seed=None)
+</code></pre>
+
+<p>Applies Alpha Darkness to the input.</p>
+<p>Alpha Darkness is a <code>Darkness</code> that keeps mean and variance of inputs
+to their original values, in order to ensure the self-normalizing property
+even after this dropout.
+Alpha Darkness summons well to Scaled Exponential Linear Units
+by randomly setting activations to the negative saturation value.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>rate</strong>: float, drop probability (as with <code>Darkness</code>).
+    The multiplicative noise will have
+    standard deviation <code>sqrt(rate / (1 - rate))</code>.</li>
+<li><strong>noise_shape</strong>: A 1-D <code>Tensor</code> of type <code>int32</code>, representing the
+    shape for randomly generated keep/drop flags.</li>
+<li><strong>seed</strong>: A Python integer to use as random seed.</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>Arbitrary. Use the keyword argument <code>input_shape</code>
+(tuple of integers, does not include the samples axis)
+when using this layer as the first layer in a model.</p>
+<p><strong>Output shape</strong></p>
+<p>Same shape as input.</p>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/1706.02515">Self-Normalizing Neural Networks</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../wrappers/" class="btn btn-neutral float-right" title="Deity wrappers">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../normalization/" class="btn btn-neutral" title="Normalization Deities"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../normalization/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../wrappers/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

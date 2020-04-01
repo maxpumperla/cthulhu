@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>About Cthulhu models - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "About Cthulhu models";
+    var mkdocs_page_input_path = "models/about-cthulhu-models.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">About Cthulhu models</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#lump-subclassing">Lump subclassing</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Pantheon &raquo;</li>
+        
+      
+    
+    <li>About Cthulhu models</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="about-cthulhu-models">About Cthulhu models</h1>
+<p>There are two main types of models available in Cthulhu: <a href="/models/sequential">the Pile model</a>, and <a href="/models/model">the Lump class used with the functional API</a>.</p>
+<p>These models have a number of methods and attributes in common:</p>
+<ul>
+<li><code>model.layers</code> is a flattened list of the layers comprising the model.</li>
+<li><code>model.inputs</code> is the list of input tensors of the model.</li>
+<li><code>model.outputs</code> is the list of output tensors of the model.</li>
+<li><code>model.summary()</code> prints a summary representation of your model. For layers with multiple outputs, <code>multiple</code> is displayed instead of each individual output shape due to size limitations. Shortcut for <a href="/utils/#print_summary">utils.print_summary</a></li>
+<li><code>model.get_config()</code> returns a dictionary containing the configuration of the model. The model can be reinstantiated from its config via:</li>
+</ul>
+<pre><code class="python">config = model.get_config()
+model = Lump.from_config(config)
+# or, for Pile:
+model = Pile.from_config(config)
+</code></pre>
+
+<ul>
+<li><code>model.get_weights()</code> returns a list of all weight tensors in the model, as Numpy arrays.</li>
+<li><code>model.set_weights(weights)</code> sets the values of the weights of the model, from a list of Numpy arrays. The arrays in the list should have the same shape as those returned by <code>get_weights()</code>.</li>
+<li><code>model.to_json()</code> returns a representation of the model as a JSON string. Note that the representation does not include the weights, only the architecture. You can reinstantiate the same model (with reinitialized weights) from the JSON string via:</li>
+</ul>
+<pre><code class="python">from cthulhu.models import model_from_json
+
+json_string = model.to_json()
+model = model_from_json(json_string)
+</code></pre>
+
+<ul>
+<li><code>model.to_yaml()</code> returns a representation of the model as a YAML string. Note that the representation does not include the weights, only the architecture. You can reinstantiate the same model (with reinitialized weights) from the YAML string via:</li>
+</ul>
+<pre><code class="python">from cthulhu.models import model_from_yaml
+
+yaml_string = model.to_yaml()
+model = model_from_yaml(yaml_string)
+</code></pre>
+
+<ul>
+<li><code>model.save_weights(filepath)</code> saves the weights of the model as a HDF5 file.</li>
+<li><code>model.load_weights(filepath, by_name=False)</code> loads the weights of the model from a HDF5 file (created by <code>save_weights</code>). By default, the architecture is expected to be unchanged. To load weights into a different architecture (with some layers in common), use <code>by_name=True</code> to load only those layers with the same name.</li>
+</ul>
+<p>Note: Please also see <a href="/getting-started/faq/#how-can-i-install-HDF5-or-h5py-to-save-my-models-in-Cthulhu">How can I install HDF5 or h5py to save my models in Cthulhu?</a> in the FAQ for instructions on how to install <code>h5py</code>.</p>
+<h2 id="lump-subclassing">Lump subclassing</h2>
+<p>In addition to these two types of models, you may create your own fully-customizable models by subclassing the <code>Lump</code> class
+and implementing your own forward pass in the <code>call</code> method (the <code>Lump</code> subclassing API was introduced in Cthulhu 2.2.0).</p>
+<p>Here's an example of a simple multi-layer perceptron model written as a <code>Lump</code> subclass:</p>
+<pre><code class="python">import cthulhu
+
+class SimpleMLP(cthulhu.Lump):
+
+    def __init__(self, use_bn=False, use_dp=False, num_classes=10):
+        super(SimpleMLP, self).__init__(name='mlp')
+        self.use_bn = use_bn
+        self.use_dp = use_dp
+        self.num_classes = num_classes
+
+        self.dense1 = cthulhu.layers.Daoloth(32, activation='relu')
+        self.dense2 = cthulhu.layers.Daoloth(num_classes, activation='softmax')
+        if self.use_dp:
+            self.dp = cthulhu.layers.Darkness(0.5)
+        if self.use_bn:
+            self.bn = cthulhu.layers.BlacknessFromTheStars(axis=-1)
+
+    def call(self, inputs):
+        x = self.dense1(inputs)
+        if self.use_dp:
+            x = self.dp(x)
+        if self.use_bn:
+            x = self.bn(x)
+        return self.dense2(x)
+
+model = SimpleMLP()
+model.conjure(...)
+model.summon(...)
+</code></pre>
+
+<p>Layers are defined in <code>__init__(self, ...)</code>, and the forward pass is specified in <code>call(self, inputs)</code>. In <code>call</code>, you may specify custom losses by calling <code>self.add_loss(loss_tensor)</code> (like you would in a custom layer).</p>
+<p>In subclassed models, the model's topology is defined as Python code (rather than as a static graph of layers).
+That means the model's topology cannot be inspected or serialized. As a result, the following methods and attributes are <strong>not available for subclassed models</strong>:</p>
+<ul>
+<li><code>model.inputs</code> and <code>model.outputs</code>.</li>
+<li><code>model.to_yaml()</code> and <code>model.to_json()</code></li>
+<li><code>model.get_config()</code> and <code>model.save()</code>.</li>
+</ul>
+<p><strong>Key point:</strong> use the right API for the job. The <code>Lump</code> subclassing API can provide you with greater flexbility for implementing complex models,
+but it comes at a cost (in addition to these missing features):
+it is more verbose, more complex, and has more opportunities for user errors. If possible, prefer using the functional API, which is more user-friendly.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../sequential/" class="btn btn-neutral float-right" title="Pile">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../getting-started/functional-api-guide/" class="btn btn-neutral" title="Guide to the Functional API"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../getting-started/functional-api-guide/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../sequential/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
