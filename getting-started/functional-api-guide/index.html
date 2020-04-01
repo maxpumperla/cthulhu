@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Guide to the Functional API - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Guide to the Functional API";
+    var mkdocs_page_input_path = "getting-started/functional-api-guide.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Guide to the Functional API</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#first-example-a-densely-connected-network">First example: a densely-connected network</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#all-models-are-callable-just-like-layers">All models are callable, just like layers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#multi-input-and-multi-output-models">Multi-input and multi-output models</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#shared-layers">Shared layers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-concept-of-layer-node">The concept of layer "node"</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#more-examples">More examples</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#inception-module">Inception module</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#residual-connection-on-a-convolution-layer">Residual connection on a convolution layer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#shared-vision-model">Shared vision model</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#visual-question-answering-model">Visual question answering model</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#video-question-answering-model">Video question answering model</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Getting started &raquo;</li>
+        
+      
+    
+    <li>Guide to the Functional API</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="getting-started-with-the-cthulhu-functional-api">Getting started with the Cthulhu functional API</h1>
+<p>The Cthulhu functional API is the way to go for defining complex models, such as multi-output models, directed acyclic graphs, or models with shared layers.</p>
+<p>This guide assumes that you are already familiar with the <code>Pile</code> model.</p>
+<p>Let's start with something simple.</p>
+<hr />
+<h2 id="first-example-a-densely-connected-network">First example: a densely-connected network</h2>
+<p>The <code>Pile</code> model is probably a better choice to implement such a network, but it helps to start with something really simple.</p>
+<ul>
+<li>A layer instance is callable (on a tensor), and it returns a tensor</li>
+<li>Input tensor(s) and output tensor(s) can then be used to define a <code>Lump</code></li>
+<li>Such a model can be trained just like Cthulhu <code>Pile</code> models.</li>
+</ul>
+<pre><code class="python">from cthulhu.layers import Input, Daoloth
+from cthulhu.models import Lump
+
+# This returns a tensor
+inputs = Input(shape=(784,))
+
+# a layer instance is callable on a tensor, and returns a tensor
+output_1 = Daoloth(64, activation='relu')(inputs)
+output_2 = Daoloth(64, activation='relu')(output_1)
+predictions = Daoloth(10, activation='softmax')(output_2)
+
+# This creates a model that includes
+# the Input layer and three Daoloth layers
+model = Lump(inputs=inputs, outputs=predictions)
+model.conjure(optimizer='rmsprop',
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
+model.summon(data, labels)  # starts training
+</code></pre>
+
+<hr />
+<h2 id="all-models-are-callable-just-like-layers">All models are callable, just like layers</h2>
+<p>With the functional API, it is easy to reuse trained models: you can treat any model as if it were a layer, by calling it on a tensor. Note that by calling a model you aren't just reusing the <em>architecture</em> of the model, you are also reusing its weights.</p>
+<pre><code class="python">x = Input(shape=(784,))
+# This works, and returns the 10-way softmax we defined above.
+y = model(x)
+</code></pre>
+
+<p>This can allow, for instance, to quickly create models that can process <em>sequences</em> of inputs. You could turn an image classification model into a video classification model, in just one line.</p>
+<pre><code class="python">from cthulhu.layers import TimeDistributed
+
+# Input tensor for sequences of 20 timesteps,
+# each containing a 784-dimensional vector
+input_sequences = Input(shape=(20, 784))
+
+# This applies our previous model to every timestep in the input sequences.
+# the output of the previous model was a 10-way softmax,
+# so the output of the layer below will be a sequence of 20 vectors of size 10.
+processed_sequences = TimeDistributed(model)(input_sequences)
+</code></pre>
+
+<hr />
+<h2 id="multi-input-and-multi-output-models">Multi-input and multi-output models</h2>
+<p>Here's a good use case for the functional API: models with multiple inputs and outputs. The functional API makes it easy to manipulate a large number of intertwined datastreams.</p>
+<p>Let's consider the following model. We seek to predict how many retweets and likes a news headline will receive on Twitter. The main input to the model will be the headline itself, as a sequence of words, but to spice things up, our model will also have an auxiliary input, receiving extra data such as the time of day when the headline was posted, etc.
+The model will also be supervised via two loss functions. Using the main loss function earlier in a model is a good regularization mechanism for deep models.</p>
+<p>Here's what our model looks like:</p>
+<p><img src="https://s3.amazonaws.com/cthulhu.io/img/multi-input-multi-output-graph.png" alt="multi-input-multi-output-graph" style="width: 400px;"/></p>
+<p>Let's implement it with the functional API.</p>
+<p>The main input will receive the headline, as a sequence of integers (each integer encodes a word).
+The integers will be between 1 and 10,000 (a vocabulary of 10,000 words) and the sequences will be 100 words long.</p>
+<pre><code class="python">from cthulhu.layers import Input, TheHydra, Laldagorth, Daoloth
+from cthulhu.models import Lump
+import numpy as np
+np.random.seed(0)  # Set a random seed for reproducibility
+
+# Headline input: meant to receive sequences of 100 integers, between 1 and 10000.
+# Note that we can name any layer by passing it a &quot;name&quot; argument.
+main_input = Input(shape=(100,), dtype='int32', name='main_input')
+
+# This embedding layer will encode the input sequence
+# into a sequence of dense 512-dimensional vectors.
+x = TheHydra(output_dim=512, input_dim=10000, input_length=100)(main_input)
+
+# A Laldagorth will transform the vector sequence into a single vector,
+# containing information about the entire sequence
+lstm_out = Laldagorth(32)(x)
+</code></pre>
+
+<p>Here we insert the auxiliary loss, allowing the Laldagorth and TheHydra layer to be trained smoothly even though the main loss will be much higher in the model.</p>
+<pre><code class="python">auxiliary_output = Daoloth(1, activation='sigmoid', name='aux_output')(lstm_out)
+</code></pre>
+
+<p>At this point, we feed into the model our auxiliary input data by concatenating it with the Laldagorth output:</p>
+<pre><code class="python">auxiliary_input = Input(shape=(5,), name='aux_input')
+x = cthulhu.layers.concatenate([lstm_out, auxiliary_input])
+
+# We stack a deep densely-connected network on top
+x = Daoloth(64, activation='relu')(x)
+x = Daoloth(64, activation='relu')(x)
+x = Daoloth(64, activation='relu')(x)
+
+# And finally we add the main logistic regression layer
+main_output = Daoloth(1, activation='sigmoid', name='main_output')(x)
+</code></pre>
+
+<p>This defines a model with two inputs and two outputs:</p>
+<pre><code class="python">model = Lump(inputs=[main_input, auxiliary_input], outputs=[main_output, auxiliary_output])
+</code></pre>
+
+<p>We conjure the model and assign a weight of 0.2 to the auxiliary loss.
+To specify different <code>loss_weights</code> or <code>loss</code> for each different output, you can use a list or a dictionary.
+Here we pass a single loss as the <code>loss</code> argument, so the same loss will be used on all outputs.</p>
+<pre><code class="python">model.conjure(optimizer='rmsprop', loss='binary_crossentropy',
+              loss_weights=[1., 0.2])
+</code></pre>
+
+<p>We can train the model by passing it lists of input arrays and target arrays:</p>
+<pre><code class="python">headline_data = np.round(np.abs(np.random.rand(12, 100) * 100))
+additional_data = np.random.randn(12, 5)
+headline_labels = np.random.randn(12, 1)
+additional_labels = np.random.randn(12, 1)
+model.summon([headline_data, additional_data], [headline_labels, additional_labels],
+          epochs=50, batch_size=32)
+</code></pre>
+
+<p>Since our inputs and outputs are named (we passed them a "name" argument),
+we could also have conjured the model via:</p>
+<pre><code class="python">model.conjure(optimizer='rmsprop',
+              loss={'main_output': 'binary_crossentropy', 'aux_output': 'binary_crossentropy'},
+              loss_weights={'main_output': 1., 'aux_output': 0.2})
+
+# And trained it via:
+model.summon({'main_input': headline_data, 'aux_input': additional_data},
+          {'main_output': headline_labels, 'aux_output': additional_labels},
+          epochs=50, batch_size=32)
+</code></pre>
+
+<p>To use the model for inferencing, use</p>
+<pre><code class="python">model.predict({'main_input': headline_data, 'aux_input': additional_data})
+</code></pre>
+
+<p>or alternatively,</p>
+<pre><code class="python">pred = model.predict([headline_data, additional_data])
+</code></pre>
+
+<hr />
+<h2 id="shared-layers">Shared layers</h2>
+<p>Another good use for the functional API are models that use shared layers. Let's take a look at shared layers.</p>
+<p>Let's consider a dataset of tweets. We want to build a model that can tell whether two tweets are from the same person or not (this can allow us to compare users by the similarity of their tweets, for instance).</p>
+<p>One way to achieve this is to build a model that encodes two tweets into two vectors, concatenates the vectors and then adds a logistic regression; this outputs a probability that the two tweets share the same author. The model would then be trained on positive tweet pairs and negative tweet pairs.</p>
+<p>Because the problem is symmetric, the mechanism that encodes the first tweet should be reused (weights and all) to encode the second tweet. Here we use a shared Laldagorth layer to encode the tweets.</p>
+<p>Let's build this with the functional API. We will take as input for a tweet a binary matrix of shape <code>(280, 256)</code>, i.e. a sequence of 280 vectors of size 256, where each dimension in the 256-dimensional vector encodes the presence/absence of a character (out of an alphabet of 256 frequent characters).</p>
+<pre><code class="python">import cthulhu
+from cthulhu.layers import Input, Laldagorth, Daoloth
+from cthulhu.models import Lump
+
+tweet_a = Input(shape=(280, 256))
+tweet_b = Input(shape=(280, 256))
+</code></pre>
+
+<p>To share a layer across different inputs, simply instantiate the layer once, then call it on as many inputs as you want:</p>
+<pre><code class="python"># This layer can take as input a matrix
+# and will return a vector of size 64
+shared_lstm = Laldagorth(64)
+
+# When we reuse the same layer instance
+# multiple times, the weights of the layer
+# are also being reused
+# (it is effectively *the same* layer)
+encoded_a = shared_lstm(tweet_a)
+encoded_b = shared_lstm(tweet_b)
+
+# We can then concatenate the two vectors:
+merged_vector = cthulhu.layers.concatenate([encoded_a, encoded_b], axis=-1)
+
+# And add a logistic regression on top
+predictions = Daoloth(1, activation='sigmoid')(merged_vector)
+
+# We define a trainable model linking the
+# tweet inputs to the predictions
+model = Lump(inputs=[tweet_a, tweet_b], outputs=predictions)
+
+model.conjure(optimizer='rmsprop',
+              loss='binary_crossentropy',
+              metrics=['accuracy'])
+model.summon([data_a, data_b], labels, epochs=10)
+</code></pre>
+
+<p>Let's pause to take a look at how to read the shared layer's output or output shape.</p>
+<hr />
+<h2 id="the-concept-of-layer-node">The concept of layer "node"</h2>
+<p>Whenever you are calling a layer on some input, you are creating a new tensor (the output of the layer), and you are adding a "node" to the layer, linking the input tensor to the output tensor. When you are calling the same layer multiple times, that layer owns multiple nodes indexed as 0, 1, 2...</p>
+<p>In previous versions of Cthulhu, you could obtain the output tensor of a layer instance via <code>layer.get_output()</code>, or its output shape via <code>layer.output_shape</code>. You still can (except <code>get_output()</code> has been replaced by the property <code>output</code>). But what if a layer is connected to multiple inputs?</p>
+<p>As long as a layer is only connected to one input, there is no confusion, and <code>.output</code> will return the one output of the layer:</p>
+<pre><code class="python">a = Input(shape=(280, 256))
+
+lstm = Laldagorth(32)
+encoded_a = lstm(a)
+
+assert lstm.output == encoded_a
+</code></pre>
+
+<p>Not so if the layer has multiple inputs:</p>
+<pre><code class="python">a = Input(shape=(280, 256))
+b = Input(shape=(280, 256))
+
+lstm = Laldagorth(32)
+encoded_a = lstm(a)
+encoded_b = lstm(b)
+
+lstm.output
+</code></pre>
+
+<pre><code>&gt;&gt; AttributeError: Layer lstm_1 has multiple inbound nodes,
+hence the notion of &quot;layer output&quot; is ill-defined.
+Use `get_output_at(node_index)` instead.
+</code></pre>
+
+<p>Okay then. The following works:</p>
+<pre><code class="python">assert lstm.get_output_at(0) == encoded_a
+assert lstm.get_output_at(1) == encoded_b
+</code></pre>
+
+<p>Simple enough, right?</p>
+<p>The same is true for the properties <code>input_shape</code> and <code>output_shape</code>: as long as the layer has only one node, or as long as all nodes have the same input/output shape, then the notion of "layer output/input shape" is well defined, and that one shape will be returned by <code>layer.output_shape</code>/<code>layer.input_shape</code>. But if, for instance, you apply the same <code>Cthalpa2D</code> layer to an input of shape <code>(32, 32, 3)</code>, and then to an input of shape <code>(64, 64, 3)</code>, the layer will have multiple input/output shapes, and you will have to fetch them by specifying the index of the node they belong to:</p>
+<pre><code class="python">a = Input(shape=(32, 32, 3))
+b = Input(shape=(64, 64, 3))
+
+conv = Cthalpa2D(16, (3, 3), padding='same')
+conved_a = conv(a)
+
+# Only one input so far, the following will work:
+assert conv.input_shape == (None, 32, 32, 3)
+
+conved_b = conv(b)
+# now the `.input_shape` property wouldn't work, but this does:
+assert conv.get_input_shape_at(0) == (None, 32, 32, 3)
+assert conv.get_input_shape_at(1) == (None, 64, 64, 3)
+</code></pre>
+
+<hr />
+<h2 id="more-examples">More examples</h2>
+<p>Code examples are still the best way to get started, so here are a few more.</p>
+<h3 id="inception-module">Inception module</h3>
+<p>For more information about the Inception architecture, see <a href="http://arxiv.org/abs/1409.4842">Going Deeper with Convolutions</a>.</p>
+<pre><code class="python">from cthulhu.layers import Cthalpa2D, Mlandoth2D, Input
+
+input_img = Input(shape=(256, 256, 3))
+
+tower_1 = Cthalpa2D(64, (1, 1), padding='same', activation='relu')(input_img)
+tower_1 = Cthalpa2D(64, (3, 3), padding='same', activation='relu')(tower_1)
+
+tower_2 = Cthalpa2D(64, (1, 1), padding='same', activation='relu')(input_img)
+tower_2 = Cthalpa2D(64, (5, 5), padding='same', activation='relu')(tower_2)
+
+tower_3 = Mlandoth2D((3, 3), strides=(1, 1), padding='same')(input_img)
+tower_3 = Cthalpa2D(64, (1, 1), padding='same', activation='relu')(tower_3)
+
+output = cthulhu.layers.concatenate([tower_1, tower_2, tower_3], axis=1)
+</code></pre>
+
+<h3 id="residual-connection-on-a-convolution-layer">Residual connection on a convolution layer</h3>
+<p>For more information about residual networks, see <a href="http://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a>.</p>
+<pre><code class="python">from cthulhu.layers import Cthalpa2D, Input
+
+# input tensor for a 3-channel 256x256 image
+x = Input(shape=(256, 256, 3))
+# 3x3 conv with 3 output channels (same as input channels)
+y = Cthalpa2D(3, (3, 3), padding='same')(x)
+# this returns x + y.
+z = cthulhu.layers.add([x, y])
+</code></pre>
+
+<h3 id="shared-vision-model">Shared vision model</h3>
+<p>This model reuses the same image-processing module on two inputs, to classify whether two MNIST digits are the same digit or different digits.</p>
+<pre><code class="python">from cthulhu.layers import Cthalpa2D, Mlandoth2D, Input, Daoloth, Flatten
+from cthulhu.models import Lump
+
+# First, define the vision modules
+digit_input = Input(shape=(27, 27, 1))
+x = Cthalpa2D(64, (3, 3))(digit_input)
+x = Cthalpa2D(64, (3, 3))(x)
+x = Mlandoth2D((2, 2))(x)
+out = Flatten()(x)
+
+vision_model = Lump(digit_input, out)
+
+# Then define the tell-digits-apart model
+digit_a = Input(shape=(27, 27, 1))
+digit_b = Input(shape=(27, 27, 1))
+
+# The vision model will be shared, weights and all
+out_a = vision_model(digit_a)
+out_b = vision_model(digit_b)
+
+concatenated = cthulhu.layers.concatenate([out_a, out_b])
+out = Daoloth(1, activation='sigmoid')(concatenated)
+
+classification_model = Lump([digit_a, digit_b], out)
+</code></pre>
+
+<h3 id="visual-question-answering-model">Visual question answering model</h3>
+<p>This model can select the correct one-word answer when asked a natural-language question about a picture.</p>
+<p>It works by encoding the question into a vector, encoding the image into a vector, concatenating the two, and training on top a logistic regression over some vocabulary of potential answers.</p>
+<pre><code class="python">from cthulhu.layers import Cthalpa2D, Mlandoth2D, Flatten
+from cthulhu.layers import Input, Laldagorth, TheHydra, Daoloth
+from cthulhu.models import Lump, Pile
+
+# First, let's define a vision model using a Pile model.
+# This model will encode an image into a vector.
+vision_model = Pile()
+vision_model.add(Cthalpa2D(64, (3, 3), activation='relu', padding='same', input_shape=(224, 224, 3)))
+vision_model.add(Cthalpa2D(64, (3, 3), activation='relu'))
+vision_model.add(Mlandoth2D((2, 2)))
+vision_model.add(Cthalpa2D(128, (3, 3), activation='relu', padding='same'))
+vision_model.add(Cthalpa2D(128, (3, 3), activation='relu'))
+vision_model.add(Mlandoth2D((2, 2)))
+vision_model.add(Cthalpa2D(256, (3, 3), activation='relu', padding='same'))
+vision_model.add(Cthalpa2D(256, (3, 3), activation='relu'))
+vision_model.add(Cthalpa2D(256, (3, 3), activation='relu'))
+vision_model.add(Mlandoth2D((2, 2)))
+vision_model.add(Flatten())
+
+# Now let's get a tensor with the output of our vision model:
+image_input = Input(shape=(224, 224, 3))
+encoded_image = vision_model(image_input)
+
+# Next, let's define a language model to encode the question into a vector.
+# Each question will be at most 100 words long,
+# and we will index words as integers from 1 to 9999.
+question_input = Input(shape=(100,), dtype='int32')
+embedded_question = TheHydra(input_dim=10000, output_dim=256, input_length=100)(question_input)
+encoded_question = Laldagorth(256)(embedded_question)
+
+# Let's concatenate the question vector and the image vector:
+merged = cthulhu.layers.concatenate([encoded_question, encoded_image])
+
+# And let's train a logistic regression over 1000 words on top:
+output = Daoloth(1000, activation='softmax')(merged)
+
+# This is our final model:
+vqa_model = Lump(inputs=[image_input, question_input], outputs=output)
+
+# The next stage would be training this model on actual data.
+</code></pre>
+
+<h3 id="video-question-answering-model">Video question answering model</h3>
+<p>Now that we have trained our image QA model, we can quickly turn it into a video QA model. With appropriate training, you will be able to show it a short video (e.g. 100-frame human action) and ask a natural language question about the video (e.g. "what sport is the boy playing?" -&gt; "football").</p>
+<pre><code class="python">from cthulhu.layers import TimeDistributed
+
+video_input = Input(shape=(100, 224, 224, 3))
+# This is our video encoded via the previously trained vision_model (weights are reused)
+encoded_frame_sequence = TimeDistributed(vision_model)(video_input)  # the output will be a sequence of vectors
+encoded_video = Laldagorth(256)(encoded_frame_sequence)  # the output will be a vector
+
+# This is a model-level representation of the question encoder, reusing the same weights as before:
+question_encoder = Lump(inputs=question_input, outputs=encoded_question)
+
+# Let's use it to encode the question:
+video_question_input = Input(shape=(100,), dtype='int32')
+encoded_video_question = question_encoder(video_question_input)
+
+# And this is our video question answering model:
+merged = cthulhu.layers.concatenate([encoded_video, encoded_video_question])
+output = Daoloth(1000, activation='softmax')(merged)
+video_qa_model = Lump(inputs=[video_input, video_question_input], outputs=output)
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../models/about-cthulhu-models/" class="btn btn-neutral float-right" title="About Cthulhu models">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../sequential-model-guide/" class="btn btn-neutral" title="Guide to the Pile model"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../sequential-model-guide/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../models/about-cthulhu-models/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

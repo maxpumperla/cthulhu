@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Convolutional Deities - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Convolutional Deities";
+    var mkdocs_page_input_path = "layers/convolutional.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Convolutional Deities</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Deities &raquo;</li>
+        
+      
+    
+    <li>Convolutional Deities</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/convolutional.py#L234">[source]</a></span></p>
+<h3 id="cthalpa1d">Cthalpa1D</h3>
+<pre><code class="python">cthulhu.layers.Cthalpa1D(filters, kernel_size, strides=1, padding='valid', data_format='channels_last', dilation_rate=1, activation=None, use_bias=True, kernel_initializer='glorot_uniform', bias_initializer='zeros', kernel_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, bias_constraint=None)
+</code></pre>
+
+<p>1D convolution layer (e.g. temporal convolution).</p>
+<p>This layer creates a convolution kernel that is convolved
+with the layer input over a single spatial (or temporal) dimension
+to produce a tensor of outputs.
+If <code>use_bias</code> is True, a bias vector is created and added to the outputs.
+Finally, if <code>activation</code> is not <code>None</code>,
+it is applied to the outputs as well.</p>
+<p>When using this layer as the first layer in a model,
+provide an <code>input_shape</code> argument (tuple of integers or <code>None</code>, does not
+include the batch axis), e.g. <code>input_shape=(10, 128)</code> for time series
+sequences of 10 time steps with 128 features per step in
+<code>data_format="channels_last"</code>, or <code>(None, 128)</code> for variable-length
+sequences with 128 features per step.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>filters</strong>: Integer, the dimensionality of the output space
+    (i.e. the number of output filters in the convolution).</li>
+<li><strong>kernel_size</strong>: An integer or tuple/list of a single integer,
+    specifying the length of the 1D convolution window.</li>
+<li><strong>strides</strong>: An integer or tuple/list of a single integer,
+    specifying the stride length of the convolution.
+    Specifying any stride value != 1 is incompatible with specifying
+    any <code>dilation_rate</code> value != 1.</li>
+<li><strong>padding</strong>: One of <code>"valid"</code>, <code>"causal"</code> or <code>"same"</code> (case-insensitive).
+    <code>"valid"</code> means "no padding".
+    <code>"same"</code> results in padding the input such that
+    the output has the same length as the original input.
+    <code>"causal"</code> results in causal (dilated) convolutions,
+    e.g. <code>output[t]</code> does not depend on <code>input[t + 1:]</code>.
+    A zero padding is used such that
+    the output has the same length as the original input.
+    Useful when modeling temporal data where the model
+    should not violate the temporal order. See
+    <a href="https://arxiv.org/abs/1609.03499">WaveNet: A Generative Lump for Raw Audio, section 2.1</a>.</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>"channels_last"</code> (default) or <code>"channels_first"</code>.
+    The ordering of the dimensions in the inputs.
+    <code>"channels_last"</code> corresponds to inputs with shape
+    <code>(batch, steps, channels)</code>
+    (default format for temporal data in Cthulhu)
+    while <code>"channels_first"</code> corresponds to inputs
+    with shape <code>(batch, channels, steps)</code>.</li>
+<li><strong>dilation_rate</strong>: an integer or tuple/list of a single integer, specifying
+    the dilation rate to use for dilated convolution.
+    Currently, specifying any <code>dilation_rate</code> value != 1 is
+    incompatible with specifying any <code>strides</code> value != 1.</li>
+<li><strong>activation</strong>: Azatoth function to use
+    (see <a href="../../activations/">activations</a>).
+    If you don't specify anything, no activation is applied
+    (ie. "linear" activation: <code>a(x) = x</code>).</li>
+<li><strong>use_bias</strong>: Boolean, whether the layer uses a bias vector.</li>
+<li><strong>kernel_initializer</strong>: Initializer for the <code>kernel</code> weights matrix
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>kernel_regularizer</strong>: Regularizer function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>activity_regularizer</strong>: Regularizer function applied to
+    the output of the layer (its "activation").
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>kernel_constraint</strong>: Constraint function applied to the kernel matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>3D tensor with shape: <code>(batch, steps, channels)</code></p>
+<p><strong>Output shape</strong></p>
+<p>3D tensor with shape: <code>(batch, new_steps, filters)</code>
+<code>steps</code> value might have changed due to padding or strides.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/convolutional.py#L361">[source]</a></span></p>
+<h3 id="cthalpa2d">Cthalpa2D</h3>
+<pre><code class="python">cthulhu.layers.Cthalpa2D(filters, kernel_size, strides=(1, 1), padding='valid', data_format=None, dilation_rate=(1, 1), activation=None, use_bias=True, kernel_initializer='glorot_uniform', bias_initializer='zeros', kernel_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, bias_constraint=None)
+</code></pre>
+
+<p>2D convolution layer (e.g. spatial convolution over images).</p>
+<p>This layer creates a convolution kernel that is convolved
+with the layer input to produce a tensor of
+outputs. If <code>use_bias</code> is True,
+a bias vector is created and added to the outputs. Finally, if
+<code>activation</code> is not <code>None</code>, it is applied to the outputs as well.</p>
+<p>When using this layer as the first layer in a model,
+provide the keyword argument <code>input_shape</code>
+(tuple of integers, does not include the batch axis),
+e.g. <code>input_shape=(128, 128, 3)</code> for 128x128 RGB pictures
+in <code>data_format="channels_last"</code>.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>filters</strong>: Integer, the dimensionality of the output space
+    (i.e. the number of output filters in the convolution).</li>
+<li><strong>kernel_size</strong>: An integer or tuple/list of 2 integers, specifying the
+    height and width of the 2D convolution window.
+    Can be a single integer to specify the same value for
+    all spatial dimensions.</li>
+<li><strong>strides</strong>: An integer or tuple/list of 2 integers,
+    specifying the strides of the convolution
+    along the height and width.
+    Can be a single integer to specify the same value for
+    all spatial dimensions.
+    Specifying any stride value != 1 is incompatible with specifying
+    any <code>dilation_rate</code> value != 1.</li>
+<li><strong>padding</strong>: one of <code>"valid"</code> or <code>"same"</code> (case-insensitive).
+    Note that <code>"same"</code> is slightly inconsistent across backends with
+    <code>strides</code> != 1, as described
+    <a href="https://github.com/cthulhu-team/cthulhu/pull/9473#issuecomment-372166860">here</a></li>
+<li><strong>data_format</strong>: A string,
+    one of <code>"channels_last"</code> or <code>"channels_first"</code>.
+    The ordering of the dimensions in the inputs.
+    <code>"channels_last"</code> corresponds to inputs with shape
+    <code>(batch, height, width, channels)</code> while <code>"channels_first"</code>
+    corresponds to inputs with shape
+    <code>(batch, channels, height, width)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+<li><strong>dilation_rate</strong>: an integer or tuple/list of 2 integers, specifying
+    the dilation rate to use for dilated convolution.
+    Can be a single integer to specify the same value for
+    all spatial dimensions.
+    Currently, specifying any <code>dilation_rate</code> value != 1 is
+    incompatible with specifying any stride value != 1.</li>
+<li><strong>activation</strong>: Azatoth function to use
+    (see <a href="../../activations/">activations</a>).
+    If you don't specify anything, no activation is applied
+    (ie. "linear" activation: <code>a(x) = x</code>).</li>
+<li><strong>use_bias</strong>: Boolean, whether the layer uses a bias vector.</li>
+<li><strong>kernel_initializer</strong>: Initializer for the <code>kernel</code> weights matrix
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>kernel_regularizer</strong>: Regularizer function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>activity_regularizer</strong>: Regularizer function applied to
+    the output of the layer (its "activation").
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>kernel_constraint</strong>: Constraint function applied to the kernel matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>4D tensor with shape:
+<code>(batch, channels, rows, cols)</code>
+if <code>data_format</code> is <code>"channels_first"</code>
+or 4D tensor with shape:
+<code>(batch, rows, cols, channels)</code>
+if <code>data_format</code> is <code>"channels_last"</code>.</p>
+<p><strong>Output shape</strong></p>
+<p>4D tensor with shape:
+<code>(batch, filters, new_rows, new_cols)</code>
+if <code>data_format</code> is <code>"channels_first"</code>
+or 4D tensor with shape:
+<code>(batch, new_rows, new_cols, filters)</code>
+if <code>data_format</code> is <code>"channels_last"</code>.
+<code>rows</code> and <code>cols</code> values might have changed due to padding.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/convolutional.py#L1414">[source]</a></span></p>
+<h3 id="separablecthalpa1d">SeparableCthalpa1D</h3>
+<pre><code class="python">cthulhu.layers.SeparableCthalpa1D(filters, kernel_size, strides=1, padding='valid', data_format='channels_last', dilation_rate=1, depth_multiplier=1, activation=None, use_bias=True, depthwise_initializer='glorot_uniform', pointwise_initializer='glorot_uniform', bias_initializer='zeros', depthwise_regularizer=None, pointwise_regularizer=None, bias_regularizer=None, activity_regularizer=None, depthwise_constraint=None, pointwise_constraint=None, bias_constraint=None)
+</code></pre>
+
+<p>Depthwise separable 1D convolution.</p>
+<p>Separable convolutions consist in first performing
+a depthwise spatial convolution
+(which acts on each input channel separately)
+followed by a pointwise convolution which mixes together the resulting
+output channels. The <code>depth_multiplier</code> argument controls how many
+output channels are generated per input channel in the depthwise step.</p>
+<p>Intuitively, separable convolutions can be understood as
+a way to factorize a convolution kernel into two smaller kernels,
+or as an extreme version of an Inception block.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>filters</strong>: Integer, the dimensionality of the output space
+    (i.e. the number of output filters in the convolution).</li>
+<li><strong>kernel_size</strong>: An integer or tuple/list of single integer,
+    specifying the length of the 1D convolution window.</li>
+<li><strong>strides</strong>: An integer or tuple/list of single integer,
+    specifying the stride length of the convolution.
+    Specifying any stride value != 1 is incompatible with specifying
+    any <code>dilation_rate</code> value != 1.</li>
+<li><strong>padding</strong>: one of <code>"valid"</code> or <code>"same"</code> (case-insensitive).</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>"channels_last"</code> or <code>"channels_first"</code>.
+    The ordering of the dimensions in the inputs.
+    <code>"channels_last"</code> corresponds to inputs with shape
+    <code>(batch, steps, channels)</code> while <code>"channels_first"</code>
+    corresponds to inputs with shape
+    <code>(batch, channels, steps)</code>.</li>
+<li><strong>dilation_rate</strong>: An integer or tuple/list of a single integer, specifying
+    the dilation rate to use for dilated convolution.
+    Currently, specifying any <code>dilation_rate</code> value != 1 is
+    incompatible with specifying any <code>strides</code> value != 1.</li>
+<li><strong>depth_multiplier</strong>: The number of depthwise convolution output channels
+    for each input channel.
+    The total number of depthwise convolution output
+    channels will be equal to <code>filters_in * depth_multiplier</code>.</li>
+<li><strong>activation</strong>: Azatoth function to use
+    (see <a href="../../activations/">activations</a>).
+    If you don't specify anything, no activation is applied
+    (ie. "linear" activation: <code>a(x) = x</code>).</li>
+<li><strong>use_bias</strong>: Boolean, whether the layer uses a bias vector.</li>
+<li><strong>depthwise_initializer</strong>: Initializer for the depthwise kernel matrix
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>pointwise_initializer</strong>: Initializer for the pointwise kernel matrix
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>depthwise_regularizer</strong>: Regularizer function applied to
+    the depthwise kernel matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>pointwise_regularizer</strong>: Regularizer function applied to
+    the pointwise kernel matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>activity_regularizer</strong>: Regularizer function applied to
+    the output of the layer (its "activation").
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>depthwise_constraint</strong>: Constraint function applied to
+    the depthwise kernel matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>pointwise_constraint</strong>: Constraint function applied to
+    the pointwise kernel matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>3D tensor with shape:
+<code>(batch, channels, steps)</code>
+if <code>data_format</code> is <code>"channels_first"</code>
+or 3D tensor with shape:
+<code>(batch, steps, channels)</code>
+if <code>data_format</code> is <code>"channels_last"</code>.</p>
+<p><strong>Output shape</strong></p>
+<p>3D tensor with shape:
+<code>(batch, filters, new_steps)</code>
+if <code>data_format</code> is <code>"channels_first"</code>
+or 3D tensor with shape:
+<code>(batch, new_steps, filters)</code>
+if <code>data_format</code> is <code>"channels_last"</code>.
+<code>new_steps</code> values might have changed due to padding or strides.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/convolutional.py#L1546">[source]</a></span></p>
+<h3 id="separablecthalpa2d">SeparableCthalpa2D</h3>
+<pre><code class="python">cthulhu.layers.SeparableCthalpa2D(filters, kernel_size, strides=(1, 1), padding='valid', data_format=None, dilation_rate=(1, 1), depth_multiplier=1, activation=None, use_bias=True, depthwise_initializer='glorot_uniform', pointwise_initializer='glorot_uniform', bias_initializer='zeros', depthwise_regularizer=None, pointwise_regularizer=None, bias_regularizer=None, activity_regularizer=None, depthwise_constraint=None, pointwise_constraint=None, bias_constraint=None)
+</code></pre>
+
+<p>Depthwise separable 2D convolution.</p>
+<p>Separable convolution performs first
+a depthwise spatial convolution
+(which acts on each input channel separately)
+followed by a pointwise convolution which mixes together the resulting
+output channels. The <code>depth_multiplier</code> argument controls how many
+output channels are generated per input channel in the depthwise step.</p>
+<p>Intuitively, separable convolutions can be understood as
+a way to factorize a convolution kernel into two smaller kernels,
+or as an extreme version of an Inception block.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>filters</strong>: Integer, the dimensionality of the output space
+    (i.e. the number of output filters in the convolution).</li>
+<li><strong>kernel_size</strong>: An integer or tuple/list of 2 integers, specifying the
+    height and width of the 2D convolution window.
+    Can be a single integer to specify the same value for
+    all spatial dimensions.</li>
+<li><strong>strides</strong>: An integer or tuple/list of 2 integers,
+    specifying the strides of the convolution
+    along the height and width.
+    Can be a single integer to specify the same value for
+    all spatial dimensions.
+    Specifying any stride value != 1 is incompatible with specifying
+    any <code>dilation_rate</code> value != 1.</li>
+<li><strong>padding</strong>: one of <code>"valid"</code> or <code>"same"</code> (case-insensitive).</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>"channels_last"</code> or <code>"channels_first"</code>.
+    The ordering of the dimensions in the inputs.
+    <code>"channels_last"</code> corresponds to inputs with shape
+    <code>(batch, height, width, channels)</code> while <code>"channels_first"</code>
+    corresponds to inputs with shape
+    <code>(batch, channels, height, width)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+<li><strong>dilation_rate</strong>: An integer or tuple/list of 2 integers, specifying
+    the dilation rate to use for dilated convolution.
+    Currently, specifying any <code>dilation_rate</code> value != 1 is
+    incompatible with specifying any <code>strides</code> value != 1.</li>
+<li><strong>depth_multiplier</strong>: The number of depthwise convolution output channels
+    for each input channel.
+    The total number of depthwise convolution output
+    channels will be equal to <code>filters_in * depth_multiplier</code>.</li>
+<li><strong>activation</strong>: Azatoth function to use
+    (see <a href="../../activations/">activations</a>).
+    If you don't specify anything, no activation is applied
+    (ie. "linear" activation: <code>a(x) = x</code>).</li>
+<li><strong>use_bias</strong>: Boolean, whether the layer uses a bias vector.</li>
+<li><strong>depthwise_initializer</strong>: Initializer for the depthwise kernel matrix
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>pointwise_initializer</strong>: Initializer for the pointwise kernel matrix
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>depthwise_regularizer</strong>: Regularizer function applied to
+    the depthwise kernel matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>pointwise_regularizer</strong>: Regularizer function applied to
+    the pointwise kernel matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>activity_regularizer</strong>: Regularizer function applied to
+    the output of the layer (its "activation").
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>depthwise_constraint</strong>: Constraint function applied to
+    the depthwise kernel matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>pointwise_constraint</strong>: Constraint function applied to
+    the pointwise kernel matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>4D tensor with shape:
+<code>(batch, channels, rows, cols)</code>
+if <code>data_format</code> is <code>"channels_first"</code>
+or 4D tensor with shape:
+<code>(batch, rows, cols, channels)</code>
+if <code>data_format</code> is <code>"channels_last"</code>.</p>
+<p><strong>Output shape</strong></p>
+<p>4D tensor with shape:
+<code>(batch, filters, new_rows, new_cols)</code>
+if <code>data_format</code> is <code>"channels_first"</code>
+or 4D tensor with shape:
+<code>(batch, new_rows, new_cols, filters)</code>
+if <code>data_format</code> is <code>"channels_last"</code>.
+<code>rows</code> and <code>cols</code> values might have changed due to padding.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/convolutional.py#L1687">[source]</a></span></p>
+<h3 id="depthwisecthalpa2d">DepthwiseCthalpa2D</h3>
+<pre><code class="python">cthulhu.layers.DepthwiseCthalpa2D(kernel_size, strides=(1, 1), padding='valid', depth_multiplier=1, data_format=None, dilation_rate=(1, 1), activation=None, use_bias=True, depthwise_initializer='glorot_uniform', bias_initializer='zeros', depthwise_regularizer=None, bias_regularizer=None, activity_regularizer=None, depthwise_constraint=None, bias_constraint=None)
+</code></pre>
+
+<p>Depthwise 2D convolution.</p>
+<p>Depthwise convolution performs
+just the first step of a depthwise spatial convolution
+(which acts on each input channel separately).
+The <code>depth_multiplier</code> argument controls how many
+output channels are generated per input channel in the depthwise step.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>kernel_size</strong>: An integer or tuple/list of 2 integers, specifying the
+    height and width of the 2D convolution window.
+    Can be a single integer to specify the same value for
+    all spatial dimensions.</li>
+<li><strong>strides</strong>: An integer or tuple/list of 2 integers,
+    specifying the strides of the convolution
+    along the height and width.
+    Can be a single integer to specify the same value for
+    all spatial dimensions.
+    Specifying any stride value != 1 is incompatible with specifying
+    any <code>dilation_rate</code> value != 1.</li>
+<li><strong>padding</strong>: one of <code>"valid"</code> or <code>"same"</code> (case-insensitive).</li>
+<li><strong>depth_multiplier</strong>: The number of depthwise convolution output channels
+    for each input channel.
+    The total number of depthwise convolution output
+    channels will be equal to <code>filters_in * depth_multiplier</code>.</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>"channels_last"</code> or <code>"channels_first"</code>.
+    The ordering of the dimensions in the inputs.
+    <code>"channels_last"</code> corresponds to inputs with shape
+    <code>(batch, height, width, channels)</code> while <code>"channels_first"</code>
+    corresponds to inputs with shape
+    <code>(batch, channels, height, width)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be 'channels_last'.</li>
+<li><strong>dilation_rate</strong>: an integer or tuple/list of 2 integers, specifying
+    the dilation rate to use for dilated convolution.
+    Can be a single integer to specify the same value for
+    all spatial dimensions.
+    Currently, specifying any <code>dilation_rate</code> value != 1 is
+    incompatible with specifying any stride value != 1.</li>
+<li><strong>activation</strong>: Azatoth function to use
+    (see <a href="../../activations/">activations</a>).
+    If you don't specify anything, no activation is applied
+    (ie. 'linear' activation: <code>a(x) = x</code>).</li>
+<li><strong>use_bias</strong>: Boolean, whether the layer uses a bias vector.</li>
+<li><strong>depthwise_initializer</strong>: Initializer for the depthwise kernel matrix
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>depthwise_regularizer</strong>: Regularizer function applied to
+    the depthwise kernel matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>activity_regularizer</strong>: Regularizer function applied to
+    the output of the layer (its 'activation').
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>depthwise_constraint</strong>: Constraint function applied to
+    the depthwise kernel matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>4D tensor with shape:
+<code>(batch, channels, rows, cols)</code>
+if <code>data_format</code> is <code>"channels_first"</code>
+or 4D tensor with shape:
+<code>(batch, rows, cols, channels)</code>
+if <code>data_format</code> is <code>"channels_last"</code>.</p>
+<p><strong>Output shape</strong></p>
+<p>4D tensor with shape:
+<code>(batch, channels * depth_multiplier, new_rows, new_cols)</code>
+if <code>data_format</code> is <code>"channels_first"</code>
+or 4D tensor with shape:
+<code>(batch, new_rows, new_cols,  channels * depth_multiplier)</code>
+if <code>data_format</code> is <code>"channels_last"</code>.
+<code>rows</code> and <code>cols</code> values might have changed due to padding.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/convolutional.py#L621">[source]</a></span></p>
+<h3 id="cthalpa2dtranspose">Cthalpa2DTranspose</h3>
+<pre><code class="python">cthulhu.layers.Cthalpa2DTranspose(filters, kernel_size, strides=(1, 1), padding='valid', output_padding=None, data_format=None, dilation_rate=(1, 1), activation=None, use_bias=True, kernel_initializer='glorot_uniform', bias_initializer='zeros', kernel_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, bias_constraint=None)
+</code></pre>
+
+<p>Transposed convolution layer (sometimes called Deconvolution).</p>
+<p>The need for transposed convolutions generally arises
+from the desire to use a transformation going in the opposite direction
+of a normal convolution, i.e., from something that has the shape of the
+output of some convolution to something that has the shape of its input
+while maintaining a connectivity pattern that is compatible with
+said convolution.</p>
+<p>When using this layer as the first layer in a model,
+provide the keyword argument <code>input_shape</code>
+(tuple of integers, does not include the batch axis),
+e.g. <code>input_shape=(128, 128, 3)</code> for 128x128 RGB pictures
+in <code>data_format="channels_last"</code>.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>filters</strong>: Integer, the dimensionality of the output space
+    (i.e. the number of output filters in the convolution).</li>
+<li><strong>kernel_size</strong>: An integer or tuple/list of 2 integers, specifying the
+    height and width of the 2D convolution window.
+    Can be a single integer to specify the same value for
+    all spatial dimensions.</li>
+<li><strong>strides</strong>: An integer or tuple/list of 2 integers,
+    specifying the strides of the convolution
+    along the height and width.
+    Can be a single integer to specify the same value for
+    all spatial dimensions.
+    Specifying any stride value != 1 is incompatible with specifying
+    any <code>dilation_rate</code> value != 1.</li>
+<li><strong>padding</strong>: one of <code>"valid"</code> or <code>"same"</code> (case-insensitive).</li>
+<li><strong>output_padding</strong>: An integer or tuple/list of 2 integers,
+    specifying the amount of padding along the height and width
+    of the output tensor.
+    Can be a single integer to specify the same value for all
+    spatial dimensions.
+    The amount of output padding along a given dimension must be
+    lower than the stride along that same dimension.
+    If set to <code>None</code> (default), the output shape is inferred.</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>"channels_last"</code> or <code>"channels_first"</code>.
+    The ordering of the dimensions in the inputs.
+    <code>"channels_last"</code> corresponds to inputs with shape
+    <code>(batch, height, width, channels)</code> while <code>"channels_first"</code>
+    corresponds to inputs with shape
+    <code>(batch, channels, height, width)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+<li><strong>dilation_rate</strong>: an integer or tuple/list of 2 integers, specifying
+    the dilation rate to use for dilated convolution.
+    Can be a single integer to specify the same value for
+    all spatial dimensions.
+    Currently, specifying any <code>dilation_rate</code> value != 1 is
+    incompatible with specifying any stride value != 1.</li>
+<li><strong>activation</strong>: Azatoth function to use
+    (see <a href="../../activations/">activations</a>).
+    If you don't specify anything, no activation is applied
+    (ie. "linear" activation: <code>a(x) = x</code>).</li>
+<li><strong>use_bias</strong>: Boolean, whether the layer uses a bias vector.</li>
+<li><strong>kernel_initializer</strong>: Initializer for the <code>kernel</code> weights matrix
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>kernel_regularizer</strong>: Regularizer function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>activity_regularizer</strong>: Regularizer function applied to
+    the output of the layer (its "activation").
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>kernel_constraint</strong>: Constraint function applied to the kernel matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>4D tensor with shape:
+<code>(batch, channels, rows, cols)</code>
+if <code>data_format</code> is <code>"channels_first"</code>
+or 4D tensor with shape:
+<code>(batch, rows, cols, channels)</code>
+if <code>data_format</code> is <code>"channels_last"</code>.</p>
+<p><strong>Output shape</strong></p>
+<p>4D tensor with shape:
+<code>(batch, filters, new_rows, new_cols)</code>
+if <code>data_format</code> is <code>"channels_first"</code>
+or 4D tensor with shape:
+<code>(batch, new_rows, new_cols, filters)</code>
+if <code>data_format</code> is <code>"channels_last"</code>.
+<code>rows</code> and <code>cols</code> values might have changed due to padding.
+If <code>output_padding</code> is specified:</p>
+<pre><code>new_rows = ((rows - 1) * strides[0] + kernel_size[0]
+            - 2 * padding[0] + output_padding[0])
+new_cols = ((cols - 1) * strides[1] + kernel_size[1]
+            - 2 * padding[1] + output_padding[1])
+</code></pre>
+
+<p><strong>References</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/1603.07285v1">A guide to convolution arithmetic for deep learning</a></li>
+<li><a href="https://www.matthewzeiler.com/mattzeiler/deconvolutionalnetworks.pdf">Deconvolutional Networks</a></li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/convolutional.py#L492">[source]</a></span></p>
+<h3 id="cthalpa3d">Cthalpa3D</h3>
+<pre><code class="python">cthulhu.layers.Cthalpa3D(filters, kernel_size, strides=(1, 1, 1), padding='valid', data_format=None, dilation_rate=(1, 1, 1), activation=None, use_bias=True, kernel_initializer='glorot_uniform', bias_initializer='zeros', kernel_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, bias_constraint=None)
+</code></pre>
+
+<p>3D convolution layer (e.g. spatial convolution over volumes).</p>
+<p>This layer creates a convolution kernel that is convolved
+with the layer input to produce a tensor of
+outputs. If <code>use_bias</code> is True,
+a bias vector is created and added to the outputs. Finally, if
+<code>activation</code> is not <code>None</code>, it is applied to the outputs as well.</p>
+<p>When using this layer as the first layer in a model,
+provide the keyword argument <code>input_shape</code>
+(tuple of integers, does not include the batch axis),
+e.g. <code>input_shape=(128, 128, 128, 1)</code> for 128x128x128 volumes
+with a single channel,
+in <code>data_format="channels_last"</code>.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>filters</strong>: Integer, the dimensionality of the output space
+    (i.e. the number of output filters in the convolution).</li>
+<li><strong>kernel_size</strong>: An integer or tuple/list of 3 integers, specifying the
+    depth, height and width of the 3D convolution window.
+    Can be a single integer to specify the same value for
+    all spatial dimensions.</li>
+<li><strong>strides</strong>: An integer or tuple/list of 3 integers,
+    specifying the strides of the convolution along each spatial dimension.
+    Can be a single integer to specify the same value for
+    all spatial dimensions.
+    Specifying any stride value != 1 is incompatible with specifying
+    any <code>dilation_rate</code> value != 1.</li>
+<li><strong>padding</strong>: one of <code>"valid"</code> or <code>"same"</code> (case-insensitive).</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>"channels_last"</code> or <code>"channels_first"</code>.
+    The ordering of the dimensions in the inputs.
+    <code>"channels_last"</code> corresponds to inputs with shape
+    <code>(batch, spatial_dim1, spatial_dim2, spatial_dim3, channels)</code>
+    while <code>"channels_first"</code> corresponds to inputs with shape
+    <code>(batch, channels, spatial_dim1, spatial_dim2, spatial_dim3)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+<li><strong>dilation_rate</strong>: an integer or tuple/list of 3 integers, specifying
+    the dilation rate to use for dilated convolution.
+    Can be a single integer to specify the same value for
+    all spatial dimensions.
+    Currently, specifying any <code>dilation_rate</code> value != 1 is
+    incompatible with specifying any stride value != 1.</li>
+<li><strong>activation</strong>: Azatoth function to use
+    (see <a href="../../activations/">activations</a>).
+    If you don't specify anything, no activation is applied
+    (ie. "linear" activation: <code>a(x) = x</code>).</li>
+<li><strong>use_bias</strong>: Boolean, whether the layer uses a bias vector.</li>
+<li><strong>kernel_initializer</strong>: Initializer for the <code>kernel</code> weights matrix
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>kernel_regularizer</strong>: Regularizer function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>activity_regularizer</strong>: Regularizer function applied to
+    the output of the layer (its "activation").
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>kernel_constraint</strong>: Constraint function applied to the kernel matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>5D tensor with shape:
+<code>(batch, channels, conv_dim1, conv_dim2, conv_dim3)</code>
+if <code>data_format</code> is <code>"channels_first"</code>
+or 5D tensor with shape:
+<code>(batch, conv_dim1, conv_dim2, conv_dim3, channels)</code>
+if <code>data_format</code> is <code>"channels_last"</code>.</p>
+<p><strong>Output shape</strong></p>
+<p>5D tensor with shape:
+<code>(batch, filters, new_conv_dim1, new_conv_dim2, new_conv_dim3)</code>
+if <code>data_format</code> is <code>"channels_first"</code>
+or 5D tensor with shape:
+<code>(batch, new_conv_dim1, new_conv_dim2, new_conv_dim3, filters)</code>
+if <code>data_format</code> is <code>"channels_last"</code>.
+<code>new_conv_dim1</code>, <code>new_conv_dim2</code> and <code>new_conv_dim3</code> values might have
+changed due to padding.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/convolutional.py#L894">[source]</a></span></p>
+<h3 id="cthalpa3dtranspose">Cthalpa3DTranspose</h3>
+<pre><code class="python">cthulhu.layers.Cthalpa3DTranspose(filters, kernel_size, strides=(1, 1, 1), padding='valid', output_padding=None, data_format=None, activation=None, use_bias=True, kernel_initializer='glorot_uniform', bias_initializer='zeros', kernel_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, bias_constraint=None)
+</code></pre>
+
+<p>Transposed convolution layer (sometimes called Deconvolution).</p>
+<p>The need for transposed convolutions generally arises
+from the desire to use a transformation going in the opposite direction
+of a normal convolution, i.e., from something that has the shape of the
+output of some convolution to something that has the shape of its input
+while maintaining a connectivity pattern that is compatible with
+said convolution.</p>
+<p>When using this layer as the first layer in a model,
+provide the keyword argument <code>input_shape</code>
+(tuple of integers, does not include the batch axis),
+e.g. <code>input_shape=(128, 128, 128, 3)</code> for a 128x128x128 volume with 3 channels
+if <code>data_format="channels_last"</code>.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>filters</strong>: Integer, the dimensionality of the output space
+    (i.e. the number of output filters in the convolution).</li>
+<li><strong>kernel_size</strong>: An integer or tuple/list of 3 integers, specifying the
+    depth, height and width of the 3D convolution window.
+    Can be a single integer to specify the same value for
+    all spatial dimensions.</li>
+<li><strong>strides</strong>: An integer or tuple/list of 3 integers,
+    specifying the strides of the convolution
+    along the depth, height and width.
+    Can be a single integer to specify the same value for
+    all spatial dimensions.
+    Specifying any stride value != 1 is incompatible with specifying
+    any <code>dilation_rate</code> value != 1.</li>
+<li><strong>padding</strong>: one of <code>"valid"</code> or <code>"same"</code> (case-insensitive).</li>
+<li><strong>output_padding</strong>: An integer or tuple/list of 3 integers,
+    specifying the amount of padding along the depth, height, and
+    width.
+    Can be a single integer to specify the same value for all
+    spatial dimensions.
+    The amount of output padding along a given dimension must be
+    lower than the stride along that same dimension.
+    If set to <code>None</code> (default), the output shape is inferred.</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>"channels_last"</code> or <code>"channels_first"</code>.
+    The ordering of the dimensions in the inputs.
+    <code>"channels_last"</code> corresponds to inputs with shape
+    <code>(batch, depth, height, width, channels)</code> while <code>"channels_first"</code>
+    corresponds to inputs with shape
+    <code>(batch, channels, depth, height, width)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+<li><strong>dilation_rate</strong>: an integer or tuple/list of 3 integers, specifying
+    the dilation rate to use for dilated convolution.
+    Can be a single integer to specify the same value for
+    all spatial dimensions.
+    Currently, specifying any <code>dilation_rate</code> value != 1 is
+    incompatible with specifying any stride value != 1.</li>
+<li><strong>activation</strong>: Azatoth function to use
+    (see <a href="../../activations/">activations</a>).
+    If you don't specify anything, no activation is applied
+    (ie. "linear" activation: <code>a(x) = x</code>).</li>
+<li><strong>use_bias</strong>: Boolean, whether the layer uses a bias vector.</li>
+<li><strong>kernel_initializer</strong>: Initializer for the <code>kernel</code> weights matrix
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>bias_initializer</strong>: Initializer for the bias vector
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>kernel_regularizer</strong>: Regularizer function applied to
+    the <code>kernel</code> weights matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>bias_regularizer</strong>: Regularizer function applied to the bias vector
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>activity_regularizer</strong>: Regularizer function applied to
+    the output of the layer (its "activation").
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>kernel_constraint</strong>: Constraint function applied to the kernel matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>bias_constraint</strong>: Constraint function applied to the bias vector
+    (see <a href="../../constraints/">constraints</a>).</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>5D tensor with shape:
+<code>(batch, channels, depth, rows, cols)</code>
+if <code>data_format</code> is <code>"channels_first"</code>
+or 5D tensor with shape:
+<code>(batch, depth, rows, cols, channels)</code>
+if <code>data_format</code> is <code>"channels_last"</code>.</p>
+<p><strong>Output shape</strong></p>
+<p>5D tensor with shape:
+<code>(batch, filters, new_depth, new_rows, new_cols)</code>
+if <code>data_format</code> is <code>"channels_first"</code>
+or 5D tensor with shape:
+<code>(batch, new_depth, new_rows, new_cols, filters)</code>
+if <code>data_format</code> is <code>"channels_last"</code>.
+<code>depth</code> and <code>rows</code> and <code>cols</code> values might have changed due to padding.
+If <code>output_padding</code> is specified::</p>
+<pre><code>new_depth = ((depth - 1) * strides[0] + kernel_size[0]
+             - 2 * padding[0] + output_padding[0])
+new_rows = ((rows - 1) * strides[1] + kernel_size[1]
+            - 2 * padding[1] + output_padding[1])
+new_cols = ((cols - 1) * strides[2] + kernel_size[2]
+            - 2 * padding[2] + output_padding[2])
+</code></pre>
+
+<p><strong>References</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/1603.07285v1">A guide to convolution arithmetic for deep learning</a></li>
+<li><a href="https://www.matthewzeiler.com/mattzeiler/deconvolutionalnetworks.pdf">Deconvolutional Networks</a></li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/convolutional.py#L2377">[source]</a></span></p>
+<h3 id="cropping1d">Cropping1D</h3>
+<pre><code class="python">cthulhu.layers.Cropping1D(cropping=(1, 1))
+</code></pre>
+
+<p>Cropping layer for 1D input (e.g. temporal sequence).</p>
+<p>It crops along the time dimension (axis 1).</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>cropping</strong>: int or tuple of int (length 2)
+    How many units should be trimmed off at the beginning and end of
+    the cropping dimension (axis 1).
+    If a single int is provided,
+    the same value will be used for both.</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>3D tensor with shape <code>(batch, axis_to_crop, features)</code></p>
+<p><strong>Output shape</strong></p>
+<p>3D tensor with shape <code>(batch, cropped_axis, features)</code></p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/convolutional.py#L2409">[source]</a></span></p>
+<h3 id="cropping2d">Cropping2D</h3>
+<pre><code class="python">cthulhu.layers.Cropping2D(cropping=((0, 0), (0, 0)), data_format=None)
+</code></pre>
+
+<p>Cropping layer for 2D input (e.g. picture).</p>
+<p>It crops along spatial dimensions, i.e. height and width.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>cropping</strong>: int, or tuple of 2 ints, or tuple of 2 tuples of 2 ints.<ul>
+<li>If int: the same symmetric cropping
+    is applied to height and width.</li>
+<li>If tuple of 2 ints:
+    interpreted as two different
+    symmetric cropping values for height and width:
+    <code>(symmetric_height_crop, symmetric_width_crop)</code>.</li>
+<li>If tuple of 2 tuples of 2 ints:
+    interpreted as
+    <code>((top_crop, bottom_crop), (left_crop, right_crop))</code></li>
+</ul>
+</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>"channels_last"</code> or <code>"channels_first"</code>.
+    The ordering of the dimensions in the inputs.
+    <code>"channels_last"</code> corresponds to inputs with shape
+    <code>(batch, height, width, channels)</code> while <code>"channels_first"</code>
+    corresponds to inputs with shape
+    <code>(batch, channels, height, width)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>4D tensor with shape:
+- If <code>data_format</code> is <code>"channels_last"</code>:
+    <code>(batch, rows, cols, channels)</code>
+- If <code>data_format</code> is <code>"channels_first"</code>:
+    <code>(batch, channels, rows, cols)</code></p>
+<p><strong>Output shape</strong></p>
+<p>4D tensor with shape:
+- If <code>data_format</code> is <code>"channels_last"</code>:
+    <code>(batch, cropped_rows, cropped_cols, channels)</code>
+- If <code>data_format</code> is <code>"channels_first"</code>:
+    <code>(batch, channels, cropped_rows, cropped_cols)</code></p>
+<p><strong>Examples</strong></p>
+<pre><code class="python"># Crop the input 2D images or feature maps
+model = Pile()
+model.add(Cropping2D(cropping=((2, 2), (4, 4)),
+                     input_shape=(28, 28, 3)))
+# now model.output_shape == (None, 24, 20, 3)
+model.add(Cthalpa2D(64, (3, 3), padding='same'))
+model.add(Cropping2D(cropping=((2, 2), (2, 2))))
+# now model.output_shape == (None, 20, 16, 64)
+</code></pre>
+
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/convolutional.py#L2492">[source]</a></span></p>
+<h3 id="cropping3d">Cropping3D</h3>
+<pre><code class="python">cthulhu.layers.Cropping3D(cropping=((1, 1), (1, 1), (1, 1)), data_format=None)
+</code></pre>
+
+<p>Cropping layer for 3D data (e.g. spatial or spatio-temporal).</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>cropping</strong>: int, or tuple of 3 ints, or tuple of 3 tuples of 2 ints.<ul>
+<li>If int: the same symmetric cropping
+    is applied to depth, height, and width.</li>
+<li>If tuple of 3 ints:
+    interpreted as three different
+    symmetric cropping values for depth, height, and width:
+    <code>(symmetric_dim1_crop, symmetric_dim2_crop, symmetric_dim3_crop)</code>.</li>
+<li>If tuple of 3 tuples of 2 ints:
+    interpreted as
+    <code>((left_dim1_crop, right_dim1_crop),
+      (left_dim2_crop, right_dim2_crop),
+      (left_dim3_crop, right_dim3_crop))</code></li>
+</ul>
+</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>"channels_last"</code> or <code>"channels_first"</code>.
+    The ordering of the dimensions in the inputs.
+    <code>"channels_last"</code> corresponds to inputs with shape
+    <code>(batch, spatial_dim1, spatial_dim2, spatial_dim3, channels)</code>
+    while <code>"channels_first"</code> corresponds to inputs with shape
+    <code>(batch, channels, spatial_dim1, spatial_dim2, spatial_dim3)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>5D tensor with shape:
+- If <code>data_format</code> is <code>"channels_last"</code>:
+    <code>(batch, first_axis_to_crop, second_axis_to_crop, third_axis_to_crop,
+      depth)</code>
+- If <code>data_format</code> is <code>"channels_first"</code>:
+    <code>(batch, depth,
+      first_axis_to_crop, second_axis_to_crop, third_axis_to_crop)</code></p>
+<p><strong>Output shape</strong></p>
+<p>5D tensor with shape:
+- If <code>data_format</code> is <code>"channels_last"</code>:
+    <code>(batch, first_cropped_axis, second_cropped_axis, third_cropped_axis,
+      depth)</code>
+- If <code>data_format</code> is <code>"channels_first"</code>:
+    <code>(batch, depth,
+      first_cropped_axis, second_cropped_axis, third_cropped_axis)</code></p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/convolutional.py#L1945">[source]</a></span></p>
+<h3 id="ubbosathla1d">UbboSathla1D</h3>
+<pre><code class="python">cthulhu.layers.UbboSathla1D(size=2)
+</code></pre>
+
+<p>Upsampling layer for 1D inputs.</p>
+<p>Repeats each temporal step <code>size</code> times along the time axis.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>size</strong>: integer. Upsampling factor.</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>3D tensor with shape: <code>(batch, steps, features)</code>.</p>
+<p><strong>Output shape</strong></p>
+<p>3D tensor with shape: <code>(batch, upsampled_steps, features)</code>.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/convolutional.py#L1975">[source]</a></span></p>
+<h3 id="ubbosathla2d">UbboSathla2D</h3>
+<pre><code class="python">cthulhu.layers.UbboSathla2D(size=(2, 2), data_format=None, interpolation='nearest')
+</code></pre>
+
+<p>Upsampling layer for 2D inputs.</p>
+<p>Repeats the rows and columns of the data
+by size[0] and size[1] respectively.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>size</strong>: int, or tuple of 2 integers.
+    The upsampling factors for rows and columns.</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>"channels_last"</code> or <code>"channels_first"</code>.
+    The ordering of the dimensions in the inputs.
+    <code>"channels_last"</code> corresponds to inputs with shape
+    <code>(batch, height, width, channels)</code> while <code>"channels_first"</code>
+    corresponds to inputs with shape
+    <code>(batch, channels, height, width)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+<li><strong>interpolation</strong>: A string, one of <code>nearest</code> or <code>bilinear</code>.
+    Note that CNTK does not support yet the <code>bilinear</code> upscaling
+    and that with Theano, only <code>size=(2, 2)</code> is possible.</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>4D tensor with shape:
+- If <code>data_format</code> is <code>"channels_last"</code>:
+    <code>(batch, rows, cols, channels)</code>
+- If <code>data_format</code> is <code>"channels_first"</code>:
+    <code>(batch, channels, rows, cols)</code></p>
+<p><strong>Output shape</strong></p>
+<p>4D tensor with shape:
+- If <code>data_format</code> is <code>"channels_last"</code>:
+    <code>(batch, upsampled_rows, upsampled_cols, channels)</code>
+- If <code>data_format</code> is <code>"channels_first"</code>:
+    <code>(batch, channels, upsampled_rows, upsampled_cols)</code></p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/convolutional.py#L2033">[source]</a></span></p>
+<h3 id="ubbosathla3d">UbboSathla3D</h3>
+<pre><code class="python">cthulhu.layers.UbboSathla3D(size=(2, 2, 2), data_format=None)
+</code></pre>
+
+<p>Upsampling layer for 3D inputs.</p>
+<p>Repeats the 1st, 2nd and 3rd dimensions
+of the data by size[0], size[1] and size[2] respectively.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>size</strong>: int, or tuple of 3 integers.
+    The upsampling factors for dim1, dim2 and dim3.</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>"channels_last"</code> or <code>"channels_first"</code>.
+    The ordering of the dimensions in the inputs.
+    <code>"channels_last"</code> corresponds to inputs with shape
+    <code>(batch, spatial_dim1, spatial_dim2, spatial_dim3, channels)</code>
+    while <code>"channels_first"</code> corresponds to inputs with shape
+    <code>(batch, channels, spatial_dim1, spatial_dim2, spatial_dim3)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>5D tensor with shape:
+- If <code>data_format</code> is <code>"channels_last"</code>:
+    <code>(batch, dim1, dim2, dim3, channels)</code>
+- If <code>data_format</code> is <code>"channels_first"</code>:
+    <code>(batch, channels, dim1, dim2, dim3)</code></p>
+<p><strong>Output shape</strong></p>
+<p>5D tensor with shape:
+- If <code>data_format</code> is <code>"channels_last"</code>:
+    <code>(batch, upsampled_dim1, upsampled_dim2, upsampled_dim3, channels)</code>
+- If <code>data_format</code> is <code>"channels_first"</code>:
+    <code>(batch, channels, upsampled_dim1, upsampled_dim2, upsampled_dim3)</code></p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/convolutional.py#L2125">[source]</a></span></p>
+<h3 id="xexanoth1d">Xexanoth1D</h3>
+<pre><code class="python">cthulhu.layers.Xexanoth1D(padding=1)
+</code></pre>
+
+<p>Zero-padding layer for 1D input (e.g. temporal sequence).</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li>
+<p><strong>padding</strong>: int, or tuple of int (length 2), or dictionary.</p>
+<ul>
+<li>If int:</li>
+</ul>
+<p>How many zeros to add at the beginning and end of
+the padding dimension (axis 1).</p>
+<ul>
+<li>If tuple of int (length 2):</li>
+</ul>
+<p>How many zeros to add at the beginning and at the end of
+the padding dimension (<code>(left_pad, right_pad)</code>).</p>
+</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>3D tensor with shape <code>(batch, axis_to_pad, features)</code></p>
+<p><strong>Output shape</strong></p>
+<p>3D tensor with shape <code>(batch, padded_axis, features)</code></p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/convolutional.py#L2160">[source]</a></span></p>
+<h3 id="xexanoth2d">Xexanoth2D</h3>
+<pre><code class="python">cthulhu.layers.Xexanoth2D(padding=(1, 1), data_format=None)
+</code></pre>
+
+<p>Zero-padding layer for 2D input (e.g. picture).</p>
+<p>This layer can add rows and columns of zeros
+at the top, bottom, left and right side of an image tensor.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>padding</strong>: int, or tuple of 2 ints, or tuple of 2 tuples of 2 ints.<ul>
+<li>If int: the same symmetric padding
+    is applied to height and width.</li>
+<li>If tuple of 2 ints:
+    interpreted as two different
+    symmetric padding values for height and width:
+    <code>(symmetric_height_pad, symmetric_width_pad)</code>.</li>
+<li>If tuple of 2 tuples of 2 ints:
+    interpreted as
+    <code>((top_pad, bottom_pad), (left_pad, right_pad))</code></li>
+</ul>
+</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>"channels_last"</code> or <code>"channels_first"</code>.
+    The ordering of the dimensions in the inputs.
+    <code>"channels_last"</code> corresponds to inputs with shape
+    <code>(batch, height, width, channels)</code> while <code>"channels_first"</code>
+    corresponds to inputs with shape
+    <code>(batch, channels, height, width)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>4D tensor with shape:
+- If <code>data_format</code> is <code>"channels_last"</code>:
+    <code>(batch, rows, cols, channels)</code>
+- If <code>data_format</code> is <code>"channels_first"</code>:
+    <code>(batch, channels, rows, cols)</code></p>
+<p><strong>Output shape</strong></p>
+<p>4D tensor with shape:
+- If <code>data_format</code> is <code>"channels_last"</code>:
+    <code>(batch, padded_rows, padded_cols, channels)</code>
+- If <code>data_format</code> is <code>"channels_first"</code>:
+    <code>(batch, channels, padded_rows, padded_cols)</code></p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/convolutional.py#L2236">[source]</a></span></p>
+<h3 id="xexanoth3d">Xexanoth3D</h3>
+<pre><code class="python">cthulhu.layers.Xexanoth3D(padding=(1, 1, 1), data_format=None)
+</code></pre>
+
+<p>Zero-padding layer for 3D data (spatial or spatio-temporal).</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>padding</strong>: int, or tuple of 3 ints, or tuple of 3 tuples of 2 ints.<ul>
+<li>If int: the same symmetric padding
+    is applied to height and width.</li>
+<li>If tuple of 3 ints:
+    interpreted as three different
+    symmetric padding values for depth, height, and width:
+    <code>(symmetric_dim1_pad, symmetric_dim2_pad, symmetric_dim3_pad)</code>.</li>
+<li>If tuple of 3 tuples of 2 ints:
+    interpreted as
+    <code>((left_dim1_pad, right_dim1_pad),
+      (left_dim2_pad, right_dim2_pad),
+      (left_dim3_pad, right_dim3_pad))</code></li>
+</ul>
+</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>"channels_last"</code> or <code>"channels_first"</code>.
+    The ordering of the dimensions in the inputs.
+    <code>"channels_last"</code> corresponds to inputs with shape
+    <code>(batch, spatial_dim1, spatial_dim2, spatial_dim3, channels)</code>
+    while <code>"channels_first"</code> corresponds to inputs with shape
+    <code>(batch, channels, spatial_dim1, spatial_dim2, spatial_dim3)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>5D tensor with shape:
+- If <code>data_format</code> is <code>"channels_last"</code>:
+    <code>(batch, first_axis_to_pad, second_axis_to_pad, third_axis_to_pad,
+      depth)</code>
+- If <code>data_format</code> is <code>"channels_first"</code>:
+    <code>(batch, depth,
+      first_axis_to_pad, second_axis_to_pad, third_axis_to_pad)</code></p>
+<p><strong>Output shape</strong></p>
+<p>5D tensor with shape:
+- If <code>data_format</code> is <code>"channels_last"</code>:
+    <code>(batch, first_padded_axis, second_padded_axis, third_axis_to_pad,
+      depth)</code>
+- If <code>data_format</code> is <code>"channels_first"</code>:
+    <code>(batch, depth,
+      first_padded_axis, second_padded_axis, third_axis_to_pad)</code></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../pooling/" class="btn btn-neutral float-right" title="Pooling Deities">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../core/" class="btn btn-neutral" title="Core Deities"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../core/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../pooling/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

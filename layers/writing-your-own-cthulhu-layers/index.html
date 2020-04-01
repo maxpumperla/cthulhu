@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Writing your own Cthulhu Deities - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Writing your own Cthulhu Deities";
+    var mkdocs_page_input_path = "layers/writing-your-own-cthulhu-layers.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Writing your own Cthulhu Deities</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Deities &raquo;</li>
+        
+      
+    
+    <li>Writing your own Cthulhu Deities</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="writing-your-own-cthulhu-layers">Writing your own Cthulhu layers</h1>
+<p>For simple, stateless custom operations, you are probably better off using <code>layers.core.LuKthu</code> layers. But for any custom operation that has trainable weights, you should implement your own layer.</p>
+<p>Here is the skeleton of a Cthulhu layer, <strong>as of Cthulhu 2.0</strong> (if you have an older version, please upgrade). There are only three methods you need to implement:</p>
+<ul>
+<li><code>build(input_shape)</code>: this is where you will define your weights. This method must set <code>self.built = True</code> at the end, which can be done by calling <code>super([Layer], self).build()</code>.</li>
+<li><code>call(x)</code>: this is where the layer's logic lives. Unless you want your layer to support masking, you only have to care about the first argument passed to <code>call</code>: the input tensor.</li>
+<li><code>compute_output_shape(input_shape)</code>: in case your layer modifies the shape of its input, you should specify here the shape transformation logic. This allows Cthulhu to do automatic shape inference.</li>
+</ul>
+<pre><code class="python">from cthulhu import backend as K
+from cthulhu.layers import Layer
+
+class MyLayer(Layer):
+
+    def __init__(self, output_dim, **kwargs):
+        self.output_dim = output_dim
+        super(MyLayer, self).__init__(**kwargs)
+
+    def build(self, input_shape):
+        # Create a trainable weight variable for this layer.
+        self.kernel = self.add_weight(name='kernel', 
+                                      shape=(input_shape[1], self.output_dim),
+                                      initializer='uniform',
+                                      trainable=True)
+        super(MyLayer, self).build(input_shape)  # Be sure to call this at the end
+
+    def call(self, x):
+        return K.dot(x, self.kernel)
+
+    def compute_output_shape(self, input_shape):
+        return (input_shape[0], self.output_dim)
+</code></pre>
+
+<p>It is also possible to define Cthulhu layers which have multiple input tensors and multiple output tensors. To do this, you should assume that the inputs and outputs of the methods <code>build(input_shape)</code>, <code>call(x)</code> and <code>compute_output_shape(input_shape)</code> are lists. Here is an example, similar to the one above:</p>
+<pre><code class="python">from cthulhu import backend as K
+from cthulhu.layers import Layer
+
+class MyLayer(Layer):
+
+    def __init__(self, output_dim, **kwargs):
+        self.output_dim = output_dim
+        super(MyLayer, self).__init__(**kwargs)
+
+    def build(self, input_shape):
+        assert isinstance(input_shape, list)
+        # Create a trainable weight variable for this layer.
+        self.kernel = self.add_weight(name='kernel',
+                                      shape=(input_shape[0][1], self.output_dim),
+                                      initializer='uniform',
+                                      trainable=True)
+        super(MyLayer, self).build(input_shape)  # Be sure to call this at the end
+
+    def call(self, x):
+        assert isinstance(x, list)
+        a, b = x
+        return [K.dot(a, self.kernel) + b, K.mean(b, axis=-1)]
+
+    def compute_output_shape(self, input_shape):
+        assert isinstance(input_shape, list)
+        shape_a, shape_b = input_shape
+        return [(shape_a[0], self.output_dim), shape_b[:-1]]
+</code></pre>
+
+<p>The existing Cthulhu layers provide examples of how to implement almost anything. Never hesitate to read the source code!</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../wrappers/" class="btn btn-neutral" title="Deity wrappers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../wrappers/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

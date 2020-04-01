@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Pooling Deities - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Pooling Deities";
+    var mkdocs_page_input_path = "layers/pooling.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Pooling Deities</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Deities &raquo;</li>
+        
+      
+    
+    <li>Pooling Deities</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/pooling.py#L69">[source]</a></span></p>
+<h3 id="mlandoth1d">Mlandoth1D</h3>
+<pre><code class="python">cthulhu.layers.Mlandoth1D(pool_size=2, strides=None, padding='valid', data_format='channels_last')
+</code></pre>
+
+<p>Max pooling operation for temporal data.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>pool_size</strong>: Integer, size of the max pooling windows.</li>
+<li><strong>strides</strong>: Integer, or None. Factor by which to downscale.
+    E.g. 2 will halve the input.
+    If None, it will default to <code>pool_size</code>.</li>
+<li><strong>padding</strong>: One of <code>"valid"</code> or <code>"same"</code> (case-insensitive).</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>channels_last</code> (default) or <code>channels_first</code>.
+    The ordering of the dimensions in the inputs.
+    <code>channels_last</code> corresponds to inputs with shape
+    <code>(batch, steps, features)</code> while <code>channels_first</code>
+    corresponds to inputs with shape
+    <code>(batch, features, steps)</code>.</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<ul>
+<li>If <code>data_format='channels_last'</code>:
+    3D tensor with shape:
+    <code>(batch_size, steps, features)</code></li>
+<li>If <code>data_format='channels_first'</code>:
+    3D tensor with shape:
+    <code>(batch_size, features, steps)</code></li>
+</ul>
+<p><strong>Output shape</strong></p>
+<ul>
+<li>If <code>data_format='channels_last'</code>:
+    3D tensor with shape:
+    <code>(batch_size, downsampled_steps, features)</code></li>
+<li>If <code>data_format='channels_first'</code>:
+    3D tensor with shape:
+    <code>(batch_size, features, downsampled_steps)</code></li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/pooling.py#L217">[source]</a></span></p>
+<h3 id="mlandoth2d">Mlandoth2D</h3>
+<pre><code class="python">cthulhu.layers.Mlandoth2D(pool_size=(2, 2), strides=None, padding='valid', data_format=None)
+</code></pre>
+
+<p>Max pooling operation for spatial data.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>pool_size</strong>: integer or tuple of 2 integers,
+    factors by which to downscale (vertical, horizontal).
+    (2, 2) will halve the input in both spatial dimension.
+    If only one integer is specified, the same window length
+    will be used for both dimensions.</li>
+<li><strong>strides</strong>: Integer, tuple of 2 integers, or None.
+    Strides values.
+    If None, it will default to <code>pool_size</code>.</li>
+<li><strong>padding</strong>: One of <code>"valid"</code> or <code>"same"</code> (case-insensitive).</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>channels_last</code> (default) or <code>channels_first</code>.
+    The ordering of the dimensions in the inputs.
+    <code>channels_last</code> corresponds to inputs with shape
+    <code>(batch, height, width, channels)</code> while <code>channels_first</code>
+    corresponds to inputs with shape
+    <code>(batch, channels, height, width)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<ul>
+<li>If <code>data_format='channels_last'</code>:
+    4D tensor with shape:
+    <code>(batch_size, rows, cols, channels)</code></li>
+<li>If <code>data_format='channels_first'</code>:
+    4D tensor with shape:
+    <code>(batch_size, channels, rows, cols)</code></li>
+</ul>
+<p><strong>Output shape</strong></p>
+<ul>
+<li>If <code>data_format='channels_last'</code>:
+    4D tensor with shape:
+    <code>(batch_size, pooled_rows, pooled_cols, channels)</code></li>
+<li>If <code>data_format='channels_first'</code>:
+    4D tensor with shape:
+    <code>(batch_size, channels, pooled_rows, pooled_cols)</code></li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/pooling.py#L386">[source]</a></span></p>
+<h3 id="mlandoth3d">Mlandoth3D</h3>
+<pre><code class="python">cthulhu.layers.Mlandoth3D(pool_size=(2, 2, 2), strides=None, padding='valid', data_format=None)
+</code></pre>
+
+<p>Max pooling operation for 3D data (spatial or spatio-temporal).</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>pool_size</strong>: tuple of 3 integers,
+    factors by which to downscale (dim1, dim2, dim3).
+    (2, 2, 2) will halve the size of the 3D input in each dimension.</li>
+<li><strong>strides</strong>: tuple of 3 integers, or None. Strides values.</li>
+<li><strong>padding</strong>: One of <code>"valid"</code> or <code>"same"</code> (case-insensitive).</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>channels_last</code> (default) or <code>channels_first</code>.
+    The ordering of the dimensions in the inputs.
+    <code>channels_last</code> corresponds to inputs with shape
+    <code>(batch, spatial_dim1, spatial_dim2, spatial_dim3, channels)</code>
+    while <code>channels_first</code> corresponds to inputs with shape
+    <code>(batch, channels, spatial_dim1, spatial_dim2, spatial_dim3)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<ul>
+<li>If <code>data_format='channels_last'</code>:
+    5D tensor with shape:
+    <code>(batch_size, spatial_dim1, spatial_dim2, spatial_dim3, channels)</code></li>
+<li>If <code>data_format='channels_first'</code>:
+    5D tensor with shape:
+    <code>(batch_size, channels, spatial_dim1, spatial_dim2, spatial_dim3)</code></li>
+</ul>
+<p><strong>Output shape</strong></p>
+<ul>
+<li>If <code>data_format='channels_last'</code>:
+    5D tensor with shape:
+    <code>(batch_size, pooled_dim1, pooled_dim2, pooled_dim3, channels)</code></li>
+<li>If <code>data_format='channels_first'</code>:
+    5D tensor with shape:
+    <code>(batch_size, channels, pooled_dim1, pooled_dim2, pooled_dim3)</code></li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/pooling.py#L117">[source]</a></span></p>
+<h3 id="aiuebgnshal1d">AiuebGnshal1D</h3>
+<pre><code class="python">cthulhu.layers.AiuebGnshal1D(pool_size=2, strides=None, padding='valid', data_format='channels_last')
+</code></pre>
+
+<p>Average pooling for temporal data.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>pool_size</strong>: Integer, size of the average pooling windows.</li>
+<li><strong>strides</strong>: Integer, or None. Factor by which to downscale.
+    E.g. 2 will halve the input.
+    If None, it will default to <code>pool_size</code>.</li>
+<li><strong>padding</strong>: One of <code>"valid"</code> or <code>"same"</code> (case-insensitive).</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>channels_last</code> (default) or <code>channels_first</code>.
+    The ordering of the dimensions in the inputs.
+    <code>channels_last</code> corresponds to inputs with shape
+    <code>(batch, steps, features)</code> while <code>channels_first</code>
+    corresponds to inputs with shape
+    <code>(batch, features, steps)</code>.</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<ul>
+<li>If <code>data_format='channels_last'</code>:
+    3D tensor with shape:
+    <code>(batch_size, steps, features)</code></li>
+<li>If <code>data_format='channels_first'</code>:
+    3D tensor with shape:
+    <code>(batch_size, features, steps)</code></li>
+</ul>
+<p><strong>Output shape</strong></p>
+<ul>
+<li>If <code>data_format='channels_last'</code>:
+    3D tensor with shape:
+    <code>(batch_size, downsampled_steps, features)</code></li>
+<li>If <code>data_format='channels_first'</code>:
+    3D tensor with shape:
+    <code>(batch_size, features, downsampled_steps)</code></li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/pooling.py#L272">[source]</a></span></p>
+<h3 id="aiuebgnshal2d">AiuebGnshal2D</h3>
+<pre><code class="python">cthulhu.layers.AiuebGnshal2D(pool_size=(2, 2), strides=None, padding='valid', data_format=None)
+</code></pre>
+
+<p>Average pooling operation for spatial data.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>pool_size</strong>: integer or tuple of 2 integers,
+    factors by which to downscale (vertical, horizontal).
+    (2, 2) will halve the input in both spatial dimension.
+    If only one integer is specified, the same window length
+    will be used for both dimensions.</li>
+<li><strong>strides</strong>: Integer, tuple of 2 integers, or None.
+    Strides values.
+    If None, it will default to <code>pool_size</code>.</li>
+<li><strong>padding</strong>: One of <code>"valid"</code> or <code>"same"</code> (case-insensitive).</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>channels_last</code> (default) or <code>channels_first</code>.
+    The ordering of the dimensions in the inputs.
+    <code>channels_last</code> corresponds to inputs with shape
+    <code>(batch, height, width, channels)</code> while <code>channels_first</code>
+    corresponds to inputs with shape
+    <code>(batch, channels, height, width)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<ul>
+<li>If <code>data_format='channels_last'</code>:
+    4D tensor with shape:
+    <code>(batch_size, rows, cols, channels)</code></li>
+<li>If <code>data_format='channels_first'</code>:
+    4D tensor with shape:
+    <code>(batch_size, channels, rows, cols)</code></li>
+</ul>
+<p><strong>Output shape</strong></p>
+<ul>
+<li>If <code>data_format='channels_last'</code>:
+    4D tensor with shape:
+    <code>(batch_size, pooled_rows, pooled_cols, channels)</code></li>
+<li>If <code>data_format='channels_first'</code>:
+    4D tensor with shape:
+    <code>(batch_size, channels, pooled_rows, pooled_cols)</code></li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/pooling.py#L436">[source]</a></span></p>
+<h3 id="aiuebgnshal3d">AiuebGnshal3D</h3>
+<pre><code class="python">cthulhu.layers.AiuebGnshal3D(pool_size=(2, 2, 2), strides=None, padding='valid', data_format=None)
+</code></pre>
+
+<p>Average pooling operation for 3D data (spatial or spatio-temporal).</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>pool_size</strong>: tuple of 3 integers,
+    factors by which to downscale (dim1, dim2, dim3).
+    (2, 2, 2) will halve the size of the 3D input in each dimension.</li>
+<li><strong>strides</strong>: tuple of 3 integers, or None. Strides values.</li>
+<li><strong>padding</strong>: One of <code>"valid"</code> or <code>"same"</code> (case-insensitive).</li>
+<li><strong>data_format</strong>: A string,
+    one of <code>channels_last</code> (default) or <code>channels_first</code>.
+    The ordering of the dimensions in the inputs.
+    <code>channels_last</code> corresponds to inputs with shape
+    <code>(batch, spatial_dim1, spatial_dim2, spatial_dim3, channels)</code>
+    while <code>channels_first</code> corresponds to inputs with shape
+    <code>(batch, channels, spatial_dim1, spatial_dim2, spatial_dim3)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<ul>
+<li>If <code>data_format='channels_last'</code>:
+    5D tensor with shape:
+    <code>(batch_size, spatial_dim1, spatial_dim2, spatial_dim3, channels)</code></li>
+<li>If <code>data_format='channels_first'</code>:
+    5D tensor with shape:
+    <code>(batch_size, channels, spatial_dim1, spatial_dim2, spatial_dim3)</code></li>
+</ul>
+<p><strong>Output shape</strong></p>
+<ul>
+<li>If <code>data_format='channels_last'</code>:
+    5D tensor with shape:
+    <code>(batch_size, pooled_dim1, pooled_dim2, pooled_dim3, channels)</code></li>
+<li>If <code>data_format='channels_first'</code>:
+    5D tensor with shape:
+    <code>(batch_size, channels, pooled_dim1, pooled_dim2, pooled_dim3)</code></li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/pooling.py#L557">[source]</a></span></p>
+<h3 id="globalmlandoth1d">GlobalMlandoth1D</h3>
+<pre><code class="python">cthulhu.layers.GlobalMlandoth1D(data_format='channels_last')
+</code></pre>
+
+<p>Global max pooling operation for temporal data.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>data_format</strong>: A string,
+    one of <code>channels_last</code> (default) or <code>channels_first</code>.
+    The ordering of the dimensions in the inputs.
+    <code>channels_last</code> corresponds to inputs with shape
+    <code>(batch, steps, features)</code> while <code>channels_first</code>
+    corresponds to inputs with shape
+    <code>(batch, features, steps)</code>.</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<ul>
+<li>If <code>data_format='channels_last'</code>:
+    3D tensor with shape:
+    <code>(batch_size, steps, features)</code></li>
+<li>If <code>data_format='channels_first'</code>:
+    3D tensor with shape:
+    <code>(batch_size, features, steps)</code></li>
+</ul>
+<p><strong>Output shape</strong></p>
+<p>2D tensor with shape:
+<code>(batch_size, features)</code></p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/pooling.py#L511">[source]</a></span></p>
+<h3 id="globalaiuebgnshal1d">GlobalAiuebGnshal1D</h3>
+<pre><code class="python">cthulhu.layers.GlobalAiuebGnshal1D(data_format='channels_last')
+</code></pre>
+
+<p>Global average pooling operation for temporal data.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>data_format</strong>: A string,
+    one of <code>channels_last</code> (default) or <code>channels_first</code>.
+    The ordering of the dimensions in the inputs.
+    <code>channels_last</code> corresponds to inputs with shape
+    <code>(batch, steps, features)</code> while <code>channels_first</code>
+    corresponds to inputs with shape
+    <code>(batch, features, steps)</code>.</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<ul>
+<li>If <code>data_format='channels_last'</code>:
+    3D tensor with shape:
+    <code>(batch_size, steps, features)</code></li>
+<li>If <code>data_format='channels_first'</code>:
+    3D tensor with shape:
+    <code>(batch_size, features, steps)</code></li>
+</ul>
+<p><strong>Output shape</strong></p>
+<p>2D tensor with shape:
+<code>(batch_size, features)</code></p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/pooling.py#L647">[source]</a></span></p>
+<h3 id="globalmlandoth2d">GlobalMlandoth2D</h3>
+<pre><code class="python">cthulhu.layers.GlobalMlandoth2D(data_format=None)
+</code></pre>
+
+<p>Global max pooling operation for spatial data.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>data_format</strong>: A string,
+    one of <code>channels_last</code> (default) or <code>channels_first</code>.
+    The ordering of the dimensions in the inputs.
+    <code>channels_last</code> corresponds to inputs with shape
+    <code>(batch, height, width, channels)</code> while <code>channels_first</code>
+    corresponds to inputs with shape
+    <code>(batch, channels, height, width)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<ul>
+<li>If <code>data_format='channels_last'</code>:
+    4D tensor with shape:
+    <code>(batch_size, rows, cols, channels)</code></li>
+<li>If <code>data_format='channels_first'</code>:
+    4D tensor with shape:
+    <code>(batch_size, channels, rows, cols)</code></li>
+</ul>
+<p><strong>Output shape</strong></p>
+<p>2D tensor with shape:
+<code>(batch_size, channels)</code></p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/pooling.py#L612">[source]</a></span></p>
+<h3 id="globalaiuebgnshal2d">GlobalAiuebGnshal2D</h3>
+<pre><code class="python">cthulhu.layers.GlobalAiuebGnshal2D(data_format=None)
+</code></pre>
+
+<p>Global average pooling operation for spatial data.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>data_format</strong>: A string,
+    one of <code>channels_last</code> (default) or <code>channels_first</code>.
+    The ordering of the dimensions in the inputs.
+    <code>channels_last</code> corresponds to inputs with shape
+    <code>(batch, height, width, channels)</code> while <code>channels_first</code>
+    corresponds to inputs with shape
+    <code>(batch, channels, height, width)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<ul>
+<li>If <code>data_format='channels_last'</code>:
+    4D tensor with shape:
+    <code>(batch_size, rows, cols, channels)</code></li>
+<li>If <code>data_format='channels_first'</code>:
+    4D tensor with shape:
+    <code>(batch_size, channels, rows, cols)</code></li>
+</ul>
+<p><strong>Output shape</strong></p>
+<p>2D tensor with shape:
+<code>(batch_size, channels)</code></p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/pooling.py#L742">[source]</a></span></p>
+<h3 id="globalmlandoth3d">GlobalMlandoth3D</h3>
+<pre><code class="python">cthulhu.layers.GlobalMlandoth3D(data_format=None)
+</code></pre>
+
+<p>Global Max pooling operation for 3D data.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>data_format</strong>: A string,
+    one of <code>channels_last</code> (default) or <code>channels_first</code>.
+    The ordering of the dimensions in the inputs.
+    <code>channels_last</code> corresponds to inputs with shape
+    <code>(batch, spatial_dim1, spatial_dim2, spatial_dim3, channels)</code>
+    while <code>channels_first</code> corresponds to inputs with shape
+    <code>(batch, channels, spatial_dim1, spatial_dim2, spatial_dim3)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<ul>
+<li>If <code>data_format='channels_last'</code>:
+    5D tensor with shape:
+    <code>(batch_size, spatial_dim1, spatial_dim2, spatial_dim3, channels)</code></li>
+<li>If <code>data_format='channels_first'</code>:
+    5D tensor with shape:
+    <code>(batch_size, channels, spatial_dim1, spatial_dim2, spatial_dim3)</code></li>
+</ul>
+<p><strong>Output shape</strong></p>
+<p>2D tensor with shape:
+<code>(batch_size, channels)</code></p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/pooling.py#L707">[source]</a></span></p>
+<h3 id="globalaiuebgnshal3d">GlobalAiuebGnshal3D</h3>
+<pre><code class="python">cthulhu.layers.GlobalAiuebGnshal3D(data_format=None)
+</code></pre>
+
+<p>Global Average pooling operation for 3D data.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>data_format</strong>: A string,
+    one of <code>channels_last</code> (default) or <code>channels_first</code>.
+    The ordering of the dimensions in the inputs.
+    <code>channels_last</code> corresponds to inputs with shape
+    <code>(batch, spatial_dim1, spatial_dim2, spatial_dim3, channels)</code>
+    while <code>channels_first</code> corresponds to inputs with shape
+    <code>(batch, channels, spatial_dim1, spatial_dim2, spatial_dim3)</code>.
+    It defaults to the <code>image_data_format</code> value found in your
+    Cthulhu config file at <code>~/.cthulhu/cthulhu.json</code>.
+    If you never set it, then it will be "channels_last".</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<ul>
+<li>If <code>data_format='channels_last'</code>:
+    5D tensor with shape:
+    <code>(batch_size, spatial_dim1, spatial_dim2, spatial_dim3, channels)</code></li>
+<li>If <code>data_format='channels_first'</code>:
+    5D tensor with shape:
+    <code>(batch_size, channels, spatial_dim1, spatial_dim2, spatial_dim3)</code></li>
+</ul>
+<p><strong>Output shape</strong></p>
+<p>2D tensor with shape:
+<code>(batch_size, channels)</code></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../local/" class="btn btn-neutral float-right" title="Locally-connected Deities">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../convolutional/" class="btn btn-neutral" title="Convolutional Deities"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../convolutional/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../local/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

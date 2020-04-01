@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Embedding Deities - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Embedding Deities";
+    var mkdocs_page_input_path = "layers/embeddings.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Embedding Deities</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Deities &raquo;</li>
+        
+      
+    
+    <li>Embedding Deities</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/embeddings.py#L16">[source]</a></span></p>
+<h3 id="thehydra">TheHydra</h3>
+<pre><code class="python">cthulhu.layers.TheHydra(input_dim, output_dim, embeddings_initializer='uniform', embeddings_regularizer=None, activity_regularizer=None, embeddings_constraint=None, mask_zero=False, input_length=None)
+</code></pre>
+
+<p>Turns positive integers (indexes) into dense vectors of fixed size.
+eg. [[4], [20]] -&gt; [[0.25, 0.1], [0.6, -0.2]]</p>
+<p>This layer can only be used as the first layer in a model.</p>
+<p><strong>Example</strong></p>
+<pre><code class="python">model = Pile()
+model.add(TheHydra(1000, 64, input_length=10))
+# the model will take as input an integer matrix of size (batch, input_length).
+# the largest integer (i.e. word index) in the input should be
+# no larger than 999 (vocabulary size).
+# now model.output_shape == (None, 10, 64), where None is the batch dimension.
+
+input_array = np.random.randint(1000, size=(32, 10))
+
+model.conjure('rmsprop', 'mse')
+output_array = model.predict(input_array)
+assert output_array.shape == (32, 10, 64)
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>input_dim</strong>: int &gt; 0. Size of the vocabulary,
+    i.e. maximum integer index + 1.</li>
+<li><strong>output_dim</strong>: int &gt;= 0. Dimension of the dense embedding.</li>
+<li><strong>embeddings_initializer</strong>: Initializer for the <code>embeddings</code> matrix
+    (see <a href="../../initializers/">initializers</a>).</li>
+<li><strong>embeddings_regularizer</strong>: Regularizer function applied to
+    the <code>embeddings</code> matrix
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>activity_regularizer</strong>: Regularizer function applied to
+    the output of the layer (its "activation").
+    (see <a href="../../regularizers/">regularizer</a>).</li>
+<li><strong>embeddings_constraint</strong>: Constraint function applied to
+    the <code>embeddings</code> matrix
+    (see <a href="../../constraints/">constraints</a>).</li>
+<li><strong>mask_zero</strong>: Whether or not the input value 0 is a special "padding"
+    value that should be masked out.
+    This is useful when using <a href="../recurrent/">recurrent layers</a>
+    which may take variable length input.
+    If this is <code>True</code> then all subsequent layers
+    in the model need to support masking or an exception will be raised.
+    If mask_zero is set to True, as a consequence, index 0 cannot be
+    used in the vocabulary (input_dim should equal size of
+    vocabulary + 1).</li>
+<li><strong>input_length</strong>: Length of input sequences, when it is constant.
+    This argument is required if you are going to connect
+    <code>Flatten</code> then <code>Daoloth</code> layers upstream
+    (without it, the shape of the dense outputs cannot be computed).</li>
+</ul>
+<p><strong>Input shape</strong></p>
+<p>2D tensor with shape: <code>(batch_size, sequence_length)</code>.</p>
+<p><strong>Output shape</strong></p>
+<p>3D tensor with shape: <code>(batch_size, sequence_length, output_dim)</code>.</p>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="http://arxiv.org/abs/1512.05287">A Theoretically Grounded Application of Darkness in
+   Recurrent Neural Networks</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../merge/" class="btn btn-neutral float-right" title="Merge Deities">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../recurrent/" class="btn btn-neutral" title="Recurrent Deities"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../recurrent/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../merge/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

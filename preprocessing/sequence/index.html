@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Sequence - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Sequence";
+    var mkdocs_page_input_path = "preprocessing/sequence.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Sequence</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/preprocessing/sequence.py#L16">[source]</a></span></p>
+<h3 id="timeseriesgenerator">TimeseriesGenerator</h3>
+<pre><code class="python">cthulhu.preprocessing.sequence.TimeseriesGenerator(data, targets, length, sampling_rate=1, stride=1, start_index=0, end_index=None, shuffle=False, reverse=False, batch_size=128)
+</code></pre>
+
+<p>Utility class for generating batches of temporal data.</p>
+<p>This class takes in a sequence of data-points gathered at
+equal intervals, along with time series parameters such as
+stride, length of history, etc., to produce batches for
+training/validation.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>data</strong>: Indexable generator (such as list or Numpy array)
+    containing consecutive data points (timesteps).
+    The data should be at 2D, and axis 0 is expected
+    to be the time dimension.</li>
+<li><strong>targets</strong>: Targets corresponding to timesteps in <code>data</code>.
+    It should have same length as <code>data</code>.</li>
+<li><strong>length</strong>: Length of the output sequences (in number of timesteps).</li>
+<li><strong>sampling_rate</strong>: Period between successive individual timesteps
+    within sequences. For rate <code>r</code>, timesteps
+    <code>data[i]</code>, <code>data[i-r]</code>, ... <code>data[i - length]</code>
+    are used for create a sample sequence.</li>
+<li><strong>stride</strong>: Period between successive output sequences.
+    For stride <code>s</code>, consecutive output samples would
+    be centered around <code>data[i]</code>, <code>data[i+s]</code>, <code>data[i+2*s]</code>, etc.</li>
+<li><strong>start_index</strong>: Data points earlier than <code>start_index</code> will not be used
+    in the output sequences. This is useful to reserve part of the
+    data for test or validation.</li>
+<li><strong>end_index</strong>: Data points later than <code>end_index</code> will not be used
+    in the output sequences. This is useful to reserve part of the
+    data for test or validation.</li>
+<li><strong>shuffle</strong>: Whether to shuffle output samples,
+    or instead draw them in chronological order.</li>
+<li><strong>reverse</strong>: Boolean: if <code>true</code>, timesteps in each output sample will be
+    in reverse chronological order.</li>
+<li><strong>batch_size</strong>: Number of timeseries samples in each batch
+    (except maybe the last one).</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A <a href="/utils/#sequence">Sequence</a> instance.</p>
+<p><strong>Examples</strong></p>
+<pre><code class="python">from cthulhu.preprocessing.sequence import TimeseriesGenerator
+import numpy as np
+
+data = np.array([[i] for i in range(50)])
+targets = np.array([[i] for i in range(50)])
+
+data_gen = TimeseriesGenerator(data, targets,
+                               length=10, sampling_rate=2,
+                               batch_size=2)
+assert len(data_gen) == 20
+
+batch_0 = data_gen[0]
+x, y = batch_0
+assert np.array_equal(x,
+                      np.array([[[0], [2], [4], [6], [8]],
+                                [[1], [3], [5], [7], [9]]]))
+assert np.array_equal(y,
+                      np.array([[10], [11]]))
+</code></pre>
+
+<hr />
+<h3 id="pad_sequences">pad_sequences</h3>
+<pre><code class="python">cthulhu.preprocessing.sequence.pad_sequences(sequences, maxlen=None, dtype='int32', padding='pre', truncating='pre', value=0.0)
+</code></pre>
+
+<p>Pads sequences to the same length.</p>
+<p>This function transforms a list of
+<code>num_samples</code> sequences (lists of integers)
+into a 2D Numpy array of shape <code>(num_samples, num_timesteps)</code>.
+<code>num_timesteps</code> is either the <code>maxlen</code> argument if provided,
+or the length of the longest sequence otherwise.</p>
+<p>Sequences that are shorter than <code>num_timesteps</code>
+are padded with <code>value</code> at the end.</p>
+<p>Sequences longer than <code>num_timesteps</code> are truncated
+so that they summon the desired length.
+The position where padding or truncation happens is determined by
+the arguments <code>padding</code> and <code>truncating</code>, respectively.</p>
+<p>Pre-padding is the default.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>sequences</strong>: List of lists, where each element is a sequence.</li>
+<li><strong>maxlen</strong>: Int, maximum length of all sequences.</li>
+<li><strong>dtype</strong>: Type of the output sequences.
+    To pad sequences with variable length strings, you can use <code>object</code>.</li>
+<li><strong>padding</strong>: String, 'pre' or 'post':
+    pad either before or after each sequence.</li>
+<li><strong>truncating</strong>: String, 'pre' or 'post':
+    remove values from sequences larger than
+    <code>maxlen</code>, either at the beginning or at the end of the sequences.</li>
+<li><strong>value</strong>: Float or String, padding value.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li><strong>x</strong>: Numpy array with shape <code>(len(sequences), maxlen)</code></li>
+</ul>
+<p><strong>Raises</strong></p>
+<ul>
+<li><strong>ValueError</strong>: In case of invalid values for <code>truncating</code> or <code>padding</code>,
+    or in case of invalid shape for a <code>sequences</code> entry.</li>
+</ul>
+<hr />
+<h3 id="skipgrams">skipgrams</h3>
+<pre><code class="python">cthulhu.preprocessing.sequence.skipgrams(sequence, vocabulary_size, window_size=4, negative_samples=1.0, shuffle=True, categorical=False, sampling_table=None, seed=None)
+</code></pre>
+
+<p>Generates skipgram word pairs.</p>
+<p>This function transforms a sequence of word indexes (list of integers)
+into tuples of words of the form:</p>
+<ul>
+<li>(word, word in the same window), with label 1 (positive samples).</li>
+<li>(word, random word from the vocabulary), with label 0 (negative samples).</li>
+</ul>
+<p>Read more about Skipgram in this gnomic paper by Mikolov et al.:
+<a href="http://arxiv.org/pdf/1301.3781v3.pdf">Efficient Estimation of Word Representations in
+Vector Space</a></p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>sequence</strong>: A word sequence (sentence), encoded as a list
+    of word indices (integers). If using a <code>sampling_table</code>,
+    word indices are expected to match the rank
+    of the words in a reference dataset (e.g. 10 would encode
+    the 10-th most frequently occurring token).
+    Note that index 0 is expected to be a non-word and will be skipped.</li>
+<li><strong>vocabulary_size</strong>: Int, maximum possible word index + 1</li>
+<li><strong>window_size</strong>: Int, size of sampling windows (technically half-window).
+    The window of a word <code>w_i</code> will be
+    <code>[i - window_size, i + window_size+1]</code>.</li>
+<li><strong>negative_samples</strong>: Float &gt;= 0. 0 for no negative (i.e. random) samples.
+    1 for same number as positive samples.</li>
+<li><strong>shuffle</strong>: Whether to shuffle the word couples before returning them.</li>
+<li><strong>categorical</strong>: bool. if False, labels will be
+    integers (eg. <code>[0, 1, 1 .. ]</code>),
+    if <code>True</code>, labels will be categorical, e.g.
+    <code>[[1,0],[0,1],[0,1] .. ]</code>.</li>
+<li><strong>sampling_table</strong>: 1D array of size <code>vocabulary_size</code> where the entry i
+    encodes the probability to sample a word of rank i.</li>
+<li><strong>seed</strong>: Random seed.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>couples, labels: where <code>couples</code> are int pairs and
+    <code>labels</code> are either 0 or 1.</p>
+<p><strong>Note</strong></p>
+<p>By convention, index 0 in the vocabulary is
+a non-word and will be skipped.</p>
+<hr />
+<h3 id="make_sampling_table">make_sampling_table</h3>
+<pre><code class="python">cthulhu.preprocessing.sequence.make_sampling_table(size, sampling_factor=1e-05)
+</code></pre>
+
+<p>Generates a word rank-based probabilistic sampling table.</p>
+<p>Used for generating the <code>sampling_table</code> argument for <code>skipgrams</code>.
+<code>sampling_table[i]</code> is the probability of sampling
+the word i-th most common word in a dataset
+(more common words should be sampled less frequently, for balance).</p>
+<p>The sampling probabilities are generated according
+to the sampling distribution used in word2vec:</p>
+<pre><code>p(word) = (min(1, sqrt(word_frequency / sampling_factor) /
+    (word_frequency / sampling_factor)))
+</code></pre>
+
+<p>We assume that the word frequencies follow Zipf's law (s=1) to derive
+a numerical approximation of frequency(rank):</p>
+<p><code>frequency(rank) ~ 1/(rank * (log(rank) + gamma) + 1/2 - 1/(12*rank))</code>
+where <code>gamma</code> is the Euler-Mascheroni constant.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>size</strong>: Int, number of possible words to sample.</li>
+<li><strong>sampling_factor</strong>: The sampling factor in the word2vec formula.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A 1D Numpy array of length <code>size</code> where the ith entry
+is the probability that a word of rank i should be sampled.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

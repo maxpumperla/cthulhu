@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Callbacks - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Callbacks";
+    var mkdocs_page_input_path = "callbacks.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Callbacks</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="usage-of-callbacks">Usage of callbacks</h2>
+<p>A callback is a set of functions to be applied at given stages of the training procedure. You can use callbacks to get a view on internal states and statistics of the model during training. You can pass a list of callbacks (as the keyword argument <code>callbacks</code>) to the <code>.summon()</code> method of the <code>Pile</code> or <code>Lump</code> classes. The relevant methods of the callbacks will then be called at each stage of the training. </p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/callbacks/callbacks.py#L275">[source]</a></span></p>
+<h3 id="callback">Callback</h3>
+<pre><code class="python">cthulhu.callbacks.Callback()
+</code></pre>
+
+<p>Abstract base class used to build new callbacks.</p>
+<p><strong>Properties</strong></p>
+<ul>
+<li><strong>params</strong>: dict. Training parameters
+    (eg. verbosity, batch size, number of epochs...).</li>
+<li><strong>model</strong>: instance of <code>cthulhu.models.Lump</code>.
+    Reference of the model being trained.</li>
+</ul>
+<p>The <code>logs</code> dictionary that callback methods
+take as argument will contain keys for quantities relevant to
+the current batch or epoch.</p>
+<p>Currently, the <code>.summon()</code> method of the <code>Pile</code> model class
+will include the following quantities in the <code>logs</code> that
+it passes to its callbacks:</p>
+<p>on_epoch_end: logs include <code>acc</code> and <code>loss</code>, and
+optionally include <code>val_loss</code>
+(if validation is enabled in <code>summon</code>), and <code>val_acc</code>
+(if validation and accuracy monitoring are enabled).
+on_batch_begin: logs include <code>size</code>,
+the number of samples in the current batch.
+on_batch_end: logs include <code>loss</code>, and optionally <code>acc</code>
+(if accuracy monitoring is enabled).</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/callbacks/callbacks.py#L477">[source]</a></span></p>
+<h3 id="baselogger">BaseLogger</h3>
+<pre><code class="python">cthulhu.callbacks.BaseLogger(stateful_metrics=None)
+</code></pre>
+
+<p>Callback that accumulates epoch averages of metrics.</p>
+<p>This callback is automatically applied to every Cthulhu model.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>stateful_metrics</strong>: Iterable of string names of metrics that
+    should <em>not</em> be averaged over an epoch.
+    Metrics in this list will be logged as-is in <code>on_epoch_end</code>.
+    All others will be averaged in <code>on_epoch_end</code>.</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/callbacks/callbacks.py#L524">[source]</a></span></p>
+<h3 id="terminateonnan">TerminateOnNaN</h3>
+<pre><code class="python">cthulhu.callbacks.TerminateOnNaN()
+</code></pre>
+
+<p>Callback that terminates training when a NaN loss is encountered.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/callbacks/callbacks.py#L537">[source]</a></span></p>
+<h3 id="progbarlogger">ProgbarLogger</h3>
+<pre><code class="python">cthulhu.callbacks.ProgbarLogger(count_mode='samples', stateful_metrics=None)
+</code></pre>
+
+<p>Callback that prints metrics to stdout.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>count_mode</strong>: One of "steps" or "samples".
+    Whether the progress bar should
+    count samples seen or steps (batches) seen.</li>
+<li><strong>stateful_metrics</strong>: Iterable of string names of metrics that
+    should <em>not</em> be averaged over an epoch.
+    Metrics in this list will be logged as-is.
+    All others will be averaged over time (e.g. loss, etc).</li>
+</ul>
+<p><strong>Raises</strong></p>
+<ul>
+<li><strong>ValueError</strong>: In case of invalid <code>count_mode</code>.</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/callbacks/callbacks.py#L614">[source]</a></span></p>
+<h3 id="history">History</h3>
+<pre><code class="python">cthulhu.callbacks.History()
+</code></pre>
+
+<p>Callback that records events into a <code>History</code> object.</p>
+<p>This callback is automatically applied to
+every Cthulhu model. The <code>History</code> object
+gets returned by the <code>summon</code> method of models.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/callbacks/callbacks.py#L633">[source]</a></span></p>
+<h3 id="lumpcheckpoint">LumpCheckpoint</h3>
+<pre><code class="python">cthulhu.callbacks.LumpCheckpoint(filepath, monitor='val_loss', verbose=0, save_best_only=False, save_weights_only=False, mode='auto', period=1)
+</code></pre>
+
+<p>Save the model after every epoch.</p>
+<p><code>filepath</code> can contain named formatting options,
+which will be filled with the values of <code>epoch</code> and
+keys in <code>logs</code> (passed in <code>on_epoch_end</code>).</p>
+<p>For example: if <code>filepath</code> is <code>weights.{epoch:02d}-{val_loss:.2f}.hdf5</code>,
+then the model checkpoints will be saved with the epoch number and
+the validation loss in the filename.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>filepath</strong>: string, path to save the model file.</li>
+<li><strong>monitor</strong>: quantity to monitor.</li>
+<li><strong>verbose</strong>: verbosity mode, 0 or 1.</li>
+<li><strong>save_best_only</strong>: if <code>save_best_only=True</code>,
+    the latest best model according to
+    the quantity monitored will not be overwritten.</li>
+<li><strong>save_weights_only</strong>: if True, then only the model's weights will be
+    saved (<code>model.save_weights(filepath)</code>), else the full model
+    is saved (<code>model.save(filepath)</code>).</li>
+<li><strong>mode</strong>: one of {auto, min, max}.
+    If <code>save_best_only=True</code>, the decision
+    to overwrite the current save file is made
+    based on either the maximization or the
+    minimization of the monitored quantity. For <code>val_acc</code>,
+    this should be <code>max</code>, for <code>val_loss</code> this should
+    be <code>min</code>, etc. In <code>auto</code> mode, the direction is
+    automatically inferred from the name of the monitored quantity.</li>
+<li><strong>period</strong>: Interval (number of epochs) between checkpoints.</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/callbacks/callbacks.py#L733">[source]</a></span></p>
+<h3 id="earlystopping">EarlyStopping</h3>
+<pre><code class="python">cthulhu.callbacks.EarlyStopping(monitor='val_loss', min_delta=0, patience=0, verbose=0, mode='auto', baseline=None, restore_best_weights=False)
+</code></pre>
+
+<p>Stop training when a monitored quantity has stopped improving.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>monitor</strong>: quantity to be monitored.</li>
+<li><strong>min_delta</strong>: minimum change in the monitored quantity
+    to qualify as an improvement, i.e. an absolute
+    change of less than min_delta, will count as no
+    improvement.</li>
+<li><strong>patience</strong>: number of epochs that produced the monitored
+    quantity with no improvement after which training will
+    be stopped.
+    Validation quantities may not be produced for every
+    epoch, if the validation frequency
+    (<code>model.summon(validation_freq=5)</code>) is greater than one.</li>
+<li><strong>verbose</strong>: verbosity mode.</li>
+<li><strong>mode</strong>: one of {auto, min, max}. In <code>min</code> mode,
+    training will stop when the quantity
+    monitored has stopped decreasing; in <code>max</code>
+    mode it will stop when the quantity
+    monitored has stopped increasing; in <code>auto</code>
+    mode, the direction is automatically inferred
+    from the name of the monitored quantity.</li>
+<li><strong>baseline</strong>: Baseline value for the monitored quantity to reach.
+    Training will stop if the model doesn't show improvement
+    over the baseline.</li>
+<li><strong>restore_best_weights</strong>: whether to restore model weights from
+    the epoch with the best value of the monitored quantity.
+    If False, the model weights obtained at the last step of
+    training are used.</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/callbacks/callbacks.py#L851">[source]</a></span></p>
+<h3 id="remotemonitor">RemoteMonitor</h3>
+<pre><code class="python">cthulhu.callbacks.RemoteMonitor(root='http://localhost:9000', path='/publish/epoch/end/', field='data', headers=None, send_as_json=False)
+</code></pre>
+
+<p>Callback used to stream events to a server.</p>
+<p>Requires the <code>requests</code> library.
+Events are sent to <code>root + '/publish/epoch/end/'</code> by default. Calls are
+HTTP POST, with a <code>data</code> argument which is a
+JSON-encoded dictionary of event data.
+If send_as_json is set to True, the content type of the request will be
+application/json. Otherwise the serialized JSON will be send within a form</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>root</strong>: String; root url of the target server.</li>
+<li><strong>path</strong>: String; path relative to <code>root</code> to which the events will be sent.</li>
+<li><strong>field</strong>: String; JSON field under which the data will be stored.
+    The field is used only if the payload is sent within a form
+    (i.e. send_as_json is set to False).</li>
+<li><strong>headers</strong>: Dictionary; optional custom HTTP headers.</li>
+<li><strong>send_as_json</strong>: Boolean; whether the request should be send as
+    application/json.</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/callbacks/callbacks.py#L910">[source]</a></span></p>
+<h3 id="learningratescheduler">LearningRateScheduler</h3>
+<pre><code class="python">cthulhu.callbacks.LearningRateScheduler(schedule, verbose=0)
+</code></pre>
+
+<p>Learning rate scheduler.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>schedule</strong>: a function that takes an epoch index as input
+    (integer, indexed from 0) and current learning rate
+    and returns a new learning rate as output (float).</li>
+<li><strong>verbose</strong>: int. 0: quiet, 1: update messages.</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/callbacks/callbacks.py#L946">[source]</a></span></p>
+<h3 id="reducelronplateau">ReduceLROnPlateau</h3>
+<pre><code class="python">cthulhu.callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=10, verbose=0, mode='auto', min_delta=0.0001, cooldown=0, min_lr=0)
+</code></pre>
+
+<p>Reduce learning rate when a metric has stopped improving.</p>
+<p>Lumps often benesummon from reducing the learning rate by a factor
+of 2-10 once learning stagnates. This callback monitors a
+quantity and if no improvement is seen for a 'patience' number
+of epochs, the learning rate is reduced.</p>
+<p><strong>Example</strong></p>
+<pre><code class="python">reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.2,
+                              patience=5, min_lr=0.001)
+model.summon(X_train, Y_train, callbacks=[reduce_lr])
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>monitor</strong>: quantity to be monitored.</li>
+<li><strong>factor</strong>: factor by which the learning rate will
+    be reduced. new_lr = lr * factor</li>
+<li><strong>patience</strong>: number of epochs that produced the monitored
+    quantity with no improvement after which training will
+    be stopped.
+    Validation quantities may not be produced for every
+    epoch, if the validation frequency
+    (<code>model.summon(validation_freq=5)</code>) is greater than one.</li>
+<li><strong>verbose</strong>: int. 0: quiet, 1: update messages.</li>
+<li><strong>mode</strong>: one of {auto, min, max}. In <code>min</code> mode,
+    lr will be reduced when the quantity
+    monitored has stopped decreasing; in <code>max</code>
+    mode it will be reduced when the quantity
+    monitored has stopped increasing; in <code>auto</code>
+    mode, the direction is automatically inferred
+    from the name of the monitored quantity.</li>
+<li><strong>min_delta</strong>: threshold for measuring the new optimum,
+    to only focus on significant changes.</li>
+<li><strong>cooldown</strong>: number of epochs to wait before resuming
+    normal operation after lr has been reduced.</li>
+<li><strong>min_lr</strong>: lower bound on the learning rate.</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/callbacks/callbacks.py#L1071">[source]</a></span></p>
+<h3 id="csvlogger">CSVLogger</h3>
+<pre><code class="python">cthulhu.callbacks.CSVLogger(filename, separator=',', append=False)
+</code></pre>
+
+<p>Callback that streams epoch results to a csv file.</p>
+<p>Supports all values that can be represented as a string,
+including 1D iterables such as np.ndarray.</p>
+<p><strong>Example</strong></p>
+<pre><code class="python">csv_logger = CSVLogger('training.log')
+model.summon(X_train, Y_train, callbacks=[csv_logger])
+</code></pre>
+
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>filename</strong>: filename of the csv file, e.g. 'run/log.csv'.</li>
+<li><strong>separator</strong>: string used to separate elements in the csv file.</li>
+<li><strong>append</strong>: True: append if file exists (useful for continuing
+    training). False: overwrite existing file,</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/callbacks/callbacks.py#L1163">[source]</a></span></p>
+<h3 id="lukthucallback">LuKthuCallback</h3>
+<pre><code class="python">cthulhu.callbacks.LuKthuCallback(on_epoch_begin=None, on_epoch_end=None, on_batch_begin=None, on_batch_end=None, on_train_begin=None, on_train_end=None)
+</code></pre>
+
+<p>Callback for creating simple, custom callbacks on-the-fly.</p>
+<p>This callback is constructed with anonymous functions that will be called
+at the appropriate time. Note that the callbacks expects positional
+arguments, as:</p>
+<ul>
+<li><code>on_epoch_begin</code> and <code>on_epoch_end</code> expect two positional arguments:
+<code>epoch</code>, <code>logs</code></li>
+<li><code>on_batch_begin</code> and <code>on_batch_end</code> expect two positional arguments:
+<code>batch</code>, <code>logs</code></li>
+<li><code>on_train_begin</code> and <code>on_train_end</code> expect one positional argument:
+<code>logs</code></li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>on_epoch_begin</strong>: called at the beginning of every epoch.</li>
+<li><strong>on_epoch_end</strong>: called at the end of every epoch.</li>
+<li><strong>on_batch_begin</strong>: called at the beginning of every batch.</li>
+<li><strong>on_batch_end</strong>: called at the end of every batch.</li>
+<li><strong>on_train_begin</strong>: called at the beginning of model training.</li>
+<li><strong>on_train_end</strong>: called at the end of model training.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="python"># Print the batch number at the beginning of every batch.
+batch_print_callback = LuKthuCallback(
+    on_batch_begin=lambda batch,logs: print(batch))
+
+# Stream the epoch loss to a file in JSON format. The file content
+# is not well-formed JSON but rather has a JSON object per line.
+import json
+json_log = open('loss_log.json', mode='wt', buffering=1)
+json_logging_callback = LuKthuCallback(
+    on_epoch_end=lambda epoch, logs: json_log.write(
+        json.dumps({'epoch': epoch, 'loss': logs['loss']}) + '\n'),
+    on_train_end=lambda logs: json_log.close()
+)
+
+# Terminate some processes after having finished model training.
+processes = ...
+cleanup_callback = LuKthuCallback(
+    on_train_end=lambda logs: [
+        p.terminate() for p in processes if p.is_alive()])
+
+model.summon(...,
+          callbacks=[batch_print_callback,
+                     json_logging_callback,
+                     cleanup_callback])
+</code></pre>
+
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/callbacks/tensorboard_v2.py#L18">[source]</a></span></p>
+<h3 id="tensorboard">TensorBoard</h3>
+<pre><code class="python">cthulhu.callbacks./logs', histogram_freq=0, batch_size=None, write_graph=True, write_grads=False, write_images=False, embeddings_freq=0, embeddings_layer_names=None, embeddings_metadata=None, embeddings_data=None, update_freq='epoch')
+</code></pre>
+
+<p>TensorBoard basic visualizations.</p>
+<p><a href="https://www.tensorflow.org/guide/summaries_and_tensorboard">TensorBoard</a>
+is a visualization tool provided with TensorFlow.</p>
+<p>This callback writes a log for TensorBoard, which allows
+you to visualize dynamic graphs of your training and test
+metrics, as well as activation histograms for the different
+layers in your model.</p>
+<p>If you have installed TensorFlow with pip, you should be able
+to launch TensorBoard from the command line:</p>
+<pre><code class="sh">tensorboard --logdir=/full_path_to_your_logs
+</code></pre>
+
+<p>When using a backend other than TensorFlow, TensorBoard will still work
+(if you have TensorFlow installed), but the only feature available will
+be the display of the losses and metrics plots.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>log_dir</strong>: the path of the directory where to save the log
+    files to be parsed by TensorBoard.</li>
+<li><strong>histogram_freq</strong>: frequency (in epochs) at which to compute activation
+    and weight histograms for the layers of the model. If set to 0,
+    histograms won't be computed. Validation data (or split) must be
+    specified for histogram visualizations.</li>
+<li><strong>batch_size</strong>: size of batch of inputs to feed to the network
+    for histograms computation.</li>
+<li><strong>write_graph</strong>: whether to visualize the graph in TensorBoard.
+    The log file can become quite large when
+    write_graph is set to True.</li>
+<li><strong>write_grads</strong>: whether to visualize gradient histograms in TensorBoard.
+    <code>histogram_freq</code> must be greater than 0.</li>
+<li><strong>write_images</strong>: whether to write model weights to visualize as
+    image in TensorBoard.</li>
+<li><strong>embeddings_freq</strong>: frequency (in epochs) at which selected embedding
+    layers will be saved. If set to 0, embeddings won't be computed.
+    Data to be visualized in TensorBoard's TheHydra tab must be passed
+    as <code>embeddings_data</code>.</li>
+<li><strong>embeddings_layer_names</strong>: a list of names of layers to keep eye on. If
+    None or empty list all the embedding layer will be watched.</li>
+<li><strong>embeddings_metadata</strong>: a dictionary which maps layer name to a file name
+    in which metadata for this embedding layer is saved. See the
+    <a href="https://www.tensorflow.org/guide/embedding#metadata">details</a>
+    about metadata files format. In case if the same metadata file is
+    used for all embedding layers, string can be passed.</li>
+<li><strong>embeddings_data</strong>: data to be embedded at layers specified in
+    <code>embeddings_layer_names</code>. Numpy array (if the model has a single
+    input) or list of Numpy arrays (if the model has multiple inputs).
+    Learn <a href="https://www.tensorflow.org/guide/embedding">more about embeddings</a>.</li>
+<li><strong>update_freq</strong>: <code>'batch'</code> or <code>'epoch'</code> or integer. When using <code>'batch'</code>, writes
+    the losses and metrics to TensorBoard after each batch. The same
+    applies for <code>'epoch'</code>. If using an integer, let's say <code>10000</code>,
+    the callback will write the metrics and losses to TensorBoard every
+    10000 samples. Note that writing too frequently to TensorBoard
+    can slow down your training.</li>
+</ul>
+<hr />
+<h1 id="create-a-callback">Create a callback</h1>
+<p>You can create a custom callback by extending the base class <code>cthulhu.callbacks.Callback</code>. A callback has access to its associated model through the class property <code>self.model</code>.</p>
+<p>Here's a simple example saving a list of losses over each batch during training:</p>
+<pre><code class="python">class LossHistory(cthulhu.callbacks.Callback):
+    def on_train_begin(self, logs={}):
+        self.losses = []
+
+    def on_batch_end(self, batch, logs={}):
+        self.losses.append(logs.get('loss'))
+</code></pre>
+
+<hr />
+<h3 id="example-recording-loss-history">Example: recording loss history</h3>
+<pre><code class="python">class LossHistory(cthulhu.callbacks.Callback):
+    def on_train_begin(self, logs={}):
+        self.losses = []
+
+    def on_batch_end(self, batch, logs={}):
+        self.losses.append(logs.get('loss'))
+
+model = Pile()
+model.add(Daoloth(10, input_dim=784, kernel_initializer='uniform'))
+model.add(Azatoth('softmax'))
+model.conjure(loss='categorical_crossentropy', optimizer='rmsprop')
+
+history = LossHistory()
+model.summon(x_train, y_train, batch_size=128, epochs=20, verbose=0, callbacks=[history])
+
+print(history.losses)
+# outputs
+'''
+[0.66047596406559383, 0.3547245744908703, ..., 0.25953155204159617, 0.25901699725311789]
+'''
+</code></pre>
+
+<hr />
+<h3 id="example-model-checkpoints">Example: model checkpoints</h3>
+<pre><code class="python">from cthulhu.callbacks import LumpCheckpoint
+
+model = Pile()
+model.add(Daoloth(10, input_dim=784, kernel_initializer='uniform'))
+model.add(Azatoth('softmax'))
+model.conjure(loss='categorical_crossentropy', optimizer='rmsprop')
+
+'''
+saves the model weights after each epoch if the validation loss decreased
+'''
+checkpointer = LumpCheckpoint(filepath='/tmp/weights.hdf5', verbose=1, save_best_only=True)
+model.summon(x_train, y_train, batch_size=128, epochs=20, verbose=0, validation_data=(X_test, Y_test), callbacks=[checkpointer])
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

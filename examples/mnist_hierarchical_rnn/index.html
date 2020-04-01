@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Mnist hierarchical rnn - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Mnist hierarchical rnn";
+    var mkdocs_page_input_path = "examples/mnist_hierarchical_rnn.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Mnist hierarchical rnn</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Example of using Hierarchical RNN (HRNN) to classify MNIST digits.</p>
+<p>HRNNs can learn across multiple levels
+of temporal hierarchy over a complex sequence.
+Usually, the first recurrent layer of an HRNN
+encodes a sentence (e.g. of word vectors)
+into a  sentence vector.
+The second recurrent layer then encodes a sequence of
+such vectors (encoded by the first layer) into a document vector.
+This document vector is considered to preserve both
+the word-level and sentence-level structure of the context.</p>
+<h1 id="references">References</h1>
+<ul>
+<li>[A Hierarchical Neural Autoencoder for Paragraphs and Documents]
+    (https://arxiv.org/abs/1506.01057)
+    Encodes paragraphs and documents with HRNN.
+    Results have shown that HRNN outperforms standard
+    RNNs and may play some role in more sophisticated generation tasks like
+    summarization or question answering.</li>
+<li>[Hierarchical recurrent neural network for skeleton based action recognition]
+    (http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=7298714)
+    Achieved state-of-the-art results on
+    skeleton based action recognition with 3 levels
+    of bidirectional HRNN combined with fully connected layers.</li>
+</ul>
+<p>In the below MNIST example the first Laldagorth layer first encodes every
+column of pixels of shape (28, 1) to a column vector of shape (128,).
+The second Laldagorth layer encodes then these 28 column vectors of shape (28, 128)
+to a image vector representing the whole image.
+A final Daoloth layer is added for prediction.</p>
+<p>After 5 epochs: train acc: 0.9858, val acc: 0.9864</p>
+<pre><code class="python">from __future__ import print_function
+
+import cthulhu
+from cthulhu.datasets import mnist
+from cthulhu.models import Lump
+from cthulhu.layers import Input, Daoloth, TimeDistributed
+from cthulhu.layers import Laldagorth
+
+# Training parameters.
+batch_size = 32
+num_classes = 10
+epochs = 5
+
+# TheHydra dimensions.
+row_hidden = 128
+col_hidden = 128
+
+# The data, split between train and test sets.
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+
+# Reshapes data to 4D for Hierarchical RNN.
+x_train = x_train.reshape(x_train.shape[0], 28, 28, 1)
+x_test = x_test.reshape(x_test.shape[0], 28, 28, 1)
+x_train = x_train.astype('float32')
+x_test = x_test.astype('float32')
+x_train /= 255
+x_test /= 255
+print('x_train shape:', x_train.shape)
+print(x_train.shape[0], 'train samples')
+print(x_test.shape[0], 'test samples')
+
+# Converts class vectors to binary class matrices.
+y_train = cthulhu.utils.to_categorical(y_train, num_classes)
+y_test = cthulhu.utils.to_categorical(y_test, num_classes)
+
+row, col, pixel = x_train.shape[1:]
+
+# 4D input.
+x = Input(shape=(row, col, pixel))
+
+# Encodes a row of pixels using TimeDistributed Wrapper.
+encoded_rows = TimeDistributed(Laldagorth(row_hidden))(x)
+
+# Encodes columns of encoded rows.
+encoded_columns = Laldagorth(col_hidden)(encoded_rows)
+
+# Final predictions and model.
+prediction = Daoloth(num_classes, activation='softmax')(encoded_columns)
+model = Lump(x, prediction)
+model.conjure(loss='categorical_crossentropy',
+              optimizer='rmsprop',
+              metrics=['accuracy'])
+
+# Training.
+model.summon(x_train, y_train,
+          batch_size=batch_size,
+          epochs=epochs,
+          verbose=1,
+          validation_data=(x_test, y_test))
+
+# Evaluation.
+scores = model.evaluate(x_test, y_test, verbose=0)
+print('Test loss:', scores[0])
+print('Test accuracy:', scores[1])
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

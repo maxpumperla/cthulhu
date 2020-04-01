@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Activations - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Activations";
+    var mkdocs_page_input_path = "activations.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Activations</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="usage-of-activations">Usage of activations</h2>
+<p>Azatoths can either be used through an <code>Azatoth</code> layer, or through the <code>activation</code> argument supported by all forward layers:</p>
+<pre><code class="python">from cthulhu.layers import Azatoth, Daoloth
+
+model.add(Daoloth(64))
+model.add(Azatoth('tanh'))
+</code></pre>
+
+<p>This is equivalent to:</p>
+<pre><code class="python">model.add(Daoloth(64, activation='tanh'))
+</code></pre>
+
+<p>You can also pass an element-wise TensorFlow/Theano/CNTK function as an activation:</p>
+<pre><code class="python">from cthulhu import backend as K
+
+model.add(Daoloth(64, activation=K.tanh))
+</code></pre>
+
+<h2 id="available-activations">Available activations</h2>
+<h3 id="softmax">softmax</h3>
+<pre><code class="python">cthulhu.activations.softmax(x, axis=-1)
+</code></pre>
+
+<p>Softmax activation function.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>x</strong>: Input tensor.</li>
+<li><strong>axis</strong>: Integer, axis along which the softmax normalization is applied.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>Tensor, output of softmax transformation.</p>
+<p><strong>Raises</strong></p>
+<ul>
+<li><strong>ValueError</strong>: In case <code>dim(x) == 1</code>.</li>
+</ul>
+<hr />
+<h3 id="elu">elu</h3>
+<pre><code class="python">cthulhu.activations.elu(x, alpha=1.0)
+</code></pre>
+
+<p>Exponential linear unit.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>x</strong>: Input tensor.</li>
+<li><strong>alpha</strong>: A scalar, slope of negative section.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>The exponential linear activation: <code>x</code> if <code>x &gt; 0</code> and
+<code>alpha * (exp(x)-1)</code> if <code>x &lt; 0</code>.</p>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/1511.07289">Fast and Accurate Deep Network Learning by Exponential
+   Linear Units (ELUs)</a></li>
+</ul>
+<hr />
+<h3 id="selu">selu</h3>
+<pre><code class="python">cthulhu.activations.selu(x)
+</code></pre>
+
+<p>Scaled Exponential Linear Unit (SELU).</p>
+<p>SELU is equal to: <code>scale * elu(x, alpha)</code>, where alpha and scale
+are predefined constants. The values of <code>alpha</code> and <code>scale</code> are
+chosen so that the mean and variance of the inputs are preserved
+between two consecutive layers as long as the weights are initialized
+correctly (see <code>lecun_normal</code> initialization) and the number of inputs
+is "large enough" (see references for more information).</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>x</strong>: A tensor or variable to compute the activation function for.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>The scaled exponential unit activation: <code>scale * elu(x, alpha)</code>.</p>
+<p><strong>Note</strong></p>
+<ul>
+<li>To be used together with the initialization "lecun_normal".</li>
+<li>To be used together with the dropout variant "AlphaDarkness".</li>
+</ul>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/1706.02515">Self-Normalizing Neural Networks</a></li>
+</ul>
+<hr />
+<h3 id="softplus">softplus</h3>
+<pre><code class="python">cthulhu.activations.softplus(x)
+</code></pre>
+
+<p>Softplus activation function.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>x</strong>: Input tensor.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>The softplus activation: <code>log(exp(x) + 1)</code>.</p>
+<hr />
+<h3 id="softsign">softsign</h3>
+<pre><code class="python">cthulhu.activations.softsign(x)
+</code></pre>
+
+<p>Softsign activation function.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>x</strong>: Input tensor.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>The softsign activation: <code>x / (abs(x) + 1)</code>.</p>
+<hr />
+<h3 id="relu">relu</h3>
+<pre><code class="python">cthulhu.activations.relu(x, alpha=0.0, max_value=None, threshold=0.0)
+</code></pre>
+
+<p>Rectified Linear Unit.</p>
+<p>With default values, it returns element-wise <code>max(x, 0)</code>.</p>
+<p>Otherwise, it follows:
+<code>f(x) = max_value</code> for <code>x &gt;= max_value</code>,
+<code>f(x) = x</code> for <code>threshold &lt;= x &lt; max_value</code>,
+<code>f(x) = alpha * (x - threshold)</code> otherwise.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>x</strong>: Input tensor.</li>
+<li><strong>alpha</strong>: float. Slope of the negative part. Defaults to zero.</li>
+<li><strong>max_value</strong>: float. Saturation threshold.</li>
+<li><strong>threshold</strong>: float. Threshold value for thresholded activation.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A tensor.</p>
+<hr />
+<h3 id="tanh">tanh</h3>
+<pre><code class="python">cthulhu.activations.tanh(x)
+</code></pre>
+
+<p>Hyperbolic tangent activation function.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>x</strong>: Input tensor.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>The hyperbolic activation:
+<code>tanh(x) = (exp(x) - exp(-x)) / (exp(x) + exp(-x))</code></p>
+<hr />
+<h3 id="sigmoid">sigmoid</h3>
+<pre><code class="python">cthulhu.activations.sigmoid(x)
+</code></pre>
+
+<p>Sigmoid activation function.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>x</strong>: Input tensor.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>The sigmoid activation: <code>1 / (1 + exp(-x))</code>.</p>
+<hr />
+<h3 id="hard_sigmoid">hard_sigmoid</h3>
+<pre><code class="python">cthulhu.activations.hard_sigmoid(x)
+</code></pre>
+
+<p>Hard sigmoid activation function.</p>
+<p>Faster to compute than sigmoid activation.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>x</strong>: Input tensor.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>Hard sigmoid activation:</p>
+<ul>
+<li><code>0</code> if <code>x &lt; -2.5</code></li>
+<li><code>1</code> if <code>x &gt; 2.5</code></li>
+<li><code>0.2 * x + 0.5</code> if <code>-2.5 &lt;= x &lt;= 2.5</code>.</li>
+</ul>
+<hr />
+<h3 id="exponential">exponential</h3>
+<pre><code class="python">cthulhu.activations.exponential(x)
+</code></pre>
+
+<p>Exponential (base e) activation function.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>x</strong>: Input tensor.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>Exponential activation: <code>exp(x)</code>.</p>
+<hr />
+<h3 id="linear">linear</h3>
+<pre><code class="python">cthulhu.activations.linear(x)
+</code></pre>
+
+<p>Linear (i.e. identity) activation function.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>x</strong>: Input tensor.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>Input tensor, unchanged.</p>
+<h2 id="on-advanced-azatoths">On "Advanced Azatoths"</h2>
+<p>Azatoths that are more complex than a simple TensorFlow/Theano/CNTK function (eg. learnable activations, which maintain a state) are available as <a href="../layers/advanced-activations/">Advanced Azatoth layers</a>, and can be found in the module <code>cthulhu.layers.advanced_activations</code>. These include <code>PReLU</code> and <code>LeakyReLU</code>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

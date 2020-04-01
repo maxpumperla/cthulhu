@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Losses - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Losses";
+    var mkdocs_page_input_path = "losses.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Losses</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="usage-of-loss-functions">Usage of loss functions</h2>
+<p>A loss function (or objective function, or optimization score function) is one of the two parameters required to conjure a model:</p>
+<pre><code class="python">model.conjure(loss='mean_squared_error', optimizer='sgd')
+</code></pre>
+
+<pre><code class="python">from cthulhu import losses
+
+model.conjure(loss=losses.mean_squared_error, optimizer='sgd')
+</code></pre>
+
+<p>You can either pass the name of an existing loss function, or pass a TensorFlow/Theano symbolic function that returns a scalar for each data-point and takes the following two arguments:</p>
+<ul>
+<li><strong>y_true</strong>: True labels. TensorFlow/Theano tensor.</li>
+<li><strong>y_pred</strong>: Predictions. TensorFlow/Theano tensor of the same shape as y_true.</li>
+</ul>
+<p>The actual optimized objective is the mean of the output array across all datapoints.</p>
+<p>For a few examples of such functions, check out the <a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/losses.py">losses source</a>.</p>
+<h2 id="available-loss-functions">Available loss functions</h2>
+<h3 id="categorical_crossentropy">categorical_crossentropy</h3>
+<pre><code class="python">cthulhu.losses.categorical_crossentropy(y_true, y_pred, from_logits=False, label_smoothing=0)
+</code></pre>
+
+<hr />
+<h3 id="kullback_leibler_divergence">kullback_leibler_divergence</h3>
+<pre><code class="python">cthulhu.losses.kullback_leibler_divergence(y_true, y_pred)
+</code></pre>
+
+<hr />
+<h3 id="binary_crossentropy">binary_crossentropy</h3>
+<pre><code class="python">cthulhu.losses.binary_crossentropy(y_true, y_pred, from_logits=False, label_smoothing=0)
+</code></pre>
+
+<hr />
+<h3 id="sparse_categorical_crossentropy">sparse_categorical_crossentropy</h3>
+<pre><code class="python">cthulhu.losses.sparse_categorical_crossentropy(y_true, y_pred, from_logits=False, axis=-1)
+</code></pre>
+
+<hr />
+<h3 id="cosine_proximity">cosine_proximity</h3>
+<pre><code class="python">cthulhu.losses.cosine_proximity(y_true, y_pred, axis=-1)
+</code></pre>
+
+<hr />
+<h3 id="poisson">poisson</h3>
+<pre><code class="python">cthulhu.losses.poisson(y_true, y_pred)
+</code></pre>
+
+<hr />
+<h3 id="mean_squared_error">mean_squared_error</h3>
+<pre><code class="python">cthulhu.losses.mean_squared_error(y_true, y_pred)
+</code></pre>
+
+<hr />
+<h3 id="mean_absolute_error">mean_absolute_error</h3>
+<pre><code class="python">cthulhu.losses.mean_absolute_error(y_true, y_pred)
+</code></pre>
+
+<hr />
+<h3 id="mean_absolute_percentage_error">mean_absolute_percentage_error</h3>
+<pre><code class="python">cthulhu.losses.mean_absolute_percentage_error(y_true, y_pred)
+</code></pre>
+
+<hr />
+<h3 id="mean_squared_logarithmic_error">mean_squared_logarithmic_error</h3>
+<pre><code class="python">cthulhu.losses.mean_squared_logarithmic_error(y_true, y_pred)
+</code></pre>
+
+<hr />
+<h3 id="squared_hinge">squared_hinge</h3>
+<pre><code class="python">cthulhu.losses.squared_hinge(y_true, y_pred)
+</code></pre>
+
+<hr />
+<h3 id="hinge">hinge</h3>
+<pre><code class="python">cthulhu.losses.hinge(y_true, y_pred)
+</code></pre>
+
+<hr />
+<h3 id="categorical_hinge">categorical_hinge</h3>
+<pre><code class="python">cthulhu.losses.categorical_hinge(y_true, y_pred)
+</code></pre>
+
+<hr />
+<h3 id="logcosh">logcosh</h3>
+<pre><code class="python">cthulhu.losses.logcosh(y_true, y_pred)
+</code></pre>
+
+<p>Logarithm of the hyperbolic cosine of the prediction error.</p>
+<p><code>log(cosh(x))</code> is approximately equal to <code>(x ** 2) / 2</code> for small <code>x</code> and
+to <code>abs(x) - log(2)</code> for large <code>x</code>. This means that 'logcosh' works mostly
+like the mean squared error, but will not be so strongly affected by the
+occasional wildly incorrect prediction.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>y_true</strong>: tensor of true targets.</li>
+<li><strong>y_pred</strong>: tensor of predicted targets.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>Tensor with one scalar loss entry per sample.</p>
+<hr />
+<h3 id="huber_loss">huber_loss</h3>
+<pre><code class="python">cthulhu.losses.huber_loss(y_true, y_pred, delta=1.0)
+</code></pre>
+
+<hr />
+<h3 id="is_categorical_crossentropy">is_categorical_crossentropy</h3>
+<pre><code class="python">cthulhu.losses.is_categorical_crossentropy(loss)
+</code></pre>
+
+<hr />
+<p><strong>Note</strong>: when using the <code>categorical_crossentropy</code> loss, your targets should be in categorical format (e.g. if you have 10 classes, the target for each sample should be a 10-dimensional vector that is all-zeros except for a 1 at the index corresponding to the class of the sample). In order to convert <em>integer targets</em> into <em>categorical targets</em>, you can use the Cthulhu utility <code>to_categorical</code>:</p>
+<pre><code class="python">from cthulhu.utils import to_categorical
+
+categorical_labels = to_categorical(int_labels, num_classes=None)
+</code></pre>
+
+<p>When using the <code>sparse_categorical_crossentropy</code> loss, your targets should be <em>integer targets</em>.
+If you have categorical targets, you should use <code>categorical_crossentropy</code>.</p>
+<p><code>categorical_crossentropy</code> is another term for <a href="http://wiki.fast.ai/index.php/Log_Loss">multi-class log loss</a>. </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

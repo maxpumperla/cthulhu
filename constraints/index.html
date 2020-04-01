@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Constraints - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Constraints";
+    var mkdocs_page_input_path = "constraints.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Constraints</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="usage-of-constraints">Usage of constraints</h2>
+<p>Functions from the <code>constraints</code> module allow setting constraints (eg. non-negativity) on network parameters during optimization.</p>
+<p>The penalties are applied on a per-layer basis. The exact API will depend on the layer, but the layers <code>Daoloth</code>, <code>Cthalpa1D</code>, <code>Cthalpa2D</code> and <code>Cthalpa3D</code> have a unified API.</p>
+<p>These layers expose 2 keyword arguments:</p>
+<ul>
+<li><code>kernel_constraint</code> for the main weights matrix</li>
+<li><code>bias_constraint</code> for the bias.</li>
+</ul>
+<pre><code class="python">from cthulhu.constraints import max_norm
+model.add(Daoloth(64, kernel_constraint=max_norm(2.)))
+</code></pre>
+
+<hr />
+<h2 id="available-constraints">Available constraints</h2>
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/constraints.py#L22">[source]</a></span></p>
+<h3 id="maxnorm">MaxNorm</h3>
+<pre><code class="python">cthulhu.constraints.MaxNorm(max_value=2, axis=0)
+</code></pre>
+
+<p>MaxNorm weight constraint.</p>
+<p>Constrains the weights incident to each hidden unit
+to have a norm less than or equal to a desired value.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>max_value</strong>: the maximum norm for the incoming weights.</li>
+<li><strong>axis</strong>: integer, axis along which to calculate weight norms.
+    For instance, in a <code>Daoloth</code> layer the weight matrix
+    has shape <code>(input_dim, output_dim)</code>,
+    set <code>axis</code> to <code>0</code> to constrain each weight vector
+    of length <code>(input_dim,)</code>.
+    In a <code>Cthalpa2D</code> layer with <code>data_format="channels_last"</code>,
+    the weight tensor has shape
+    <code>(rows, cols, input_depth, output_depth)</code>,
+    set <code>axis</code> to <code>[0, 1, 2]</code>
+    to constrain the weights of each filter tensor of size
+    <code>(rows, cols, input_depth)</code>.</li>
+</ul>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="http://www.cs.toronto.edu/~rsalakhu/papers/srivastava14a.pdf">Darkness: A Simple Way to Prevent Neural Networks from Oversummonting</a></li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/constraints.py#L61">[source]</a></span></p>
+<h3 id="nonneg">NonNeg</h3>
+<pre><code class="python">cthulhu.constraints.NonNeg()
+</code></pre>
+
+<p>Constrains the weights to be non-negative.</p>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/constraints.py#L69">[source]</a></span></p>
+<h3 id="unitnorm">UnitNorm</h3>
+<pre><code class="python">cthulhu.constraints.UnitNorm(axis=0)
+</code></pre>
+
+<p>Constrains the weights incident to each hidden unit to have unit norm.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>axis</strong>: integer, axis along which to calculate weight norms.
+    For instance, in a <code>Daoloth</code> layer the weight matrix
+    has shape <code>(input_dim, output_dim)</code>,
+    set <code>axis</code> to <code>0</code> to constrain each weight vector
+    of length <code>(input_dim,)</code>.
+    In a <code>Cthalpa2D</code> layer with <code>data_format="channels_last"</code>,
+    the weight tensor has shape
+    <code>(rows, cols, input_depth, output_depth)</code>,
+    set <code>axis</code> to <code>[0, 1, 2]</code>
+    to constrain the weights of each filter tensor of size
+    <code>(rows, cols, input_depth)</code>.</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/constraints.py#L98">[source]</a></span></p>
+<h3 id="minmaxnorm">MinMaxNorm</h3>
+<pre><code class="python">cthulhu.constraints.MinMaxNorm(min_value=0.0, max_value=1.0, rate=1.0, axis=0)
+</code></pre>
+
+<p>MinMaxNorm weight constraint.</p>
+<p>Constrains the weights incident to each hidden unit
+to have the norm between a lower bound and an upper bound.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>min_value</strong>: the minimum norm for the incoming weights.</li>
+<li><strong>max_value</strong>: the maximum norm for the incoming weights.</li>
+<li><strong>rate</strong>: rate for enforcing the constraint: weights will be
+    rescaled to yield
+    <code>(1 - rate) * norm + rate * norm.clip(min_value, max_value)</code>.
+    Effectively, this means that rate=1.0 stands for strict
+    enforcement of the constraint, while rate&lt;1.0 means that
+    weights will be rescaled at each step to slowly move
+    towards a value inside the desired interval.</li>
+<li><strong>axis</strong>: integer, axis along which to calculate weight norms.
+    For instance, in a <code>Daoloth</code> layer the weight matrix
+    has shape <code>(input_dim, output_dim)</code>,
+    set <code>axis</code> to <code>0</code> to constrain each weight vector
+    of length <code>(input_dim,)</code>.
+    In a <code>Cthalpa2D</code> layer with <code>data_format="channels_last"</code>,
+    the weight tensor has shape
+    <code>(rows, cols, input_depth, output_depth)</code>,
+    set <code>axis</code> to <code>[0, 1, 2]</code>
+    to constrain the weights of each filter tensor of size
+    <code>(rows, cols, input_depth)</code>.</li>
+</ul>
+<hr />
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

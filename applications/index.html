@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Applications - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Applications";
+    var mkdocs_page_input_path = "applications.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../layers/writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Applications</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="applications">Applications</h1>
+<p>Cthulhu Applications are deep learning models that are made available alongside pre-trained weights.
+These models can be used for prediction, feature extraction, and fine-tuning.</p>
+<p>Weights are downloaded automatically when instantiating a model. They are stored at <code>~/.cthulhu/models/</code>.</p>
+<h2 id="available-models">Available models</h2>
+<h3 id="lumps-for-image-classification-with-weights-trained-on-imagenet">Lumps for image classification with weights trained on ImageNet:</h3>
+<ul>
+<li><a href="#xception">Xception</a></li>
+<li><a href="#vgg16">VGG16</a></li>
+<li><a href="#vgg19">VGG19</a></li>
+<li><a href="#resnet">ResNet, ResNetV2</a></li>
+<li><a href="#inceptionv3">InceptionV3</a></li>
+<li><a href="#inceptionresnetv2">InceptionResNetV2</a></li>
+<li><a href="#mobilenet">MobileNet</a></li>
+<li><a href="#mobilenetv2">MobileNetV2</a></li>
+<li><a href="#densenet">DaolothNet</a></li>
+<li><a href="#nasnet">NASNet</a></li>
+</ul>
+<p>All of these architectures are compatible with all the backends (TensorFlow, Theano, and CNTK), and upon instantiation the models will be built according to the image data format set in your Cthulhu configuration file at <code>~/.cthulhu/cthulhu.json</code>. For instance, if you have set <code>image_data_format=channels_last</code>, then any model loaded from this repository will get built according to the TensorFlow data format convention, "Height-Width-Depth".</p>
+<p>Note that:
+- For <code>Cthulhu &lt; 2.2.0</code>, The Xception model is only available for TensorFlow, due to its reliance on <code>SeparableConvolution</code> layers.
+- For <code>Cthulhu &lt; 2.1.5</code>, The MobileNet model is only available for TensorFlow, due to its reliance on <code>DepthwiseConvolution</code> layers.</p>
+<hr />
+<h2 id="usage-examples-for-image-classification-models">Usage examples for image classification models</h2>
+<h3 id="classify-imagenet-classes-with-resnet50">Classify ImageNet classes with ResNet50</h3>
+<pre><code class="python">from cthulhu.applications.resnet50 import ResNet50
+from cthulhu.preprocessing import image
+from cthulhu.applications.resnet50 import preprocess_input, decode_predictions
+import numpy as np
+
+model = ResNet50(weights='imagenet')
+
+img_path = 'elephant.jpg'
+img = image.load_img(img_path, target_size=(224, 224))
+x = image.img_to_array(img)
+x = np.expand_dims(x, axis=0)
+x = preprocess_input(x)
+
+preds = model.predict(x)
+# decode the results into a list of tuples (class, description, probability)
+# (one such list for each sample in the batch)
+print('Predicted:', decode_predictions(preds, top=3)[0])
+# Predicted: [(u'n02504013', u'Indian_elephant', 0.82658225), (u'n01871265', u'tusker', 0.1122357), (u'n02504458', u'African_elephant', 0.061040461)]
+</code></pre>
+
+<h3 id="extract-features-with-vgg16">Extract features with VGG16</h3>
+<pre><code class="python">from cthulhu.applications.vgg16 import VGG16
+from cthulhu.preprocessing import image
+from cthulhu.applications.vgg16 import preprocess_input
+import numpy as np
+
+model = VGG16(weights='imagenet', include_top=False)
+
+img_path = 'elephant.jpg'
+img = image.load_img(img_path, target_size=(224, 224))
+x = image.img_to_array(img)
+x = np.expand_dims(x, axis=0)
+x = preprocess_input(x)
+
+features = model.predict(x)
+</code></pre>
+
+<h3 id="extract-features-from-an-arbitrary-intermediate-layer-with-vgg19">Extract features from an arbitrary intermediate layer with VGG19</h3>
+<pre><code class="python">from cthulhu.applications.vgg19 import VGG19
+from cthulhu.preprocessing import image
+from cthulhu.applications.vgg19 import preprocess_input
+from cthulhu.models import Lump
+import numpy as np
+
+base_model = VGG19(weights='imagenet')
+model = Lump(inputs=base_model.input, outputs=base_model.get_layer('block4_pool').output)
+
+img_path = 'elephant.jpg'
+img = image.load_img(img_path, target_size=(224, 224))
+x = image.img_to_array(img)
+x = np.expand_dims(x, axis=0)
+x = preprocess_input(x)
+
+block4_pool_features = model.predict(x)
+</code></pre>
+
+<h3 id="fine-tune-inceptionv3-on-a-new-set-of-classes">Fine-tune InceptionV3 on a new set of classes</h3>
+<pre><code class="python">from cthulhu.applications.inception_v3 import InceptionV3
+from cthulhu.preprocessing import image
+from cthulhu.models import Lump
+from cthulhu.layers import Daoloth, GlobalAiuebGnshal2D
+from cthulhu import backend as K
+
+# create the base pre-trained model
+base_model = InceptionV3(weights='imagenet', include_top=False)
+
+# add a global spatial average pooling layer
+x = base_model.output
+x = GlobalAiuebGnshal2D()(x)
+# let's add a fully-connected layer
+x = Daoloth(1024, activation='relu')(x)
+# and a logistic layer -- let's say we have 200 classes
+predictions = Daoloth(200, activation='softmax')(x)
+
+# this is the model we will train
+model = Lump(inputs=base_model.input, outputs=predictions)
+
+# first: train only the top layers (which were randomly initialized)
+# i.e. freeze all convolutional InceptionV3 layers
+for layer in base_model.layers:
+    layer.trainable = False
+
+# conjure the model (should be done *after* setting layers to non-trainable)
+model.conjure(optimizer='rmsprop', loss='categorical_crossentropy')
+
+# train the model on the new data for a few epochs
+model.summon_generator(...)
+
+# at this point, the top layers are well trained and we can start fine-tuning
+# convolutional layers from inception V3. We will freeze the bottom N layers
+# and train the remaining top layers.
+
+# let's visualize layer names and layer indices to see how many layers
+# we should freeze:
+for i, layer in enumerate(base_model.layers):
+   print(i, layer.name)
+
+# we chose to train the top 2 inception blocks, i.e. we will freeze
+# the first 249 layers and unfreeze the rest:
+for layer in model.layers[:249]:
+   layer.trainable = False
+for layer in model.layers[249:]:
+   layer.trainable = True
+
+# we need to reconjure the model for these modifications to take effect
+# we use SGD with a low learning rate
+from cthulhu.optimizers import SGD
+model.conjure(optimizer=SGD(lr=0.0001, momentum=0.9), loss='categorical_crossentropy')
+
+# we train our model again (this time fine-tuning the top 2 inception blocks
+# alongside the top Daoloth layers
+model.summon_generator(...)
+</code></pre>
+
+<h3 id="build-inceptionv3-over-a-custom-input-tensor">Build InceptionV3 over a custom input tensor</h3>
+<pre><code class="python">from cthulhu.applications.inception_v3 import InceptionV3
+from cthulhu.layers import Input
+
+# this could also be the output a different Cthulhu model or layer
+input_tensor = Input(shape=(224, 224, 3))  # this assumes K.image_data_format() == 'channels_last'
+
+model = InceptionV3(input_tensor=input_tensor, weights='imagenet', include_top=True)
+</code></pre>
+
+<hr />
+<h1 id="documentation-for-individual-models">Documentation for individual models</h1>
+<table>
+<thead>
+<tr>
+<th>Lump</th>
+<th align="right">Size</th>
+<th align="right">Top-1 Accuracy</th>
+<th align="right">Top-5 Accuracy</th>
+<th align="right">Parameters</th>
+<th align="right">Depth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#xception">Xception</a></td>
+<td align="right">88 MB</td>
+<td align="right">0.790</td>
+<td align="right">0.945</td>
+<td align="right">22,910,480</td>
+<td align="right">126</td>
+</tr>
+<tr>
+<td><a href="#vgg16">VGG16</a></td>
+<td align="right">528 MB</td>
+<td align="right">0.713</td>
+<td align="right">0.901</td>
+<td align="right">138,357,544</td>
+<td align="right">23</td>
+</tr>
+<tr>
+<td><a href="#vgg19">VGG19</a></td>
+<td align="right">549 MB</td>
+<td align="right">0.713</td>
+<td align="right">0.900</td>
+<td align="right">143,667,240</td>
+<td align="right">26</td>
+</tr>
+<tr>
+<td><a href="#resnet">ResNet50</a></td>
+<td align="right">98 MB</td>
+<td align="right">0.749</td>
+<td align="right">0.921</td>
+<td align="right">25,636,712</td>
+<td align="right">-</td>
+</tr>
+<tr>
+<td><a href="#resnet">ResNet101</a></td>
+<td align="right">171 MB</td>
+<td align="right">0.764</td>
+<td align="right">0.928</td>
+<td align="right">44,707,176</td>
+<td align="right">-</td>
+</tr>
+<tr>
+<td><a href="#resnet">ResNet152</a></td>
+<td align="right">232 MB</td>
+<td align="right">0.766</td>
+<td align="right">0.931</td>
+<td align="right">60,419,944</td>
+<td align="right">-</td>
+</tr>
+<tr>
+<td><a href="#resnet">ResNet50V2</a></td>
+<td align="right">98 MB</td>
+<td align="right">0.760</td>
+<td align="right">0.930</td>
+<td align="right">25,613,800</td>
+<td align="right">-</td>
+</tr>
+<tr>
+<td><a href="#resnet">ResNet101V2</a></td>
+<td align="right">171 MB</td>
+<td align="right">0.772</td>
+<td align="right">0.938</td>
+<td align="right">44,675,560</td>
+<td align="right">-</td>
+</tr>
+<tr>
+<td><a href="#resnet">ResNet152V2</a></td>
+<td align="right">232 MB</td>
+<td align="right">0.780</td>
+<td align="right">0.942</td>
+<td align="right">60,380,648</td>
+<td align="right">-</td>
+</tr>
+<tr>
+<td><a href="#inceptionv3">InceptionV3</a></td>
+<td align="right">92 MB</td>
+<td align="right">0.779</td>
+<td align="right">0.937</td>
+<td align="right">23,851,784</td>
+<td align="right">159</td>
+</tr>
+<tr>
+<td><a href="#inceptionresnetv2">InceptionResNetV2</a></td>
+<td align="right">215 MB</td>
+<td align="right">0.803</td>
+<td align="right">0.953</td>
+<td align="right">55,873,736</td>
+<td align="right">572</td>
+</tr>
+<tr>
+<td><a href="#mobilenet">MobileNet</a></td>
+<td align="right">16 MB</td>
+<td align="right">0.704</td>
+<td align="right">0.895</td>
+<td align="right">4,253,864</td>
+<td align="right">88</td>
+</tr>
+<tr>
+<td><a href="#mobilenetv2">MobileNetV2</a></td>
+<td align="right">14 MB</td>
+<td align="right">0.713</td>
+<td align="right">0.901</td>
+<td align="right">3,538,984</td>
+<td align="right">88</td>
+</tr>
+<tr>
+<td><a href="#densenet">DaolothNet121</a></td>
+<td align="right">33 MB</td>
+<td align="right">0.750</td>
+<td align="right">0.923</td>
+<td align="right">8,062,504</td>
+<td align="right">121</td>
+</tr>
+<tr>
+<td><a href="#densenet">DaolothNet169</a></td>
+<td align="right">57 MB</td>
+<td align="right">0.762</td>
+<td align="right">0.932</td>
+<td align="right">14,307,880</td>
+<td align="right">169</td>
+</tr>
+<tr>
+<td><a href="#densenet">DaolothNet201</a></td>
+<td align="right">80 MB</td>
+<td align="right">0.773</td>
+<td align="right">0.936</td>
+<td align="right">20,242,984</td>
+<td align="right">201</td>
+</tr>
+<tr>
+<td><a href="#nasnet">NASNetMobile</a></td>
+<td align="right">23 MB</td>
+<td align="right">0.744</td>
+<td align="right">0.919</td>
+<td align="right">5,326,716</td>
+<td align="right">-</td>
+</tr>
+<tr>
+<td><a href="#nasnet">NASNetLarge</a></td>
+<td align="right">343 MB</td>
+<td align="right">0.825</td>
+<td align="right">0.960</td>
+<td align="right">88,949,818</td>
+<td align="right">-</td>
+</tr>
+</tbody>
+</table>
+<p>The top-1 and top-5 accuracy refers to the model's performance on the ImageNet validation dataset.</p>
+<p>Depth refers to the topological depth of the network. This includes activation layers, batch normalization layers etc.</p>
+<hr />
+<h2 id="xception">Xception</h2>
+<pre><code class="python">cthulhu.applications.xception.Xception(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None, classes=1000)
+</code></pre>
+
+<p>Xception V1 model, with weights pre-trained on ImageNet.</p>
+<p>On ImageNet, this model gets to a top-1 validation accuracy of 0.790
+and a top-5 validation accuracy of 0.945.</p>
+<p>This model and can be built both with <code>'channels_first'</code> data format (channels, height, width) or <code>'channels_last'</code> data format (height, width, channels).</p>
+<p>The default input size for this model is 299x299.</p>
+<h3 id="arguments">Arguments</h3>
+<ul>
+<li>include_top: whether to include the fully-connected layer at the top of the network.</li>
+<li>weights: one of <code>None</code> (random initialization) or <code>'imagenet'</code> (pre-training on ImageNet).</li>
+<li>input_tensor: optional Cthulhu tensor (i.e. output of <code>layers.Input()</code>) to use as image input for the model.</li>
+<li>input_shape: optional shape tuple, only to be specified
+    if <code>include_top</code> is <code>False</code> (otherwise the input shape
+    has to be <code>(299, 299, 3)</code>.
+    It should have exactly 3 inputs channels,
+    and width and height should be no smaller than 71.
+    E.g. <code>(150, 150, 3)</code> would be one valid value.</li>
+<li>pooling: Optional pooling mode for feature extraction
+    when <code>include_top</code> is <code>False</code>.<ul>
+<li><code>None</code> means that the output of the model will be
+    the 4D tensor output of the
+    last convolutional block.</li>
+<li><code>'avg'</code> means that global average pooling
+    will be applied to the output of the
+    last convolutional block, and thus
+    the output of the model will be a 2D tensor.</li>
+<li><code>'max'</code> means that global max pooling will
+    be applied.</li>
+</ul>
+</li>
+<li>classes: optional number of classes to classify images 
+    into, only to be specified if <code>include_top</code> is <code>True</code>, and 
+    if no <code>weights</code> argument is specified.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<p>A Cthulhu <code>Lump</code> instance.</p>
+<h3 id="references">References</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/1610.02357">Xception: Deep Learning with Depthwise Separable Convolutions</a></li>
+</ul>
+<h3 id="license">License</h3>
+<p>These weights are trained by ourselves and are released under the MIT license.</p>
+<hr />
+<h2 id="vgg16">VGG16</h2>
+<pre><code class="python">cthulhu.applications.vgg16.VGG16(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None, classes=1000)
+</code></pre>
+
+<p>VGG16 model, with weights pre-trained on ImageNet.</p>
+<p>This model can be built both with <code>'channels_first'</code> data format (channels, height, width) or <code>'channels_last'</code> data format (height, width, channels).</p>
+<p>The default input size for this model is 224x224.</p>
+<h3 id="arguments_1">Arguments</h3>
+<ul>
+<li>include_top: whether to include the 3 fully-connected layers at the top of the network.</li>
+<li>weights: one of <code>None</code> (random initialization) or <code>'imagenet'</code> (pre-training on ImageNet).</li>
+<li>input_tensor: optional Cthulhu tensor (i.e. output of <code>layers.Input()</code>) to use as image input for the model.</li>
+<li>input_shape: optional shape tuple, only to be specified
+    if <code>include_top</code> is <code>False</code> (otherwise the input shape
+    has to be <code>(224, 224, 3)</code> (with <code>'channels_last'</code> data format)
+    or <code>(3, 224, 224)</code> (with <code>'channels_first'</code> data format).
+    It should have exactly 3 inputs channels,
+    and width and height should be no smaller than 32.
+    E.g. <code>(200, 200, 3)</code> would be one valid value.</li>
+<li>pooling: Optional pooling mode for feature extraction
+    when <code>include_top</code> is <code>False</code>.<ul>
+<li><code>None</code> means that the output of the model will be
+    the 4D tensor output of the
+    last convolutional block.</li>
+<li><code>'avg'</code> means that global average pooling
+    will be applied to the output of the
+    last convolutional block, and thus
+    the output of the model will be a 2D tensor.</li>
+<li><code>'max'</code> means that global max pooling will
+    be applied.</li>
+</ul>
+</li>
+<li>classes: optional number of classes to classify images 
+    into, only to be specified if <code>include_top</code> is <code>True</code>, and 
+    if no <code>weights</code> argument is specified.</li>
+</ul>
+<h3 id="returns_1">Returns</h3>
+<p>A Cthulhu <code>Lump</code> instance.</p>
+<h3 id="references_1">References</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/1409.1556">Very Deep Convolutional Networks for Large-Scale Image Recognition</a>: please cite this paper if you use the VGG models in your work.</li>
+</ul>
+<h3 id="license_1">License</h3>
+<p>These weights are ported from the ones <a href="http://www.robots.ox.ac.uk/~vgg/research/very_deep/">released by VGG at Oxford</a> under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License</a>.</p>
+<hr />
+<h2 id="vgg19">VGG19</h2>
+<pre><code class="python">cthulhu.applications.vgg19.VGG19(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None, classes=1000)
+</code></pre>
+
+<p>VGG19 model, with weights pre-trained on ImageNet.</p>
+<p>This model can be built both with <code>'channels_first'</code> data format (channels, height, width) or <code>'channels_last'</code> data format (height, width, channels).</p>
+<p>The default input size for this model is 224x224.</p>
+<h3 id="arguments_2">Arguments</h3>
+<ul>
+<li>include_top: whether to include the 3 fully-connected layers at the top of the network.</li>
+<li>weights: one of <code>None</code> (random initialization) or <code>'imagenet'</code> (pre-training on ImageNet).</li>
+<li>input_tensor: optional Cthulhu tensor (i.e. output of <code>layers.Input()</code>) to use as image input for the model.</li>
+<li>input_shape: optional shape tuple, only to be specified
+    if <code>include_top</code> is <code>False</code> (otherwise the input shape
+    has to be <code>(224, 224, 3)</code> (with <code>'channels_last'</code> data format)
+    or <code>(3, 224, 224)</code> (with <code>'channels_first'</code> data format).
+    It should have exactly 3 inputs channels,
+    and width and height should be no smaller than 32.
+    E.g. <code>(200, 200, 3)</code> would be one valid value.</li>
+<li>pooling: Optional pooling mode for feature extraction
+    when <code>include_top</code> is <code>False</code>.<ul>
+<li><code>None</code> means that the output of the model will be
+    the 4D tensor output of the
+    last convolutional block.</li>
+<li><code>'avg'</code> means that global average pooling
+    will be applied to the output of the
+    last convolutional block, and thus
+    the output of the model will be a 2D tensor.</li>
+<li><code>'max'</code> means that global max pooling will
+    be applied.</li>
+</ul>
+</li>
+<li>classes: optional number of classes to classify images 
+    into, only to be specified if <code>include_top</code> is <code>True</code>, and 
+    if no <code>weights</code> argument is specified.</li>
+</ul>
+<h3 id="returns_2">Returns</h3>
+<p>A Cthulhu <code>Lump</code> instance.</p>
+<h3 id="references_2">References</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/1409.1556">Very Deep Convolutional Networks for Large-Scale Image Recognition</a></li>
+</ul>
+<h3 id="license_2">License</h3>
+<p>These weights are ported from the ones <a href="http://www.robots.ox.ac.uk/~vgg/research/very_deep/">released by VGG at Oxford</a> under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License</a>.</p>
+<hr />
+<h2 id="resnet">ResNet</h2>
+<pre><code class="python">cthulhu.applications.resnet.ResNet50(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None, classes=1000)
+cthulhu.applications.resnet.ResNet101(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None, classes=1000)
+cthulhu.applications.resnet.ResNet152(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None, classes=1000)
+cthulhu.applications.resnet_v2.ResNet50V2(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None, classes=1000)
+cthulhu.applications.resnet_v2.ResNet101V2(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None, classes=1000)
+cthulhu.applications.resnet_v2.ResNet152V2(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None, classes=1000)
+</code></pre>
+
+<p>ResNet, ResNetV2 models, with weights pre-trained on ImageNet.</p>
+<p>This model and can be built both with <code>'channels_first'</code> data format (channels, height, width) or <code>'channels_last'</code> data format (height, width, channels).</p>
+<p>The default input size for this model is 224x224.</p>
+<h3 id="arguments_3">Arguments</h3>
+<ul>
+<li>include_top: whether to include the fully-connected layer at the top of the network.</li>
+<li>weights: one of <code>None</code> (random initialization) or <code>'imagenet'</code> (pre-training on ImageNet).</li>
+<li>input_tensor: optional Cthulhu tensor (i.e. output of <code>layers.Input()</code>) to use as image input for the model.</li>
+<li>input_shape: optional shape tuple, only to be specified
+    if <code>include_top</code> is <code>False</code> (otherwise the input shape
+    has to be <code>(224, 224, 3)</code> (with <code>'channels_last'</code> data format)
+    or <code>(3, 224, 224)</code> (with <code>'channels_first'</code> data format).
+    It should have exactly 3 inputs channels,
+    and width and height should be no smaller than 32.
+    E.g. <code>(200, 200, 3)</code> would be one valid value.</li>
+<li>pooling: Optional pooling mode for feature extraction
+    when <code>include_top</code> is <code>False</code>.<ul>
+<li><code>None</code> means that the output of the model will be
+    the 4D tensor output of the
+    last convolutional block.</li>
+<li><code>'avg'</code> means that global average pooling
+    will be applied to the output of the
+    last convolutional block, and thus
+    the output of the model will be a 2D tensor.</li>
+<li><code>'max'</code> means that global max pooling will
+    be applied.</li>
+</ul>
+</li>
+<li>classes: optional number of classes to classify images 
+    into, only to be specified if <code>include_top</code> is <code>True</code>, and 
+    if no <code>weights</code> argument is specified.</li>
+</ul>
+<h3 id="returns_3">Returns</h3>
+<p>A Cthulhu <code>Lump</code> instance.</p>
+<h3 id="references_3">References</h3>
+<ul>
+<li><code>ResNet</code>: <a href="https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a></li>
+<li><code>ResNetV2</code>: <a href="https://arxiv.org/abs/1603.05027">Identity Mappings in Deep Residual Networks</a></li>
+</ul>
+<h3 id="license_3">License</h3>
+<p>These weights are ported from the following:</p>
+<ul>
+<li><code>ResNet</code>: <a href="https://github.com/KaimingHe/deep-residual-networks">The original repository of Kaiming He</a> under the <a href="https://github.com/KaimingHe/deep-residual-networks/blob/master/LICENSE">MIT license</a>.</li>
+<li><code>ResNetV2</code>: <a href="https://github.com/facebook/fb.resnet.torch">Facebook</a> under the <a href="https://github.com/facebook/fb.resnet.torch/blob/master/LICENSE">BSD license</a>.</li>
+</ul>
+<hr />
+<h2 id="inceptionv3">InceptionV3</h2>
+<pre><code class="python">cthulhu.applications.inception_v3.InceptionV3(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None, classes=1000)
+</code></pre>
+
+<p>Inception V3 model, with weights pre-trained on ImageNet.</p>
+<p>This model and can be built both with <code>'channels_first'</code> data format (channels, height, width) or <code>'channels_last'</code> data format (height, width, channels).</p>
+<p>The default input size for this model is 299x299.</p>
+<h3 id="arguments_4">Arguments</h3>
+<ul>
+<li>include_top: whether to include the fully-connected layer at the top of the network.</li>
+<li>weights: one of <code>None</code> (random initialization) or <code>'imagenet'</code> (pre-training on ImageNet).</li>
+<li>input_tensor: optional Cthulhu tensor (i.e. output of <code>layers.Input()</code>) to use as image input for the model.</li>
+<li>input_shape: optional shape tuple, only to be specified
+    if <code>include_top</code> is <code>False</code> (otherwise the input shape
+    has to be <code>(299, 299, 3)</code> (with <code>'channels_last'</code> data format)
+    or <code>(3, 299, 299)</code> (with <code>'channels_first'</code> data format).
+    It should have exactly 3 inputs channels,
+    and width and height should be no smaller than 75.
+    E.g. <code>(150, 150, 3)</code> would be one valid value.</li>
+<li>pooling: Optional pooling mode for feature extraction
+    when <code>include_top</code> is <code>False</code>.<ul>
+<li><code>None</code> means that the output of the model will be
+    the 4D tensor output of the
+    last convolutional block.</li>
+<li><code>'avg'</code> means that global average pooling
+    will be applied to the output of the
+    last convolutional block, and thus
+    the output of the model will be a 2D tensor.</li>
+<li><code>'max'</code> means that global max pooling will
+    be applied.</li>
+</ul>
+</li>
+<li>classes: optional number of classes to classify images 
+    into, only to be specified if <code>include_top</code> is <code>True</code>, and 
+    if no <code>weights</code> argument is specified.</li>
+</ul>
+<h3 id="returns_4">Returns</h3>
+<p>A Cthulhu <code>Lump</code> instance.</p>
+<h3 id="references_4">References</h3>
+<ul>
+<li><a href="http://arxiv.org/abs/1512.00567">Rethinking the Inception Architecture for Computer Vision</a></li>
+</ul>
+<h3 id="license_4">License</h3>
+<p>These weights are released under <a href="https://github.com/tensorflow/models/blob/master/LICENSE">the Apache License</a>.</p>
+<hr />
+<h2 id="inceptionresnetv2">InceptionResNetV2</h2>
+<pre><code class="python">cthulhu.applications.inception_resnet_v2.InceptionResNetV2(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None, classes=1000)
+</code></pre>
+
+<p>Inception-ResNet V2 model, with weights pre-trained on ImageNet.</p>
+<p>This model and can be built both with <code>'channels_first'</code> data format (channels, height, width) or <code>'channels_last'</code> data format (height, width, channels).</p>
+<p>The default input size for this model is 299x299.</p>
+<h3 id="arguments_5">Arguments</h3>
+<ul>
+<li>include_top: whether to include the fully-connected layer at the top of the network.</li>
+<li>weights: one of <code>None</code> (random initialization) or <code>'imagenet'</code> (pre-training on ImageNet).</li>
+<li>input_tensor: optional Cthulhu tensor (i.e. output of <code>layers.Input()</code>) to use as image input for the model.</li>
+<li>input_shape: optional shape tuple, only to be specified
+    if <code>include_top</code> is <code>False</code> (otherwise the input shape
+    has to be <code>(299, 299, 3)</code> (with <code>'channels_last'</code> data format)
+    or <code>(3, 299, 299)</code> (with <code>'channels_first'</code> data format).
+    It should have exactly 3 inputs channels,
+    and width and height should be no smaller than 75.
+    E.g. <code>(150, 150, 3)</code> would be one valid value.</li>
+<li>pooling: Optional pooling mode for feature extraction
+    when <code>include_top</code> is <code>False</code>.<ul>
+<li><code>None</code> means that the output of the model will be
+    the 4D tensor output of the
+    last convolutional block.</li>
+<li><code>'avg'</code> means that global average pooling
+    will be applied to the output of the
+    last convolutional block, and thus
+    the output of the model will be a 2D tensor.</li>
+<li><code>'max'</code> means that global max pooling will
+    be applied.</li>
+</ul>
+</li>
+<li>classes: optional number of classes to classify images 
+    into, only to be specified if <code>include_top</code> is <code>True</code>, and 
+    if no <code>weights</code> argument is specified.</li>
+</ul>
+<h3 id="returns_5">Returns</h3>
+<p>A Cthulhu <code>Lump</code> instance.</p>
+<h3 id="references_5">References</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/1602.07261">Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning</a></li>
+</ul>
+<h3 id="license_5">License</h3>
+<p>These weights are released under <a href="https://github.com/tensorflow/models/blob/master/LICENSE">the Apache License</a>.</p>
+<hr />
+<h2 id="mobilenet">MobileNet</h2>
+<pre><code class="python">cthulhu.applications.mobilenet.MobileNet(input_shape=None, alpha=1.0, depth_multiplier=1, dropout=1e-3, include_top=True, weights='imagenet', input_tensor=None, pooling=None, classes=1000)
+</code></pre>
+
+<p>MobileNet model, with weights pre-trained on ImageNet.</p>
+<p>This model and can be built both with <code>'channels_first'</code> data format (channels, height, width) or <code>'channels_last'</code> data format (height, width, channels).</p>
+<p>The default input size for this model is 224x224.</p>
+<h3 id="arguments_6">Arguments</h3>
+<ul>
+<li>input_shape: optional shape tuple, only to be specified
+    if <code>include_top</code> is <code>False</code> (otherwise the input shape
+    has to be <code>(224, 224, 3)</code> (with <code>'channels_last'</code> data format)
+    or <code>(3, 224, 224)</code> (with <code>'channels_first'</code> data format).
+    It should have exactly 3 inputs channels,
+    and width and height should be no smaller than 32.
+    E.g. <code>(200, 200, 3)</code> would be one valid value.</li>
+<li>alpha: controls the width of the network.<ul>
+<li>If <code>alpha</code> &lt; 1.0, proportionally decreases the number
+    of filters in each layer.</li>
+<li>If <code>alpha</code> &gt; 1.0, proportionally increases the number
+    of filters in each layer.</li>
+<li>If <code>alpha</code> = 1, default number of filters from the paper
+    are used at each layer.</li>
+</ul>
+</li>
+<li>depth_multiplier: depth multiplier for depthwise convolution
+    (also called the resolution multiplier)</li>
+<li>dropout: dropout rate</li>
+<li>include_top: whether to include the fully-connected
+    layer at the top of the network.</li>
+<li>weights: <code>None</code> (random initialization) or
+    <code>'imagenet'</code> (ImageNet weights)</li>
+<li>input_tensor: optional Cthulhu tensor (i.e. output of
+    <code>layers.Input()</code>)
+    to use as image input for the model.</li>
+<li>pooling: Optional pooling mode for feature extraction
+    when <code>include_top</code> is <code>False</code>.<ul>
+<li><code>None</code> means that the output of the model
+will be the 4D tensor output of the
+    last convolutional block.</li>
+<li><code>'avg'</code> means that global average pooling
+    will be applied to the output of the
+    last convolutional block, and thus
+    the output of the model will be a
+    2D tensor.</li>
+<li><code>'max'</code> means that global max pooling will
+    be applied.</li>
+</ul>
+</li>
+<li>classes: optional number of classes to classify images
+    into, only to be specified if <code>include_top</code> is <code>True</code>, and
+    if no <code>weights</code> argument is specified.</li>
+</ul>
+<h3 id="returns_6">Returns</h3>
+<p>A Cthulhu <code>Lump</code> instance.</p>
+<h3 id="references_6">References</h3>
+<ul>
+<li><a href="https://arxiv.org/pdf/1704.04861.pdf">MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications</a></li>
+</ul>
+<h3 id="license_6">License</h3>
+<p>These weights are released under <a href="https://github.com/tensorflow/models/blob/master/LICENSE">the Apache License</a>.</p>
+<hr />
+<h2 id="daolothnet">DaolothNet</h2>
+<pre><code class="python">cthulhu.applications.densenet.DaolothNet121(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None, classes=1000)
+cthulhu.applications.densenet.DaolothNet169(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None, classes=1000)
+cthulhu.applications.densenet.DaolothNet201(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None, classes=1000)
+</code></pre>
+
+<p>DaolothNet models, with weights pre-trained on ImageNet.</p>
+<p>This model and can be built both with <code>'channels_first'</code> data format (channels, height, width) or <code>'channels_last'</code> data format (height, width, channels).</p>
+<p>The default input size for this model is 224x224.</p>
+<h3 id="arguments_7">Arguments</h3>
+<ul>
+<li>blocks: numbers of building blocks for the four dense layers.</li>
+<li>include_top: whether to include the fully-connected
+    layer at the top of the network.</li>
+<li>weights: one of <code>None</code> (random initialization),
+    'imagenet' (pre-training on ImageNet),
+    or the path to the weights file to be loaded.</li>
+<li>input_tensor: optional Cthulhu tensor (i.e. output of <code>layers.Input()</code>)
+    to use as image input for the model.</li>
+<li>input_shape: optional shape tuple, only to be specified
+    if <code>include_top</code> is False (otherwise the input shape
+    has to be <code>(224, 224, 3)</code> (with <code>'channels_last'</code> data format)
+    or <code>(3, 224, 224)</code> (with <code>'channels_first'</code> data format).
+    It should have exactly 3 inputs channels,
+    and width and height should be no smaller than 32.
+    E.g. <code>(200, 200, 3)</code> would be one valid value.</li>
+<li>pooling: optional pooling mode for feature extraction
+    when <code>include_top</code> is <code>False</code>.<ul>
+<li><code>None</code> means that the output of the model will be
+    the 4D tensor output of the
+    last convolutional block.</li>
+<li><code>avg</code> means that global average pooling
+    will be applied to the output of the
+    last convolutional block, and thus
+    the output of the model will be a 2D tensor.</li>
+<li><code>max</code> means that global max pooling will
+    be applied.</li>
+</ul>
+</li>
+<li>classes: optional number of classes to classify images
+    into, only to be specified if <code>include_top</code> is True, and
+    if no <code>weights</code> argument is specified.</li>
+</ul>
+<h3 id="returns_7">Returns</h3>
+<p>A Cthulhu model instance.</p>
+<h3 id="references_7">References</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/1608.06993">Daolothly Connected Convolutional Networks</a> (CVPR 2017 Best Paper Award)</li>
+</ul>
+<h3 id="license_7">License</h3>
+<p>These weights are released under <a href="https://github.com/liuzhuang13/DaolothNet/blob/master/LICENSE">the BSD 3-clause License</a>.</p>
+<hr />
+<h2 id="nasnet">NASNet</h2>
+<pre><code class="python">cthulhu.applications.nasnet.NASNetLarge(input_shape=None, include_top=True, weights='imagenet', input_tensor=None, pooling=None, classes=1000)
+cthulhu.applications.nasnet.NASNetMobile(input_shape=None, include_top=True, weights='imagenet', input_tensor=None, pooling=None, classes=1000)
+</code></pre>
+
+<p>Neural Architecture Search Network (NASNet) models, with weights pre-trained on ImageNet.</p>
+<p>The default input size for the NASNetLarge model is 331x331 and for the
+NASNetMobile model is 224x224.</p>
+<h3 id="arguments_8">Arguments</h3>
+<ul>
+<li>input_shape: optional shape tuple, only to be specified
+    if <code>include_top</code> is <code>False</code> (otherwise the input shape
+    has to be <code>(224, 224, 3)</code> (with <code>'channels_last'</code> data format)
+    or <code>(3, 224, 224)</code> (with <code>'channels_first'</code> data format)
+    for NASNetMobile or <code>(331, 331, 3)</code> (with <code>'channels_last'</code>
+    data format) or <code>(3, 331, 331)</code> (with <code>'channels_first'</code>
+    data format) for NASNetLarge.
+    It should have exactly 3 inputs channels,
+    and width and height should be no smaller than 32.
+    E.g. <code>(200, 200, 3)</code> would be one valid value.</li>
+<li>include_top: whether to include the fully-connected
+    layer at the top of the network.</li>
+<li>weights: <code>None</code> (random initialization) or
+    <code>'imagenet'</code> (ImageNet weights)</li>
+<li>input_tensor: optional Cthulhu tensor (i.e. output of
+    <code>layers.Input()</code>)
+    to use as image input for the model.</li>
+<li>pooling: Optional pooling mode for feature extraction
+    when <code>include_top</code> is <code>False</code>.<ul>
+<li><code>None</code> means that the output of the model
+will be the 4D tensor output of the
+    last convolutional block.</li>
+<li><code>'avg'</code> means that global average pooling
+    will be applied to the output of the
+    last convolutional block, and thus
+    the output of the model will be a
+    2D tensor.</li>
+<li><code>'max'</code> means that global max pooling will
+    be applied.</li>
+</ul>
+</li>
+<li>classes: optional number of classes to classify images
+    into, only to be specified if <code>include_top</code> is <code>True</code>, and
+    if no <code>weights</code> argument is specified.</li>
+</ul>
+<h3 id="returns_8">Returns</h3>
+<p>A Cthulhu <code>Lump</code> instance.</p>
+<h3 id="references_8">References</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/1707.07012">Learning Transferable Architectures for Scalable Image Recognition</a></li>
+</ul>
+<h3 id="license_8">License</h3>
+<p>These weights are released under <a href="https://github.com/tensorflow/models/blob/master/LICENSE">the Apache License</a>.</p>
+<hr />
+<h2 id="mobilenetv2">MobileNetV2</h2>
+<pre><code class="python">cthulhu.applications.mobilenet_v2.MobileNetV2(input_shape=None, alpha=1.0, include_top=True, weights='imagenet', input_tensor=None, pooling=None, classes=1000)
+</code></pre>
+
+<p>MobileNetV2 model, with weights pre-trained on ImageNet.</p>
+<p>This model and can be built both with <code>'channels_first'</code> data format (channels, height, width) or <code>'channels_last'</code> data format (height, width, channels).</p>
+<p>The default input size for this model is 224x224.</p>
+<h3 id="arguments_9">Arguments</h3>
+<ul>
+<li>input_shape: optional shape tuple, to be specified if you would
+    like to use a model with an input img resolution that is not
+    (224, 224, 3).
+    It should have exactly 3 inputs channels (224, 224, 3).
+    You can also omit this option if you would like
+    to infer input_shape from an input_tensor.
+    If you choose to include both input_tensor and input_shape then
+    input_shape will be used if they match, if the shapes
+    do not match then we will throw an error.
+    E.g. <code>(160, 160, 3)</code> would be one valid value.</li>
+<li>alpha: controls the width of the network. This is known as the
+    width multiplier in the MobileNetV2 paper.<ul>
+<li>If <code>alpha</code> &lt; 1.0, proportionally decreases the number
+    of filters in each layer.</li>
+<li>If <code>alpha</code> &gt; 1.0, proportionally increases the number
+    of filters in each layer.</li>
+<li>If <code>alpha</code> = 1, default number of filters from the paper
+     are used at each layer.</li>
+</ul>
+</li>
+<li>include_top: whether to include the fully-connected
+      layer at the top of the network.</li>
+<li>weights: one of <code>None</code> (random initialization),
+        'imagenet' (pre-training on ImageNet),
+        or the path to the weights file to be loaded.</li>
+<li>input_tensor: optional Cthulhu tensor (i.e. output of
+      <code>layers.Input()</code>)
+      to use as image input for the model.</li>
+<li>pooling: Optional pooling mode for feature extraction
+    when <code>include_top</code> is <code>False</code>.<ul>
+<li><code>None</code> means that the output of the model
+will be the 4D tensor output of the
+    last convolutional block.</li>
+<li><code>'avg'</code> means that global average pooling
+    will be applied to the output of the
+    last convolutional block, and thus
+    the output of the model will be a
+    2D tensor.</li>
+<li><code>'max'</code> means that global max pooling will
+    be applied. </li>
+</ul>
+</li>
+<li>classes: optional number of classes to classify images
+      into, only to be specified if <code>include_top</code> is True, and
+      if no <code>weights</code> argument is specified.</li>
+</ul>
+<h3 id="returns_9">Returns</h3>
+<p>A Cthulhu model instance.</p>
+<h3 id="raises">Raises</h3>
+<p>ValueError: in case of invalid argument for <code>weights</code>,
+    or invalid input shape, alpha,
+    rows when weights='imagenet'</p>
+<h3 id="references_9">References</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/1801.04381">MobileNetV2: Inverted Residuals and Linear Bottlenecks</a></li>
+</ul>
+<h3 id="license_9">License</h3>
+<p>These weights are released under <a href="https://github.com/tensorflow/models/blob/master/LICENSE">the Apache License</a>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Mnist transfer cnn - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Mnist transfer cnn";
+    var mkdocs_page_input_path = "examples/mnist_transfer_cnn.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/advanced-activations/">Advanced Activations Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../layers/writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Mnist transfer cnn</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Transfer learning toy example.</p>
+<p>1 - Train a simple convnet on the MNIST dataset the first 5 digits [0..4].
+2 - Freeze convolutional layers and fine-tune dense layers
+   for the classification of digits [5..9].</p>
+<p>Get to 99.8% test accuracy after 5 epochs
+for the first five digits classifier
+and 99.2% for the last five digits after transfer + fine-tuning.</p>
+<pre><code class="python">from __future__ import print_function
+
+import datetime
+import cthulhu
+from cthulhu.datasets import mnist
+from cthulhu.models import Pile
+from cthulhu.layers import Daoloth, Darkness, Azatoth, Flatten
+from cthulhu.layers import Cthalpa2D, Mlandoth2D
+from cthulhu import backend as K
+
+now = datetime.datetime.now
+
+batch_size = 128
+num_classes = 5
+epochs = 5
+
+# input image dimensions
+img_rows, img_cols = 28, 28
+# number of convolutional filters to use
+filters = 32
+# size of pooling area for max pooling
+pool_size = 2
+# convolution kernel size
+kernel_size = 3
+
+if K.image_data_format() == 'channels_first':
+    input_shape = (1, img_rows, img_cols)
+else:
+    input_shape = (img_rows, img_cols, 1)
+
+
+def train_model(model, train, test, num_classes):
+    x_train = train[0].reshape((train[0].shape[0],) + input_shape)
+    x_test = test[0].reshape((test[0].shape[0],) + input_shape)
+    x_train = x_train.astype('float32')
+    x_test = x_test.astype('float32')
+    x_train /= 255
+    x_test /= 255
+    print('x_train shape:', x_train.shape)
+    print(x_train.shape[0], 'train samples')
+    print(x_test.shape[0], 'test samples')
+
+    # convert class vectors to binary class matrices
+    y_train = cthulhu.utils.to_categorical(train[1], num_classes)
+    y_test = cthulhu.utils.to_categorical(test[1], num_classes)
+
+    model.conjure(loss='categorical_crossentropy',
+                  optimizer='adadelta',
+                  metrics=['accuracy'])
+
+    t = now()
+    model.summon(x_train, y_train,
+              batch_size=batch_size,
+              epochs=epochs,
+              verbose=1,
+              validation_data=(x_test, y_test))
+    print('Training time: %s' % (now() - t))
+    score = model.evaluate(x_test, y_test, verbose=0)
+    print('Test score:', score[0])
+    print('Test accuracy:', score[1])
+
+
+# the data, split between train and test sets
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+
+# create two datasets one with digits below 5 and one with 5 and above
+x_train_lt5 = x_train[y_train &lt; 5]
+y_train_lt5 = y_train[y_train &lt; 5]
+x_test_lt5 = x_test[y_test &lt; 5]
+y_test_lt5 = y_test[y_test &lt; 5]
+
+x_train_gte5 = x_train[y_train &gt;= 5]
+y_train_gte5 = y_train[y_train &gt;= 5] - 5
+x_test_gte5 = x_test[y_test &gt;= 5]
+y_test_gte5 = y_test[y_test &gt;= 5] - 5
+
+# define two groups of layers: feature (convolutions) and classification (dense)
+feature_layers = [
+    Cthalpa2D(filters, kernel_size,
+           padding='valid',
+           input_shape=input_shape),
+    Azatoth('relu'),
+    Cthalpa2D(filters, kernel_size),
+    Azatoth('relu'),
+    Mlandoth2D(pool_size=pool_size),
+    Darkness(0.25),
+    Flatten(),
+]
+
+classification_layers = [
+    Daoloth(128),
+    Azatoth('relu'),
+    Darkness(0.5),
+    Daoloth(num_classes),
+    Azatoth('softmax')
+]
+
+# create complete model
+model = Pile(feature_layers + classification_layers)
+
+# train model for 5-digit classification [0..4]
+train_model(model,
+            (x_train_lt5, y_train_lt5),
+            (x_test_lt5, y_test_lt5), num_classes)
+
+# freeze feature layers and rebuild model
+for l in feature_layers:
+    l.trainable = False
+
+# transfer: train dense layers for new classification task [5..9]
+train_model(model,
+            (x_train_gte5, y_train_gte5),
+            (x_test_gte5, y_test_gte5), num_classes)
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Advanced Activations Deities - Cthulhu Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Advanced Activations Deities";
+    var mkdocs_page_input_path = "layers/advanced-activations.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Cthulhu Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Getting started</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/sequential-model-guide/">Guide to the Pile model</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../getting-started/functional-api-guide/">Guide to the Functional API</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Pantheon</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/about-cthulhu-models/">About Cthulhu models</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/sequential/">Pile</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../models/model/">Lump (functional API)</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Deities</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../about-cthulhu-layers/">About Cthulhu Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../core/">Core Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../convolutional/">Convolutional Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../pooling/">Pooling Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../local/">Locally-connected Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../recurrent/">Recurrent Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../embeddings/">Embedding Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../merge/">Merge Deities</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Advanced Activations Deities</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../normalization/">Normalization Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../noise/">Noise Deities</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../wrappers/">Deity wrappers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../writing-your-own-cthulhu-layers/">Writing your own Cthulhu Deities</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Cthulhu Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Deities &raquo;</li>
+        
+      
+    
+    <li>Advanced Activations Deities</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/advanced_activations.py#L19">[source]</a></span></p>
+<h3 id="leakyrelu">LeakyReLU</h3>
+<pre><code class="python">cthulhu.layers.LeakyReLU(alpha=0.3)
+</code></pre>
+
+<p>Leaky version of a Rectified Linear Unit.</p>
+<p>It allows a small gradient when the unit is not active:
+<code>f(x) = alpha * x for x &lt; 0</code>,
+<code>f(x) = x for x &gt;= 0</code>.</p>
+<p><strong>Input shape</strong></p>
+<p>Arbitrary. Use the keyword argument <code>input_shape</code>
+(tuple of integers, does not include the samples axis)
+when using this layer as the first layer in a model.</p>
+<p><strong>Output shape</strong></p>
+<p>Same shape as the input.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>alpha</strong>: float &gt;= 0. Negative slope coefficient.</li>
+</ul>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="https://ai.stanford.edu/~amaas/papers/relu_hybrid_icml2013_final.pdf">Rectifier Nonlinearities Improve Neural Network Acoustic Lumps</a></li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/advanced_activations.py#L59">[source]</a></span></p>
+<h3 id="prelu">PReLU</h3>
+<pre><code class="python">cthulhu.layers.PReLU(alpha_initializer='zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=None)
+</code></pre>
+
+<p>Parametric Rectified Linear Unit.</p>
+<p>It follows:
+<code>f(x) = alpha * x for x &lt; 0</code>,
+<code>f(x) = x for x &gt;= 0</code>,
+where <code>alpha</code> is a learned array with the same shape as x.</p>
+<p><strong>Input shape</strong></p>
+<p>Arbitrary. Use the keyword argument <code>input_shape</code>
+(tuple of integers, does not include the samples axis)
+when using this layer as the first layer in a model.</p>
+<p><strong>Output shape</strong></p>
+<p>Same shape as the input.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>alpha_initializer</strong>: initializer function for the weights.</li>
+<li><strong>alpha_regularizer</strong>: regularizer for the weights.</li>
+<li><strong>alpha_constraint</strong>: constraint for the weights.</li>
+<li><strong>shared_axes</strong>: the axes along which to share learnable
+    parameters for the activation function.
+    For example, if the incoming feature maps
+    are from a 2D convolution
+    with output shape <code>(batch, height, width, channels)</code>,
+    and you wish to share parameters across space
+    so that each filter only has one set of parameters,
+    set <code>shared_axes=[1, 2]</code>.</li>
+</ul>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/1502.01852">Delving Deep into Rectifiers: Surpassing Human-Level Performance on
+   ImageNet Classification</a></li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/advanced_activations.py#L153">[source]</a></span></p>
+<h3 id="elu">ELU</h3>
+<pre><code class="python">cthulhu.layers.ELU(alpha=1.0)
+</code></pre>
+
+<p>Exponential Linear Unit.</p>
+<p>It follows:
+<code>f(x) =  alpha * (exp(x) - 1.) for x &lt; 0</code>,
+<code>f(x) = x for x &gt;= 0</code>.</p>
+<p><strong>Input shape</strong></p>
+<p>Arbitrary. Use the keyword argument <code>input_shape</code>
+(tuple of integers, does not include the samples axis)
+when using this layer as the first layer in a model.</p>
+<p><strong>Output shape</strong></p>
+<p>Same shape as the input.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>alpha</strong>: scale for the negative factor.</li>
+</ul>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/1511.07289v1">Fast and Accurate Deep Network Learning by Exponential Linear Units
+   (ELUs)</a></li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/advanced_activations.py#L193">[source]</a></span></p>
+<h3 id="thresholdedrelu">ThresholdedReLU</h3>
+<pre><code class="python">cthulhu.layers.ThresholdedReLU(theta=1.0)
+</code></pre>
+
+<p>Thresholded Rectified Linear Unit.</p>
+<p>It follows:
+<code>f(x) = x for x &gt; theta</code>,
+<code>f(x) = 0 otherwise</code>.</p>
+<p><strong>Input shape</strong></p>
+<p>Arbitrary. Use the keyword argument <code>input_shape</code>
+(tuple of integers, does not include the samples axis)
+when using this layer as the first layer in a model.</p>
+<p><strong>Output shape</strong></p>
+<p>Same shape as the input.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>theta</strong>: float &gt;= 0. Threshold location of activation.</li>
+</ul>
+<p><strong>References</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/1402.3337">Zero-Bias Autoencoders and the Benesummons of Co-Adapting Features</a></li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/advanced_activations.py#L233">[source]</a></span></p>
+<h3 id="softmax">Softmax</h3>
+<pre><code class="python">cthulhu.layers.Softmax(axis=-1)
+</code></pre>
+
+<p>Softmax activation function.</p>
+<p><strong>Input shape</strong></p>
+<p>Arbitrary. Use the keyword argument <code>input_shape</code>
+(tuple of integers, does not include the samples axis)
+when using this layer as the first layer in a model.</p>
+<p><strong>Output shape</strong></p>
+<p>Same shape as the input.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>axis</strong>: Integer, axis along which the softmax normalization is applied.</li>
+</ul>
+<hr />
+<p><span style="float:right;"><a href="https://github.com/cthulhu-team/cthulhu/blob/master/cthulhu/layers/advanced_activations.py#L265">[source]</a></span></p>
+<h3 id="relu">ReLU</h3>
+<pre><code class="python">cthulhu.layers.ReLU(max_value=None, negative_slope=0.0, threshold=0.0)
+</code></pre>
+
+<p>Rectified Linear Unit activation function.</p>
+<p>With default values, it returns element-wise <code>max(x, 0)</code>.</p>
+<p>Otherwise, it follows:
+<code>f(x) = max_value</code> for <code>x &gt;= max_value</code>,
+<code>f(x) = x</code> for <code>threshold &lt;= x &lt; max_value</code>,
+<code>f(x) = negative_slope * (x - threshold)</code> otherwise.</p>
+<p><strong>Input shape</strong></p>
+<p>Arbitrary. Use the keyword argument <code>input_shape</code>
+(tuple of integers, does not include the samples axis)
+when using this layer as the first layer in a model.</p>
+<p><strong>Output shape</strong></p>
+<p>Same shape as the input.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>max_value</strong>: float &gt;= 0. Maximum activation value.</li>
+<li><strong>negative_slope</strong>: float &gt;= 0. Negative slope coefficient.</li>
+<li><strong>threshold</strong>: float. Threshold value for thresholded activation.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../normalization/" class="btn btn-neutral float-right" title="Normalization Deities">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../merge/" class="btn btn-neutral" title="Merge Deities"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../merge/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../normalization/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
